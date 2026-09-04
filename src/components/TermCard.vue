@@ -3,7 +3,6 @@ import { computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { Pencil, Trash2 } from "lucide-vue-next"
 import { DCodeBadge, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
 import { fullCopy, singleCopy, copyText } from "@/utils/copy"
 import type { AppLocale, CopyFormat, TermCategory, TermEntry } from "@/types"
