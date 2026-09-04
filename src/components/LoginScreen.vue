@@ -1,10 +1,15 @@
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { DCodeTextField, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
+import { DCodeTextField, DCodeButton, DCodeDialog } from "@gemafajarramadhan/dynamic-ui"
 import { supabase } from "@/lib/supabase"
 
+const props = defineProps<{
+  open: boolean
+}>()
+
 const emit = defineEmits<{
+  (e: "update:open", value: boolean): void
   (e: "authenticated"): void
 }>()
 
@@ -13,6 +18,15 @@ const email = ref<string>("")
 const password = ref<string>("")
 const loading = ref(false)
 const error = ref("")
+
+watch(
+  () => props.open,
+  (open) => {
+    if (open) {
+      error.value = ""
+    }
+  },
+)
 
 async function login() {
   loading.value = true
@@ -31,45 +45,45 @@ async function login() {
   }
   emit("authenticated")
 }
+
+function close() {
+  emit("update:open", false)
+}
 </script>
 
 <template>
-  <div class="flex min-h-screen items-center justify-center bg-muted/30 p-4">
-    <div class="w-full max-w-sm">
-      <div class="mb-8 text-center">
-        <h1 class="text-2xl font-bold tracking-tight">{{ t("appTitle") }}</h1>
-        <p class="mt-1 text-sm text-muted-foreground">{{ t("appSubtitle") }}</p>
-      </div>
+  <DCodeDialog
+    :model-value="open"
+    :title="t('loginTitle')"
+    size="sm"
+    @update:model-value="emit('update:open', $event)"
+  >
+    <div class="flex flex-col gap-4">
+      <DCodeTextField
+        v-model="email"
+        :label="t('loginEmail')"
+        :placeholder="t('loginEmail')"
+        value-type="email"
+      />
 
-      <div class="rounded-xl border bg-card p-6 shadow-sm">
-        <h2 class="mb-4 text-lg font-semibold">{{ t("loginTitle") }}</h2>
-
-        <form @submit.prevent="login" class="flex flex-col gap-4">
-          <DCodeTextField
-            v-model="email"
-            :label="t('loginEmail')"
-            :placeholder="t('loginEmail')"
-            value-type="email"
-          />
-
-          <DCodeTextField
-            v-model="password"
-            :label="t('loginPassword')"
-            :placeholder="t('loginPassword')"
-            value-type="password"
-            :error="error || null"
-            @keyup.enter="login"
-          />
-
-          <DCodeButton
-            :text="t('loginButton')"
-            bg-color="primary"
-            :loading="loading"
-            :disabled="!(email ?? '') || !(password ?? '')"
-            @click="login"
-          />
-        </form>
-      </div>
+      <DCodeTextField
+        v-model="password"
+        :label="t('loginPassword')"
+        :placeholder="t('loginPassword')"
+        value-type="password"
+        :error="error || null"
+      />
     </div>
-  </div>
+
+    <template #actions>
+      <DCodeButton variant="outline" :text="t('cancel')" @click="close" />
+      <DCodeButton
+        :text="t('loginButton')"
+        bg-color="primary"
+        :loading="loading"
+        :disabled="!(email ?? '') || !(password ?? '')"
+        @click="login"
+      />
+    </template>
+  </DCodeDialog>
 </template>

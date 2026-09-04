@@ -3,7 +3,7 @@ import { computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { Copy, Pencil, Trash2 } from "lucide-vue-next"
+import { Pencil, Trash2 } from "lucide-vue-next"
 import { DCodeBadge, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
 import { fullCopy, singleCopy, copyText } from "@/utils/copy"
 import type { AppLocale, CopyFormat, TermCategory, TermEntry } from "@/types"
@@ -65,7 +65,7 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
 </script>
 
 <template>
-  <div class="group/card rounded-xl border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
+  <div class="js-card rounded-xl border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
     <div class="mb-3 flex items-start justify-between gap-3">
       <div class="flex items-center gap-2">
         <DCodeBadge :text="categoryLabel" :color="badgeColor" size="xs" />
@@ -76,7 +76,7 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
           {{ entry.termID }}
         </h3>
       </div>
-      <div v-if="authenticated" class="flex shrink-0 gap-1 opacity-0 transition-opacity group-hover/card:opacity-100">
+      <div v-if="authenticated" class="js-card-actions flex shrink-0 gap-1 opacity-0 transition-opacity">
         <DCodeButton size="icon" variant="ghost" icon="Pencil" @click="emit('edit', entry.id)" />
         <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" @click="emit('delete', entry.id)" />
       </div>
@@ -86,7 +86,7 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
       <div
         v-for="row in langRows"
         :key="row.lang"
-        class="group/row flex items-center gap-2 rounded-md px-2 py-1 transition-colors hover:bg-muted/50"
+        class="js-row flex items-center gap-2 rounded-md px-2 py-1 transition-colors hover:bg-muted/50"
       >
         <span class="w-7 shrink-0 rounded bg-muted px-1.5 py-0.5 text-center font-mono text-xs font-medium">
           {{ row.label }}
@@ -97,12 +97,13 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
         >
           {{ row.value() }}
         </span>
-        <button
-          class="shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover/row:opacity-100"
+        <DCodeButton
+          class="js-copy opacity-0"
+          size="icon"
+          variant="ghost"
+          icon="Copy"
           @click="copySingle(row.lang)"
-        >
-          <Copy class="h-4 w-4" />
-        </button>
+        />
       </div>
     </div>
 
@@ -110,7 +111,7 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
       {{ entry.description }}
     </div>
 
-    <div class="mt-3 flex justify-end">
+    <div v-if="authenticated" class="mt-3 flex justify-end">
       <DCodeButton
         :text="t('copyAll')"
         variant="outline"
@@ -121,3 +122,12 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
     </div>
   </div>
 </template>
+
+<style scoped>
+.js-card:hover :deep(.js-card-actions) {
+  opacity: 1;
+}
+.js-row:hover :deep(.js-copy) {
+  opacity: 1;
+}
+</style>

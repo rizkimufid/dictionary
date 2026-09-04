@@ -1,0 +1,36 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "Kamus Terjemahan" [level=1] [ref=e6]
+      - paragraph [ref=e7]: Pusat label multi-bahasa untuk skema form dinamis (ID / EN / KR)
+    - generic [ref=e8]:
+      - generic [ref=e12]:
+        - textbox "ID" [ref=e13]
+        - button "Toggle" [ref=e15] [cursor=pointer]
+      - button "Masuk ke Kamus" [ref=e18] [cursor=pointer]
+  - generic [ref=e20]:
+    - textbox "Cari label / terjemahan…" [ref=e25]
+    - generic [ref=e27]:
+      - generic [ref=e31]:
+        - textbox "Semua" [ref=e32]
+        - button "Toggle" [ref=e34] [cursor=pointer]
+      - generic [ref=e37]:
+        - button "Teks Biasa" [ref=e38] [cursor=pointer]
+        - button "Format Kode" [ref=e39] [cursor=pointer]
+        - button "Format JSON" [ref=e40] [cursor=pointer]
+      - generic [ref=e41]:
+        - button "Tabel" [ref=e42] [cursor=pointer]
+        - button "Kartu" [ref=e43] [cursor=pointer]
+  - paragraph [ref=e44]: Tidak ada term
+  - generic [ref=e45]:
+    - paragraph [ref=e46]: Tidak ada term
+    - table [ref=e48]:
+      - rowgroup [ref=e49]:
+        - row [ref=e50]:
+          - columnheader "Indonesia" [ref=e51]
+          - columnheader "Inggris" [ref=e52]
+          - columnheader "Korea" [ref=e53]
+          - columnheader "Kategori" [ref=e54]
+      - rowgroup [ref=e55]:
+        - row [ref=e56]:
+          - cell "Tidak ada term" [ref=e57]

@@ -3,7 +3,7 @@ import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { DCodeButton, DCodeTextField } from "@gemafajarramadhan/dynamic-ui"
+import { DCodeAutoComplete, DCodeButton, DCodeTextField } from "@gemafajarramadhan/dynamic-ui"
 import TermCard from "@/components/TermCard.vue"
 import TermTable from "@/components/TermTable.vue"
 import TermFormDialog from "@/components/TermFormDialog.vue"
@@ -27,15 +27,31 @@ watch(appLocale, (v) => {
   locale.value = v
 })
 
+const localeOptions = supportLocales.map((l) => ({ value: l, label: l.toUpperCase() }))
+
+const categoryOptions = [
+  { value: "all", label: t("filterAll") },
+  { value: "field", label: t("categoryField") },
+  { value: "placeholder", label: t("categoryPlaceholder") },
+  { value: "action", label: t("categoryAction") },
+  { value: "title", label: t("categoryTitle") },
+  { value: "table-header", label: t("categoryTableHeader") },
+]
+
 const dialogOpen = ref(false)
 const editingId = ref<string | null>(null)
+const loginOpen = ref(false)
+
+function openLogin() {
+  loginOpen.value = true
+}
 
 onMounted(async () => {
   const { data } = await supabase.auth.getSession()
   if (data.session) {
     authenticated.value = true
-    await store.fetchTerms()
   }
+  await store.fetchTerms()
 
   document.addEventListener("keydown", handleKeydown)
 })
@@ -57,6 +73,7 @@ function handleKeydown(e: KeyboardEvent) {
 
 async function onAuthenticated() {
   authenticated.value = true
+  loginOpen.value = false
   await store.fetchTerms()
 }
 
@@ -97,28 +114,39 @@ function onDelete(id: string) {
 </script>
 
 <template>
-  <LoginScreen v-if="!authenticated" @authenticated="onAuthenticated" />
-
-  <div v-else class="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 p-4 sm:p-8">
+  <div class="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 p-4 sm:p-8">
     <header class="flex items-center justify-between">
       <div>
         <h1 class="text-2xl font-bold tracking-tight">{{ t("appTitle") }}</h1>
         <p class="text-sm text-muted-foreground">{{ t("appSubtitle") }}</p>
       </div>
       <div class="flex items-center gap-2">
-        <select
+        <DCodeAutoComplete
           v-model="appLocale"
-          class="h-9 rounded-lg border bg-white px-2 text-sm dark:bg-neutral-800"
-        >
-          <option v-for="loc in supportLocales" :key="loc" :value="loc">{{ loc.toUpperCase() }}</option>
-        </select>
-        <DCodeButton
-          variant="destructive"
-          size="sm"
-          :text="t('logoutButton')"
-          icon="LogOut"
-          @click="logout"
+          :options="localeOptions"
+          item-value="value"
+          item-title="label"
+          :placeholder="appLocale.toUpperCase()"
+          class="w-28"
         />
+        <template v-if="authenticated">
+          <DCodeButton
+            variant="destructive"
+            size="sm"
+            :text="t('logoutButton')"
+            icon="LogOut"
+            @click="logout"
+          />
+        </template>
+        <template v-else>
+          <DCodeButton
+            size="sm"
+            bg-color="primary"
+            :text="t('loginTitle')"
+            icon="LogIn"
+            @click="openLogin"
+          />
+        </template>
       </div>
     </header>
 
@@ -131,17 +159,14 @@ function onDelete(id: string) {
 
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div class="flex flex-wrap items-center gap-3">
-          <select
+          <DCodeAutoComplete
             v-model="categoryFilter"
-            class="h-9 rounded-lg border bg-white px-2 text-sm dark:bg-neutral-800"
-          >
-            <option value="all">{{ t("filterAll") }}</option>
-            <option value="field">{{ t("categoryField") }}</option>
-            <option value="placeholder">{{ t("categoryPlaceholder") }}</option>
-            <option value="action">{{ t("categoryAction") }}</option>
-            <option value="title">{{ t("categoryTitle") }}</option>
-            <option value="table-header">{{ t("categoryTableHeader") }}</option>
-          </select>
+            :options="categoryOptions"
+            item-value="value"
+            item-title="label"
+            :placeholder="t('filterAll')"
+            class="w-44"
+          />
 
           <div class="flex overflow-hidden rounded-lg border">
             <button
@@ -168,7 +193,14 @@ function onDelete(id: string) {
           </div>
         </div>
 
-        <DCodeButton :text="t('addTerm')" icon="Plus" bg-color="primary" size="sm" @click="openAdd" />
+        <DCodeButton
+          v-if="authenticated"
+          :text="t('addTerm')"
+          icon="Plus"
+          bg-color="primary"
+          size="sm"
+          @click="openAdd"
+        />
       </div>
     </div>
 
@@ -186,6 +218,7 @@ function onDelete(id: string) {
           :key="entry.id"
           :entry="entry"
           :format="format"
+          :authenticated="authenticated"
           @edit="openEdit"
           @delete="onDelete"
         />
@@ -194,11 +227,14 @@ function onDelete(id: string) {
         v-else
         :entries="filtered"
         :format="format"
+        :authenticated="authenticated"
         @edit="openEdit"
         @delete="onDelete"
       />
     </div>
 
     <TermFormDialog v-model:open="dialogOpen" :editing-id="editingId" />
+
+    <LoginScreen v-model:open="loginOpen" @authenticated="onAuthenticated" />
   </div>
 </template>

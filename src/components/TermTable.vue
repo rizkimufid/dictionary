@@ -3,7 +3,6 @@
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { Copy, Pencil, Trash2 } from "lucide-vue-next"
 import { DCodeBadge, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
 import { singleCopy, copyText } from "@/utils/copy"
 import type { AppLocale, CopyFormat, TermCategory, TermEntry } from "@/types"
@@ -74,9 +73,9 @@ async function copyID(entry: TermEntry) {
         <tr
           v-for="entry in entries"
           :key="entry.id"
-          class="group/row border-b transition-colors last:border-b-0 hover:bg-muted/30"
+          class="js-row border-b transition-colors last:border-b-0 hover:bg-muted/30"
         >
-          <td class="px-4 py-2.5 font-medium">
+          <td class="js-cell px-4 py-2.5 font-medium">
             <div class="flex items-center gap-1.5">
               <span
                 class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
@@ -84,15 +83,16 @@ async function copyID(entry: TermEntry) {
               >
                 {{ entry.termID }}
               </span>
-              <button
-                class="shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover/row:opacity-100"
+              <DCodeButton
+                class="js-copy opacity-0"
+                size="icon"
+                variant="ghost"
+                icon="Copy"
                 @click="copyID(entry)"
-              >
-                <Copy class="h-4 w-4" />
-              </button>
+              />
             </div>
           </td>
-          <td class="px-4 py-2.5">
+          <td class="js-cell px-4 py-2.5">
             <div class="flex items-center gap-1.5">
               <span
                 class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
@@ -100,15 +100,16 @@ async function copyID(entry: TermEntry) {
               >
                 {{ entry.termEN }}
               </span>
-              <button
-                class="shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover/row:opacity-100"
+              <DCodeButton
+                class="js-copy opacity-0"
+                size="icon"
+                variant="ghost"
+                icon="Copy"
                 @click="copyCell(entry, 'en')"
-              >
-                <Copy class="h-4 w-4" />
-              </button>
+              />
             </div>
           </td>
-          <td class="px-4 py-2.5">
+          <td class="js-cell px-4 py-2.5">
             <div class="flex items-center gap-1.5">
               <span
                 class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
@@ -116,12 +117,13 @@ async function copyID(entry: TermEntry) {
               >
                 {{ entry.termKR }}
               </span>
-              <button
-                class="shrink-0 rounded p-0.5 text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover/row:opacity-100"
+              <DCodeButton
+                class="js-copy opacity-0"
+                size="icon"
+                variant="ghost"
+                icon="Copy"
                 @click="copyCell(entry, 'kr')"
-              >
-                <Copy class="h-4 w-4" />
-              </button>
+              />
             </div>
           </td>
           <td class="px-4 py-2.5">
@@ -141,3 +143,9 @@ async function copyID(entry: TermEntry) {
     </table>
   </div>
 </template>
+
+<style scoped>
+.js-cell:hover :deep(.js-copy) {
+  opacity: 1;
+}
+</style>
