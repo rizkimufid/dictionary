@@ -1,0 +1,85 @@
+{
+  "seedVersion": 1,
+  "terms": [
+    {
+      "id": "t_001",
+      "termID": "Nama",
+      "termEN": "Name",
+      "termKR": "이름",
+      "category": "field",
+      "description": "Label umum untuk kolom nama"
+    },
+    {
+      "id": "t_002",
+      "termID": "Nomor KTP",
+      "termEN": "ID Card Number",
+      "termKR": "주민등록번호",
+      "category": "field",
+      "description": "Label kolom nomor identitas"
+    },
+    {
+      "id": "t_003",
+      "termID": "Tanggal Lahir",
+      "termEN": "Date of Birth",
+      "termKR": "생년월일",
+      "category": "field",
+      "description": "Label kolom tanggal lahir"
+    },
+    {
+      "id": "t_004",
+      "termID": "Masukkan nama lengkap",
+      "termEN": "Enter your full name",
+      "termKR": "전체 이름을 입력하세요",
+      "category": "placeholder",
+      "description": "Placeholder kolom nama"
+    },
+    {
+      "id": "t_005",
+      "termID": "Masukkan nomor KTP",
+      "termEN": "Enter ID card number",
+      "termKR": "주민등록번호를 입력하세요",
+      "category": "placeholder",
+      "description": "Placeholder kolom nomor KTP"
+    },
+    {
+      "id": "t_006",
+      "termID": "Simpan",
+      "termEN": "Save",
+      "termKR": "저장",
+      "category": "action",
+      "description": "Label tombol simpan"
+    },
+    {
+      "id": "t_007",
+      "termID": "Batal",
+      "termEN": "Cancel",
+      "termKR": "취소",
+      "category": "action",
+      "description": "Label tombol batal"
+    },
+    {
+      "id": "t_008",
+      "termID": "Data Pribadi",
+      "termEN": "Personal Data",
+      "termKR": "개인정보",
+      "category": "title",
+      "description": "Judul section data pribadi"
+    },
+    {
+      "id": "t_009",
+      "termID": "Pekerjaan",
+      "termEN": "Employment",
+      "termKR": "직업",
+      "category": "title",
+      "description": "Judul section pekerjaan"
+    },
+    {
+      "id": "t_010",
+      "termID": "Nama Lengkap",
+      "termEN": "Full Name",
+      "termKR": "성명",
+      "category": "table-header",
+      "description": "Header kolom tabel nama"
+    }
+  ]
+}
