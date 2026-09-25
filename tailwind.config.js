@@ -1,42 +1,47 @@
-import tailwindcssAnimate from "tailwindcss-animate"
 /** @type {import('tailwindcss').Config} */
 export default {
-  darkMode: ["class"],
+  darkMode: "class",
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   safelist: [
     {
-      pattern: /^bg-(primary|secondary|success|warning|danger|info|neutral)$/,
+      pattern:
+        /^bg-(primary|secondary|success|warning|danger|info|neutral|purple|pink|gradient-blue|gradient-blue,|gradient-purple|gradient-sunset|gradient-emerald)$/,
     },
+    // Dynamic grid columns (5-12) for builder layout support
+    {
+      pattern: /^grid-cols-(1|2|3|4|5|6|7|8|9|10|11|12)$/,
+    },
+    {
+      pattern: /^col-span-(1|2|3|4|5|6|7|8|9|10|11|12)$/,
+      variants: ["md", "lg"],
+    },
+    "data-[state=open]:animate-in",
+    "data-[state=closed]:animate-out",
+    "data-[state=open]:fade-in-0",
+    "data-[state=closed]:fade-out-0",
+    "data-[state=open]:zoom-in-95",
+    "data-[state=closed]:zoom-out-95",
+    "data-[state=open]:slide-in-from-left-1/2",
+    "data-[state=open]:slide-in-from-top-[48%]",
+    "data-[state=closed]:slide-out-to-left-1/2",
+    "data-[state=closed]:slide-out-to-top-[48%]",
   ],
-  prefix: "",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
         primary: {
-          50: "#e6f1ff",
-          100: "#b3d9ff",
-          200: "#80c1ff",
-          300: "#4da9ff",
-          400: "#1a91ff",
-          500: "#0066cc",
-          600: "#0052a3",
-          700: "#003d7a",
-          800: "#002952",
-          900: "#001429",
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          50: "hsl(var(--primary-50) / <alpha-value>)",
+          100: "hsl(var(--primary-100) / <alpha-value>)",
+          200: "hsl(var(--primary-200) / <alpha-value>)",
+          300: "hsl(var(--primary-300) / <alpha-value>)",
+          400: "hsl(var(--primary-400) / <alpha-value>)",
+          500: "hsl(var(--primary-500) / <alpha-value>)",
+          600: "hsl(var(--primary-600) / <alpha-value>)",
+          700: "hsl(var(--primary-700) / <alpha-value>)",
+          800: "hsl(var(--primary-800) / <alpha-value>)",
+          900: "hsl(var(--primary-900) / <alpha-value>)",
+          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
+          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
         },
         secondary: {
           50: "#f0f9ff",
@@ -63,7 +68,6 @@ export default {
           700: "#15803d",
           800: "#166534",
           900: "#14532d",
-          DEFAULT: "#22c55e",
         },
         warning: {
           50: "#fffbeb",
@@ -76,7 +80,6 @@ export default {
           700: "#b45309",
           800: "#92400e",
           900: "#78350f",
-          DEFAULT: "#f59e0b",
         },
         danger: {
           50: "#fef2f2",
@@ -89,7 +92,6 @@ export default {
           700: "#b91c1c",
           800: "#991b1b",
           900: "#7f1d1d",
-          DEFAULT: "#ef4444",
         },
         neutral: {
           50: "#fafafa",
@@ -103,11 +105,16 @@ export default {
           800: "#262626",
           900: "#171717",
           950: "#0a0a0a",
-          DEFAULT: "#737373",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -117,70 +124,120 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        chart: {
+          1: "hsl(var(--chart-1))",
+          2: "hsl(var(--chart-2))",
+          3: "hsl(var(--chart-3))",
+          4: "hsl(var(--chart-4))",
+          5: "hsl(var(--chart-5))",
         },
       },
       fontFamily: {
-        sans: ['"Geist Sans"', "Inter", "system-ui", "sans-serif"],
-        display: ['"Geist Sans"', "Inter", "sans-serif"],
-        mono: ['"Geist Mono"', "Consolas", "monospace"],
+        sans: ['"Geist Sans"', "system-ui", "sans-serif"],
+        display: ['"Geist Sans"', "sans-serif"],
+        mono: ['"Geist Mono"', "monospace"],
       },
       boxShadow: {
         soft: "0 2px 15px rgba(0, 0, 0, 0.08)",
         medium: "0 4px 20px rgba(0, 0, 0, 0.12)",
         strong: "0 10px 40px rgba(0, 0, 0, 0.15)",
       },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: { height: "0" },
-          to: { height: "var(--reka-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--reka-accordion-content-height)" },
-          to: { height: "0" },
-        },
-        fadeIn: {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        slideIn: {
-          "0%": { transform: "translateX(-20px)", opacity: "0" },
-          "100%": { transform: "translateX(0)", opacity: "1" },
-        },
-        slideUp: {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        scaleIn: {
-          "0%": { transform: "scale(0.9)", opacity: "0" },
-          "100%": { transform: "scale(1)", opacity: "1" },
-        },
-        pulseSoft: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.7" },
-        },
-      },
       animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fadeIn 0.5s ease-in-out both",
         "slide-in": "slideIn 0.4s ease-out both",
         "slide-up": "slideUp 0.4s ease-out both",
         "scale-in": "scaleIn 0.3s ease-out both",
         "pulse-soft": "pulseSoft 2s ease-in-out infinite",
+        "orbit-cw": "orbitCw 3s linear infinite",
+        "orbit-ccw": "orbitCcw 4s linear infinite",
+        "core-pulse": "corePulse 2s cubic-bezier(0.4, 0, 0.2, 1) infinite",
+        "fade-text": "fadeText 1.5s ease-in-out infinite alternate",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
+        },
+        slideIn: {
+          "0%": {
+            transform: "translateX(-20px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateX(0)",
+            opacity: "1",
+          },
+        },
+        slideUp: {
+          "0%": {
+            transform: "translateY(20px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "translateY(0)",
+            opacity: "1",
+          },
+        },
+        scaleIn: {
+          "0%": {
+            transform: "scale(0.9)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "1",
+          },
+        },
+        pulseSoft: {
+          "0%, 100%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "0.7",
+          },
+        },
+        orbitCw: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        orbitCcw: {
+          "0%": { transform: "rotate(360deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
+        corePulse: {
+          "0%, 100%": {
+            transform: "scale(0.9)",
+            opacity: "0.8",
+            boxShadow: "0 0 15px currentColor",
+          },
+          "50%": {
+            transform: "scale(1.1)",
+            opacity: "1",
+            boxShadow: "0 0 30px currentColor",
+          },
+        },
+        fadeText: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0.4" },
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [tailwindcssAnimate],
-}
+  plugins: [require("tailwindcss-animate")],
+};

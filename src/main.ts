@@ -5,6 +5,7 @@ import "vue3-toastify/dist/index.css"
 import "@gemafajarramadhan/dynamic-ui/style.css"
 import App from "./App.vue"
 import '@gemafajarramadhan/dynamic-ui/dist/dynamic-ui.css'
+import "./assets/main.css";
 
 const pinia = createPinia()
 

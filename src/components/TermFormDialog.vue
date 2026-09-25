@@ -1,117 +1,121 @@
 <script setup lang="ts">
-import { ref, watch } from "vue"
-import { useI18n } from "vue-i18n"
-import { toast } from "vue3-toastify"
+import { ref, watch } from "vue";
+import { useI18n } from "vue-i18n";
+import { toast } from "vue3-toastify";
 import {
-  DCodeDialog,
-  DCodeTextField,
-  DCodeTextarea,
-  DCodeButton,
-} from "@gemafajarramadhan/dynamic-ui"
-import { useDictionaryStore } from "@/stores/dictionary"
-import type { TermCategory } from "@/types"
+    DCodeDialog,
+    DCodeTextField,
+    DCodeTextarea,
+    DCodeButton,
+    DCodeAutoComplete,
+} from "@gemafajarramadhan/dynamic-ui";
+import { useDictionaryStore } from "@/stores/dictionary";
+import type { TermCategory } from "@/types";
 
 const props = defineProps<{
-  open: boolean
-  editingId?: string | null
-}>()
+    open: boolean;
+    editingId?: string | null;
+}>();
 
 const emit = defineEmits<{
-  (e: "update:open", value: boolean): void
-  (e: "saved"): void
-}>()
+    (e: "update:open", value: boolean): void;
+    (e: "saved"): void;
+}>();
 
-const { t } = useI18n()
-const store = useDictionaryStore()
+const { t } = useI18n();
+const store = useDictionaryStore();
 
-const termID = ref<string>("")
-const termEN = ref<string>("")
-const termKR = ref<string>("")
-const category = ref<TermCategory>("field")
-const description = ref<string>("")
+const termID = ref<string>("");
+const termEN = ref<string>("");
+const termKR = ref<string>("");
+const category = ref<TermCategory>("field");
+const description = ref<string>("");
 
 function reset() {
-  termID.value = ""
-  termEN.value = ""
-  termKR.value = ""
-  category.value = "field"
-  description.value = ""
+    termID.value = "";
+    termEN.value = "";
+    termKR.value = "";
+    category.value = "field";
+    description.value = "";
 }
 
 watch(
-  () => [props.open, props.editingId] as const,
-  ([open, editingId]) => {
-    if (!open) return
-    if (editingId) {
-      const found = store.terms.find((t) => t.id === editingId)
-      if (found) {
-        termID.value = found.termID
-        termEN.value = found.termEN
-        termKR.value = found.termKR
-        category.value = found.category
-        description.value = found.description ?? ""
-        return
-      }
-    }
-    reset()
-  },
-  { immediate: true },
-)
+    () => [props.open, props.editingId] as const,
+    ([open, editingId]) => {
+        if (!open) return;
+        if (editingId) {
+            const found = store.terms.find((t) => t.id === editingId);
+            if (found) {
+                termID.value = found.termID;
+                termEN.value = found.termEN;
+                termKR.value = found.termKR;
+                category.value = found.category;
+                description.value = found.description ?? "";
+                return;
+            }
+        }
+        reset();
+    },
+    { immediate: true },
+);
 
 function close() {
-  emit("update:open", false)
+    emit("update:open", false);
 }
 
 async function save() {
-  const input = {
-    termID: (termID.value ?? "") as string,
-    termEN: (termEN.value ?? "") as string,
-    termKR: (termKR.value ?? "") as string,
-    category: category.value,
-    description: (description.value ?? "") as string,
-  }
-  const result = props.editingId
-    ? await store.updateTerm(props.editingId, input)
-    : await store.addTerm(input)
-  if (!result.ok) {
-    toast.error(
-      result.reason === "TermID (Indonesia) sudah ada untuk kategori ini"
-        ? t("validationDuplicate")
-        : t("validationEmpty"),
-    )
-    return
-  }
-  toast.success(t("savedMessage"))
-  emit("saved")
-  emit("update:open", false)
+    const input = {
+        termID: (termID.value ?? "") as string,
+        termEN: (termEN.value ?? "") as string,
+        termKR: (termKR.value ?? "") as string,
+        category: category.value,
+        description: (description.value ?? "") as string,
+    };
+    const result = props.editingId
+        ? await store.updateTerm(props.editingId, input)
+        : await store.addTerm(input);
+    if (!result.ok) {
+        toast.error(
+            result.reason === "TermID (Indonesia) sudah ada untuk kategori ini"
+                ? t("validationDuplicate")
+                : t("validationEmpty"),
+        );
+        return;
+    }
+    toast.success(t("savedMessage"));
+    emit("saved");
+    emit("update:open", false);
 }
 </script>
 
 <template>
-  <DCodeDialog
-    :model-value="open"
-    :title="editingId ? t('modalEditTitle') : t('modalAddTitle')"
-    size="md"
-    @update:model-value="emit('update:open', $event)"
-  >
-    <div class="flex flex-col gap-4">
-      <DCodeTextField
-        v-model="termID"
-        :label="t('fieldKey')"
-        :placeholder="t('fieldKey')"
-      />
-      <DCodeTextField
-        v-model="termEN"
-        :label="t('fieldEn')"
-        :placeholder="t('fieldEn')"
-      />
-      <DCodeTextField
-        v-model="termKR"
-        :label="t('fieldKr')"
-        :placeholder="t('fieldKr')"
-      />
+    <DCodeDialog
+        :model-value="open"
+        :title="editingId ? t('modalEditTitle') : t('modalAddTitle')"
+        size="md"
+        @update:model-value="emit('update:open', $event)"
+    >
+        <div class="flex flex-col gap-4">
+            <DCodeTextField
+                v-model="termID"
+                :label="t('fieldKey')"
+                :placeholder="t('fieldKey')"
+                rounded="lg"
+            />
+            <DCodeTextField
+                v-model="termEN"
+                :label="t('fieldEn')"
+                :placeholder="t('fieldEn')"
+                rounded="lg"
+            />
+            <DCodeTextField
+                v-model="termKR"
+                :label="t('fieldKr')"
+                :placeholder="t('fieldKr')"
+                rounded="lg"
+            />
 
-      <div>
+            <!-- <div>
         <label class="mb-1.5 block text-sm font-medium">{{ t("fieldCategory") }}</label>
         <select
           v-model="category"
@@ -123,18 +127,33 @@ async function save() {
           <option value="title">{{ t("categoryTitle") }}</option>
           <option value="table-header">{{ t("categoryTableHeader") }}</option>
         </select>
-      </div>
+      </div> -->
 
-      <DCodeTextarea
-        v-model="description"
-        :label="t('fieldDescription')"
-        :placeholder="t('fieldDescription')"
-      />
-    </div>
+            <DCodeAutoComplete
+                v-model="category"
+                :label="t('fieldCategory')"
+                :options="[
+                    { code: 'field', name: 'Field' },
+                    { code: 'placeholder', name: 'Placeholder' },
+                    { code: 'action', name: 'Action' },
+                    { code: 'title', name: 'Title' },
+                    { code: 'table-header', name: 'Table Header' },
+                ]"
+                :searchable="false"
+                item-value="code"
+                rounded="lg"
+            />
 
-    <template #actions>
-      <DCodeButton variant="outline" :text="t('cancel')" @click="close" />
-      <DCodeButton bg-color="primary" :text="t('save')" @click="save" />
-    </template>
-  </DCodeDialog>
+            <DCodeTextarea
+                v-model="description"
+                :label="t('fieldDescription')"
+                :placeholder="t('fieldDescription')"
+            />
+        </div>
+
+        <template #actions>
+            <DCodeButton variant="outline" :text="t('cancel')" @click="close" />
+            <DCodeButton bg-color="primary" :text="t('save')" @click="save" />
+        </template>
+    </DCodeDialog>
 </template>
