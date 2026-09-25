@@ -177,7 +177,7 @@ async function applyGroupFill(group, term) {
     console.info("[Dictionary Search] G> badges=" + gb.length + " langs=" + Object.keys(langsInGroup).sort().join(","))
   } catch (e) {}
 
-  await sleep(400)
+  await sleep(150)
 
   var order = ["id", "en", "kr"]
   var seen = {}
@@ -204,6 +204,11 @@ async function applyGroupFill(group, term) {
   function typeLang(l) {
     var pair = findFill(l)
     if (!pair) return false
+    var cur = inputForEl(findBadge(group, l))
+    if (cur && String(cur.value).trim() === String(pair.text).trim()) {
+      if (filledLangs.indexOf(l.toUpperCase()) === -1) filledLangs.push(l.toUpperCase())
+      return false
+    }
     var inp = typeIntoInp(l, pair.text)
     if (!inp) return false
     if (filledLangs.indexOf(l.toUpperCase()) === -1) filledLangs.push(l.toUpperCase())
@@ -218,9 +223,8 @@ async function applyGroupFill(group, term) {
     var l = order[o]
     if (seen[l]) continue
     seen[l] = 1
-    if (findFill(l)) {
-      typeLang(l)
-      await sleep(600)
+    if (findFill(l) && typeLang(l)) {
+      await sleep(350)
     }
     pageSample("step-" + l)
   }
@@ -240,7 +244,7 @@ async function applyGroupFill(group, term) {
     } catch (e) {}
     for (var r = 0; r < need.length; r++) {
       typeIntoInp(need[r], findFill(need[r]).text)
-      await sleep(600)
+      await sleep(350)
     }
     var after = []
     for (var q2 = 0; q2 < fills.length; q2++) {
@@ -261,7 +265,7 @@ async function applyGroupFill(group, term) {
         await sleep(500)
         for (var n2 = 0; n2 < after.length; n2++) {
           typeIntoInp(after[n2], findFill(after[n2]).text)
-          await sleep(600)
+          await sleep(350)
         }
       }
     }
@@ -276,10 +280,6 @@ async function applyGroupFill(group, term) {
   try {
     console.info("[Dictionary Search] G> filled=" + filledLangs.join(",") + " tries=" + tries)
   } catch (e) {}
-  await sleep(400)
-  pageSample("final")
-  await sleep(1200)
-  pageSample("late")
   Toast.show(filledLangs.length ? "Terisi: " + filledLangs.join(", ") : "Term belum punya terjemahan untuk group ini")
 }
 
