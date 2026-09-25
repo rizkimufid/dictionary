@@ -223,11 +223,12 @@ async function applyGroupFill(group, term) {
     var l = order[o]
     if (seen[l]) continue
     seen[l] = 1
-    if (findFill(l) && typeLang(l)) {
-      await sleep(350)
+    if (findFill(l)) {
+      typeLang(l)
+      pageSample("step-" + l)
     }
-    pageSample("step-" + l)
   }
+  await sleep(350)
   var tries = 0
   while (tries < 5) {
     var need = []
