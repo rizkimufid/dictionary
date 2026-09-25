@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dictionary Search</title>
+    <style>
+      body {
+        width: 300px;
+        margin: 0;
+        padding: 14px;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 13px;
+        color: #111827;
+        background: #fff;
+      }
+      h1 {
+        font-size: 14px;
+        margin: 0 0 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .on {
+        background: #10b981;
+      }
+      .off {
+        background: #9ca3af;
+      }
+      ul {
+        margin: 4px 0 8px;
+        padding-left: 16px;
+      }
+      .muted {
+        color: #6b7280;
+        font-size: 12px;
+      }
+      .row {
+        margin-top: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      button {
+        border: 0;
+        border-radius: 8px;
+        background: #111827;
+        color: #fff;
+        font-weight: 600;
+        font-size: 12px;
+        padding: 7px 12px;
+        cursor: pointer;
+      }
+      button:disabled {
+        background: #9ca3af;
+        cursor: default;
+      }
+      .row .ghost {
+        background: transparent;
+        color: #111827;
+        border: 1px solid #d1d5db;
+      }
+    .switch-row {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .switch-wrap {
+        position: relative;
+        width: 34px;
+        height: 20px;
+        flex-shrink: 0;
+      }
+      .switch-wrap input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        inset: 0;
+        background: #9ca3af;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .slider::before {
+        content: "";
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        left: 3px;
+        top: 3px;
+        background: #fff;
+        border-radius: 50%;
+        transition: transform 0.15s;
+      }
+      .switch-wrap input:checked + .slider {
+        background: #111827;
+      }
+      .switch-wrap input:checked + .slider::before {
+        transform: translateX(14px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span class="dot" id="dot"></span> Dictionary Search</h1>
+    <div id="domains" class="muted">Memuat…</div>
+    <div id="supabase" class="muted"></div>
+    <div class="row">
+      <span id="cached" class="muted"></span>
+      <button id="refreshBtn" class="ghost">Muat Ulang Kamus</button>
+    </div>
+    <div id="grantStatus" class="muted"></div>
+    <div class="switch-row">
+      <span>Isi semua bahasa sekaligus (EN/ID/KR)</span>
+      <label class="switch-wrap">
+        <input type="checkbox" id="fillAllSwitch" />
+        <span class="slider"></span>
+      </label>
+    </div>
+    <div class="row">
+      <span class="muted">Klik teks EN/ID/KR di header situs target → popover pencarian.</span>
+    </div>
+    <div class="row">
+      <button id="grantBtn">Berikan Akses Domain</button>
+      <button id="openOptions" class="ghost">Pengaturan</button>
+    </div>
+    <script src="../options/patterns.js"></script>
+    <script src="../common/register.js"></script>
+    <script src="../common/terms.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

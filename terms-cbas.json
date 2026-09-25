@@ -1,0 +1,4121 @@
+{
+  "count": 686,
+  "terms": [
+    {
+      "term_id": "Nama Debitur",
+      "term_en": "Debtor Name",
+      "term_kr": "채무자 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Debitur",
+      "term_en": "Enter Debtor Name",
+      "term_kr": "채무자 이름 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Surat",
+      "term_en": "Letter Number",
+      "term_kr": "문서 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor Surat",
+      "term_en": "Enter Letter Number",
+      "term_kr": "문서 번호를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "no",
+      "term_en": "no",
+      "term_kr": "숫자",
+      "category": "field"
+    },
+    {
+      "term_id": "id",
+      "term_en": "id",
+      "term_kr": "아이디",
+      "category": "field"
+    },
+    {
+      "term_id": "Kode",
+      "term_en": "Code",
+      "term_kr": "암호",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama",
+      "term_en": "Name",
+      "term_kr": "이름",
+      "category": "field"
+    },
+    {
+      "term_id": "NIK",
+      "term_en": "NIK",
+      "term_kr": "주민등록번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan NIK",
+      "term_en": "Enter NIK",
+      "term_kr": "주민등록번호 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "NPWP",
+      "term_en": "NPWP",
+      "term_kr": "세금 식별 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan NPWP",
+      "term_en": "Enter NPWP",
+      "term_kr": "세금 식별 번호를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Passport",
+      "term_en": "Passport",
+      "term_kr": "여권",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Passport",
+      "term_en": "Enter Passport",
+      "term_kr": "여권을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Mulai",
+      "term_en": "Start Date",
+      "term_kr": "시작일",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tanggal",
+      "term_en": "Select Date",
+      "term_kr": "날짜 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Berakhir",
+      "term_en": "End Date",
+      "term_kr": "만료일",
+      "category": "field"
+    },
+    {
+      "term_id": "User Input",
+      "term_en": "User Input",
+      "term_kr": "사용자 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih User",
+      "term_en": "Select User",
+      "term_kr": "사용자 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Produk",
+      "term_en": "Product",
+      "term_kr": "제품",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Produk",
+      "term_en": "Select Product",
+      "term_kr": "제품 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Tujuan Permintaan",
+      "term_en": "Request Purpose",
+      "term_kr": "요청 목적",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tujuan Permintaan",
+      "term_en": "Select Request Purpose",
+      "term_kr": "요청 목적 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Format",
+      "term_en": "Format",
+      "term_kr": "형식",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Format",
+      "term_en": "Enter Format",
+      "term_kr": "형식 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Lahir",
+      "term_en": "Date of Birth",
+      "term_kr": "생일",
+      "category": "field"
+    },
+    {
+      "term_id": "status",
+      "term_en": "status",
+      "term_kr": "상태",
+      "category": "field"
+    },
+    {
+      "term_id": "aksi",
+      "term_en": "action",
+      "term_kr": "행동",
+      "category": "field"
+    },
+    {
+      "term_id": "Ganti status",
+      "term_en": "Change status",
+      "term_kr": "상태 변경",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Ganti Status",
+      "term_en": "Confirm Change Status",
+      "term_kr": "상태 변경 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Apakah anda yakin untuk",
+      "term_en": "Are you sure you want to",
+      "term_kr": "이 데이터의 상태를",
+      "category": "field"
+    },
+    {
+      "term_id": "mengganti status pada data",
+      "term_en": "change the status of this",
+      "term_kr": "변경하시겠습니까?",
+      "category": "field"
+    },
+    {
+      "term_id": "ini?",
+      "term_en": "data?",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Kata Kunci",
+      "term_en": "keyword",
+      "term_kr": "키워드",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Kata Kunci",
+      "term_en": "Enter keyword",
+      "term_kr": "키워드를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih status",
+      "term_en": "Select status",
+      "term_kr": "상태 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan kode",
+      "term_en": "Enter Code",
+      "term_kr": "코드를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "edit",
+      "term_en": "edit",
+      "term_kr": "편집하다",
+      "category": "field"
+    },
+    {
+      "term_id": "pertanggal",
+      "term_en": "As of date",
+      "term_kr": "날짜 기준",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan pertanggal",
+      "term_en": "Enter as of date",
+      "term_kr": "날짜를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Perbarui",
+      "term_en": "Update",
+      "term_kr": "업데이트",
+      "category": "field"
+    },
+    {
+      "term_id": "perhari",
+      "term_en": "More days",
+      "term_kr": "하루에",
+      "category": "field"
+    },
+    {
+      "term_id": "Export",
+      "term_en": "Export",
+      "term_kr": "수출",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan id",
+      "term_en": "Enter id",
+      "term_kr": "아이디를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan per hari",
+      "term_en": "Enter more days",
+      "term_kr": "하루에 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Tambah",
+      "term_en": "Add",
+      "term_kr": "추가하다",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan nama",
+      "term_en": "Enter name",
+      "term_kr": "이름을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Request",
+      "term_en": "Request",
+      "term_kr": "요청",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Request",
+      "term_en": "Enter Request",
+      "term_kr": "요청을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Input Request Inquiry",
+      "term_en": "Input Request Inquiry",
+      "term_kr": "입력 요청 문의",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Nasabah",
+      "term_en": "Debtor Type",
+      "term_kr": "고객 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Debitur",
+      "term_en": "Select Debtor Type",
+      "term_kr": "채무자 유형 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Pencarian",
+      "term_en": "Robot Find Result",
+      "term_kr": "검색 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Pencarian",
+      "term_en": "Select Robot Find Result",
+      "term_kr": "검색 유형 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Simpan",
+      "term_en": "Save",
+      "term_kr": "구하다",
+      "category": "field"
+    },
+    {
+      "term_id": "Mode Kecocokan",
+      "term_en": "Match Mode",
+      "term_kr": "일치 모드",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Mode Kecocokan",
+      "term_en": "Select Match Mode",
+      "term_kr": "호환 모드 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Saluran",
+      "term_en": "Channel",
+      "term_kr": "채널",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Saluran",
+      "term_en": "Select Channel",
+      "term_kr": "채널 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Cabang",
+      "term_en": "Branch",
+      "term_kr": "지점",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Cabang",
+      "term_en": "Select Branch",
+      "term_kr": "지점 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Customer",
+      "term_en": "Customer Type",
+      "term_kr": "고객 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Customer",
+      "term_en": "Select Customer Type",
+      "term_kr": "고객 유형 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "value",
+      "term_en": "value",
+      "term_kr": "값",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan value",
+      "term_en": "Enter value",
+      "term_kr": "값을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Customer",
+      "term_en": "Customer Name",
+      "term_kr": "고객 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Customer",
+      "term_en": "Enter Customer Name",
+      "term_kr": "고객 이름 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Identitas",
+      "term_en": "Identity Type",
+      "term_kr": "신분 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Identitas",
+      "term_en": "Select Identity Type",
+      "term_kr": "신분 유형 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "KTP",
+      "term_en": "KTP",
+      "term_kr": "주민등록증",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan nomor KTP",
+      "term_en": "Enter KTP Number",
+      "term_kr": "신분증 번호를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Flag Identity Number",
+      "term_en": "Flag Identity Number",
+      "term_kr": "플래그 식별 번호 예외",
+      "category": "field"
+    },
+    {
+      "term_id": "Exception",
+      "term_en": "Exception",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Flag Identity",
+      "term_en": "Enter Flag Identity Number",
+      "term_kr": "플래그 신원 번호 예외",
+      "category": "field"
+    },
+    {
+      "term_id": "Number Exception",
+      "term_en": "Exception",
+      "term_kr": "입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Kelamin",
+      "term_en": "Gender",
+      "term_kr": "성별",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Kelamin",
+      "term_en": "Select Gender",
+      "term_kr": "성별 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Tempat Lahir",
+      "term_en": "Place of Birth",
+      "term_kr": "출생지",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tempat Lahir",
+      "term_en": "Enter Place of Birth",
+      "term_kr": "출생지 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Berdiri",
+      "term_en": "Date of Establishment",
+      "term_kr": "설립일",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Badan Usaha",
+      "term_en": "Types of Business Entities",
+      "term_kr": "사업체 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Created date",
+      "term_en": "Created date",
+      "term_kr": "생성일",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Badan Usaha",
+      "term_en": "Select Type of Business",
+      "term_kr": "사업체 유형 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "",
+      "term_en": "Entity",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Perkawinan",
+      "term_en": "Marital Status",
+      "term_kr": "혼인 상태",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Status Perkawinan",
+      "term_en": "Select Marital Status",
+      "term_kr": "결혼 상태 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Kewarganegaraan",
+      "term_en": "Nationality",
+      "term_kr": "국적",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Kewarganegaraan",
+      "term_en": "Select Nationality",
+      "term_kr": "국적 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Gadis Ibu Kandung",
+      "term_en": "Mother Name",
+      "term_kr": "어머니의 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Gadis Ibu",
+      "term_en": "Enter Mother Name",
+      "term_kr": "어머니 이름을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Kandung",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Telepon",
+      "term_en": "Phone Number",
+      "term_kr": "전화 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor Telepon",
+      "term_en": "Enter Phone Number",
+      "term_kr": "전화번호를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Alamat",
+      "term_en": "Address",
+      "term_kr": "주소",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Alamat",
+      "term_en": "Enter Address",
+      "term_kr": "주소를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Provinsi",
+      "term_en": "Province",
+      "term_kr": "주",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Provinsi",
+      "term_en": "Select Province",
+      "term_kr": "주 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Kota",
+      "term_en": "City",
+      "term_kr": "도시",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Kota",
+      "term_en": "Select City",
+      "term_kr": "도시 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Kecamatan",
+      "term_en": "District",
+      "term_kr": "구",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Kecamatan",
+      "term_en": "Select District",
+      "term_kr": "구를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Kelurahan",
+      "term_en": "Village",
+      "term_kr": "행정동",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Kelurahan",
+      "term_en": "Select Village",
+      "term_kr": "동 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Kirim Data Non Debitur",
+      "term_en": "Send Non-Debtor Data",
+      "term_kr": "비채무자 데이터 전송",
+      "category": "field"
+    },
+    {
+      "term_id": "Ip address",
+      "term_en": "Ip address",
+      "term_kr": "인터넷 프로토콜 주소",
+      "category": "field"
+    },
+    {
+      "term_id": "Dokumen",
+      "term_en": "Documents",
+      "term_kr": "문서",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan ip address",
+      "term_en": "Enter ip address",
+      "term_kr": "인터넷 프로토콜 주소를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Debitur",
+      "term_en": "Debtor Type",
+      "term_kr": "채무자 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Url api",
+      "term_en": "Url api",
+      "term_kr": "통합 자원 식별자 애플리케이션 프로그래밍 인터페이스",
+      "category": "field"
+    },
+    {
+      "term_id": "Upload Data Request",
+      "term_en": "Upload Data Request",
+      "term_kr": "데이터 업로드 요청",
+      "category": "field"
+    },
+    {
+      "term_id": "File",
+      "term_en": "File",
+      "term_kr": "파일",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih File",
+      "term_en": "Select File",
+      "term_kr": "파일 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Line",
+      "term_en": "Line",
+      "term_kr": "라인",
+      "category": "field"
+    },
+    {
+      "term_id": "Kode Produk",
+      "term_en": "Product Code",
+      "term_kr": "제품 코드",
+      "category": "field"
+    },
+    {
+      "term_id": "User slik",
+      "term_en": "User slik",
+      "term_kr": "사용자 클릭",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan user slik",
+      "term_en": "Enter user slik",
+      "term_kr": "사용자 slik을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama user",
+      "term_en": "Username",
+      "term_kr": "사용자 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Lengkap",
+      "term_en": "Full Name",
+      "term_kr": "성명",
+      "category": "field"
+    },
+    {
+      "term_id": "Is Flag Identity Number",
+      "term_en": "Is Flag Identity Number",
+      "term_kr": "플래그 식별 번호인가요",
+      "category": "field"
+    },
+    {
+      "term_id": "role",
+      "term_en": "role",
+      "term_kr": "역할",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih role",
+      "term_en": "Select role",
+      "term_kr": "역할 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Valid",
+      "term_en": "Valid",
+      "term_kr": "유효한",
+      "category": "field"
+    },
+    {
+      "term_id": "Tidak Valid",
+      "term_en": "Not Valid",
+      "term_kr": "유효하지 않음",
+      "category": "field"
+    },
+    {
+      "term_id": "Pesan Error",
+      "term_en": "Message Error",
+      "term_kr": "에러 메시지",
+      "category": "field"
+    },
+    {
+      "term_id": "Approve Data Request",
+      "term_en": "Approve Data Request",
+      "term_kr": "데이터 요청 승인",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Input",
+      "term_en": "Input Date",
+      "term_kr": "입력 날짜",
+      "category": "field"
+    },
+    {
+      "term_id": "Stage",
+      "term_en": "Stage",
+      "term_kr": "무대",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan nama user",
+      "term_en": "Enter username",
+      "term_kr": "사용자 이름을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Password slik",
+      "term_en": "Password slik",
+      "term_kr": "비밀번호를 클릭하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan password slik",
+      "term_en": "Enter password slik",
+      "term_kr": "비밀번호를 입력하세요 slik",
+      "category": "field"
+    },
+    {
+      "term_id": "Password ideb",
+      "term_en": "Password ideb",
+      "term_kr": "ideb 비밀번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan password ideb",
+      "term_en": "Enter password ideb",
+      "term_kr": "비밀번호 ideb를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Informasi Customer",
+      "term_en": "Customer Information",
+      "term_kr": "고객 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Nasabah",
+      "term_en": "Customer Data",
+      "term_kr": "고객 데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "Supervisor",
+      "term_en": "Supervisor",
+      "term_kr": "감독자",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih supervisor",
+      "term_en": "Select supervisor",
+      "term_kr": "감독자 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "AKTIF",
+      "term_en": "ACTIVE",
+      "term_kr": "활동적인",
+      "category": "field"
+    },
+    {
+      "term_id": "NON AKTIF",
+      "term_en": "NON ACTIVE",
+      "term_kr": "비활성",
+      "category": "field"
+    },
+    {
+      "term_id": "Non Debitur List",
+      "term_en": "Non Debitur List",
+      "term_kr": "부도 채권자 명단",
+      "category": "field"
+    },
+    {
+      "term_id": "Hapus",
+      "term_en": "Delete",
+      "term_kr": "닦음",
+      "category": "field"
+    },
+    {
+      "term_id": "url",
+      "term_en": "Url",
+      "term_kr": "균일 자원 식별자",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan url",
+      "term_en": "Enter url",
+      "term_kr": "균일 자원 식별자(URL)를 입력하십시오.",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Hapus",
+      "term_en": "Confirm Delete",
+      "term_kr": "삭제 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "menghapus data ini?",
+      "term_en": "delete this data?",
+      "term_kr": "삭제하시겠습니까?",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal berakhir",
+      "term_en": "End date",
+      "term_kr": "만료일",
+      "category": "field"
+    },
+    {
+      "term_id": "Tampilan Diagram",
+      "term_en": "Diagram View",
+      "term_kr": "다이어그램 보기",
+      "category": "field"
+    },
+    {
+      "term_id": "data",
+      "term_en": "data",
+      "term_kr": "데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "breadcrumb",
+      "term_en": "breadcrumb",
+      "term_kr": "브레드크럼",
+      "category": "field"
+    },
+    {
+      "term_id": "Halaman Belum Tersedia",
+      "term_en": "Page Not Available",
+      "term_kr": "페이지를 사용할 수 없습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "Umum",
+      "term_en": "General",
+      "term_kr": "일반",
+      "category": "field"
+    },
+    {
+      "term_id": "Token core",
+      "term_en": "Token core",
+      "term_kr": "핵심 토큰",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal skor",
+      "term_en": "Minimal score",
+      "term_kr": "최소 득점",
+      "category": "field"
+    },
+    {
+      "term_id": "Form General",
+      "term_en": "Form General",
+      "term_kr": "일반 양식",
+      "category": "field"
+    },
+    {
+      "term_id": "List Scoring",
+      "term_en": "List Scoring",
+      "term_kr": "리스트 스코어링",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Request",
+      "term_en": "Status Request",
+      "term_kr": "상태 요청",
+      "category": "field"
+    },
+    {
+      "term_id": "PROCESS DONE",
+      "term_en": "PROCESS DONE",
+      "term_kr": "프로세스 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "SUBMITTED",
+      "term_en": "SUBMITTED",
+      "term_kr": "제출됨",
+      "category": "field"
+    },
+    {
+      "term_id": "APPROVED",
+      "term_en": "APPROVED",
+      "term_kr": "승인됨",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Pengajuan",
+      "term_en": "Submit Confirmation",
+      "term_kr": "제출 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Approve",
+      "term_en": "Approve Confirmation",
+      "term_kr": "승인 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Reject",
+      "term_en": "Reject Confirmation",
+      "term_kr": "거부 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Revisi",
+      "term_en": "Revision Confirmation",
+      "term_kr": "수정 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Report slik result",
+      "term_en": "Report slik result",
+      "term_kr": "보고서 슬릭 결과",
+      "category": "field"
+    },
+    {
+      "term_id": "Alasan",
+      "term_en": "Reason",
+      "term_kr": "이유",
+      "category": "field"
+    },
+    {
+      "term_id": "Approval Variable",
+      "term_en": "Approval Variable",
+      "term_kr": "승인 변수",
+      "category": "field"
+    },
+    {
+      "term_id": "Id App Request",
+      "term_en": "Id App Request",
+      "term_kr": "앱 ID 요청",
+      "category": "field"
+    },
+    {
+      "term_id": "detail",
+      "term_en": "details",
+      "term_kr": "세부",
+      "category": "field"
+    },
+    {
+      "term_id": "Debitur utama",
+      "term_en": "Main debtor",
+      "term_kr": "주요 채무자",
+      "category": "field"
+    },
+    {
+      "term_id": "counter",
+      "term_en": "counter",
+      "term_kr": "카운터",
+      "category": "field"
+    },
+    {
+      "term_id": "operator",
+      "term_en": "operator",
+      "term_kr": "운영자",
+      "category": "field"
+    },
+    {
+      "term_id": "Pembaruan Terakhir",
+      "term_en": "Last Update",
+      "term_kr": "최종 업데이트",
+      "category": "field"
+    },
+    {
+      "term_id": "No Ref Counter",
+      "term_en": "No Ref Counter",
+      "term_kr": "참고 카운터 없음",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Konsumen",
+      "term_en": "Consumer Data",
+      "term_kr": "소비자 데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Pelamar",
+      "term_en": "Status Applicant",
+      "term_kr": "신청자 현황",
+      "category": "field"
+    },
+    {
+      "term_id": "Jumlah Percobaan Ulang",
+      "term_en": "Retry Count",
+      "term_kr": "재시도 횟수",
+      "category": "field"
+    },
+    {
+      "term_id": "Robot",
+      "term_en": "Robot",
+      "term_kr": "기계 인간",
+      "category": "field"
+    },
+    {
+      "term_id": "Aktivitas Robot",
+      "term_en": "Robot Activity",
+      "term_kr": "로봇 활동",
+      "category": "field"
+    },
+    {
+      "term_id": "MENUNGGU ANTRIAN",
+      "term_en": "WAITING IN QUEUE",
+      "term_kr": "줄 서서 기다리는 중",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES PENGAJUAN",
+      "term_en": "APPLICATION PROCESS",
+      "term_kr": "지원 절차",
+      "category": "field"
+    },
+    {
+      "term_id": "PENGAJUAN SELESAI",
+      "term_en": "SUBMISSION COMPLETED",
+      "term_kr": "제출 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "PENGAJUAN GAGAL",
+      "term_en": "SUBMISSION FAILED",
+      "term_kr": "제출 실패",
+      "category": "field"
+    },
+    {
+      "term_id": "ANTRIAN PERSETUJUAN",
+      "term_en": "APPROVAL QUEUE",
+      "term_kr": "승인 대기열",
+      "category": "field"
+    },
+    {
+      "term_id": "PERSETUJUAN SELESAI",
+      "term_en": "AGREEMENT COMPLETED",
+      "term_kr": "계약 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "PERSETUJUAN GAGAL",
+      "term_en": "AGREEMENT FAILED",
+      "term_kr": "합의가 결렬되었습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "ANTRIAN EKSTRAKSI",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "EXTRAKSI SELESAI",
+      "term_en": "EXTRACTION COMPLETE",
+      "term_kr": "추출 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "EXTRAKSI GAGAL",
+      "term_en": "EXTRACTION FAILED",
+      "term_kr": "추출 실패",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES ROBOT BERHASIL",
+      "term_en": "ROBOT PROCESS",
+      "term_kr": "로봇 프로세스 성공",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES IDEB GAGAL",
+      "term_en": "IDEB PROCESS FAILED",
+      "term_kr": "IDEB 프로세스가 실패했습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES IDEB SELESAI",
+      "term_en": "IDEB PROCESS",
+      "term_kr": "IDEB 프로세스가",
+      "category": "field"
+    },
+    {
+      "term_id": "IDEB PROCESS",
+      "term_en": "IDEB PROCESS",
+      "term_kr": "IDEB 프로세스",
+      "category": "field"
+    },
+    {
+      "term_id": "ANTRIAN PROSES IDEB",
+      "term_en": "IDEB PROCESS QUEUE",
+      "term_kr": "IDEB 프로세스 큐",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES SLIK GAGAL",
+      "term_en": "SLIK PROCESS FAILED",
+      "term_kr": "SLIK 프로세스가 실패했습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "SLIK TIDAK DITEMUKAN",
+      "term_en": "SLIK NOT FOUND",
+      "term_kr": "SLIK을 찾을 수 없습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES PENCARIAN SLIK",
+      "term_en": "SLIK SEARCH PROCESS",
+      "term_kr": "SLIK 검색 프로세스 실패",
+      "category": "field"
+    },
+    {
+      "term_id": "GAGAL",
+      "term_en": "FAILED",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES BERJALAN",
+      "term_en": "PROCESS IN PROGRESS",
+      "term_kr": "진행 중",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Distribusi",
+      "term_en": "Distribution Status",
+      "term_kr": "배포 상태",
+      "category": "field"
+    },
+    {
+      "term_id": "Perbarui Tabel Permintaan",
+      "term_en": "Update App Request Table",
+      "term_kr": "앱 업데이트 요청 테이블",
+      "category": "field"
+    },
+    {
+      "term_id": "Aplikasi",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Perbarui Aplikasi Distribusi",
+      "term_en": "Update App Distribusi Table",
+      "term_kr": "Perbarui Aplikasi Distribusi",
+      "category": "field"
+    },
+    {
+      "term_id": "Tabel",
+      "term_en": "",
+      "term_kr": "Tabel",
+      "category": "field"
+    },
+    {
+      "term_id": "Pembaruan Robot",
+      "term_en": "Update Robot",
+      "term_kr": "업데이트 로봇",
+      "category": "field"
+    },
+    {
+      "term_id": "Dedup",
+      "term_en": "Dedup",
+      "term_kr": "중복 제거",
+      "category": "field"
+    },
+    {
+      "term_id": "Parameter User List",
+      "term_en": "Parameter User List",
+      "term_kr": "사용자 목록 매개변수",
+      "category": "field"
+    },
+    {
+      "term_id": "REJECTED",
+      "term_en": "REJECTED",
+      "term_kr": "거부됨",
+      "category": "field"
+    },
+    {
+      "term_id": "EXTRACT IDEB",
+      "term_en": "EXTRACT IDEB",
+      "term_kr": "IDEB 추출",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES SLIK",
+      "term_en": "SLIK PROCESS",
+      "term_kr": "슬릭 프로세스",
+      "category": "field"
+    },
+    {
+      "term_id": "SUBMITED",
+      "term_en": "SUBMITED",
+      "term_kr": "제출됨",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES SELESAI",
+      "term_en": "DONE",
+      "term_kr": "프로세스가 완료되었습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "ANTRIAN",
+      "term_en": "QUEUE",
+      "term_kr": "대기줄",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES GAGAL",
+      "term_en": "PROCESS FAILED",
+      "term_kr": "프로세스가 실패했습니다",
+      "category": "field"
+    },
+    {
+      "term_id": "Diagram Flow",
+      "term_en": "Diagram Flow",
+      "term_kr": "다이어그램 흐름",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES EXTRAKSI",
+      "term_en": "PROSES EXTRAKSI",
+      "term_kr": "추출 과정",
+      "category": "field"
+    },
+    {
+      "term_id": "PROSES IDEB",
+      "term_en": "IDEB PROCESS",
+      "term_kr": "IDEB 프로세스",
+      "category": "field"
+    },
+    {
+      "term_id": "Penanggung Jawab",
+      "term_en": "PIC",
+      "term_kr": "담당자",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Penanggung",
+      "term_en": "Enter PIC",
+      "term_kr": "담당자 이름을",
+      "category": "field"
+    },
+    {
+      "term_id": "Jawab",
+      "term_en": "",
+      "term_kr": "입력하십시오.",
+      "category": "field"
+    },
+    {
+      "term_id": "Syarat dan Ketentuan",
+      "term_en": "Terms and Conditions",
+      "term_kr": "약관",
+      "category": "field"
+    },
+    {
+      "term_id": "Deskripsi",
+      "term_en": "Description",
+      "term_kr": "설명",
+      "category": "field"
+    },
+    {
+      "term_id": "Edit Data Non Debitur",
+      "term_en": "Edit Data Non Debitur",
+      "term_kr": "비채무자 데이터 편집",
+      "category": "field"
+    },
+    {
+      "term_id": "Tahap",
+      "term_en": "Stage",
+      "term_kr": "단계",
+      "category": "field"
+    },
+    {
+      "term_id": "Mengajukan",
+      "term_en": "Submit",
+      "term_kr": "제출하다",
+      "category": "field"
+    },
+    {
+      "term_id": "Setuju",
+      "term_en": "Approve",
+      "term_kr": "승인하다",
+      "category": "field"
+    },
+    {
+      "term_id": "melakukan pengajuan",
+      "term_en": "submit this data?",
+      "term_kr": "제출하시겠어요?",
+      "category": "field"
+    },
+    {
+      "term_id": "terhadap data ini?",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Simpan",
+      "term_en": "Save Confirmation",
+      "term_kr": "저장 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Apakah anda yakin ingin",
+      "term_en": "Are you sure you want to",
+      "term_kr": "이 데이터를",
+      "category": "field"
+    },
+    {
+      "term_id": "menyimpan data ini?",
+      "term_en": "save this data?",
+      "term_kr": "저장하시겠어요?",
+      "category": "field"
+    },
+    {
+      "term_id": "Detail Approval",
+      "term_en": "",
+      "term_kr": "세부 승인",
+      "category": "field"
+    },
+    {
+      "term_id": "Pengajuan",
+      "term_en": "Submission",
+      "term_kr": "제출",
+      "category": "field"
+    },
+    {
+      "term_id": "Segment",
+      "term_en": "Segment",
+      "term_kr": "분절",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Segment",
+      "term_en": "Select Segment",
+      "term_kr": "세그먼트를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Umur",
+      "term_en": "Age",
+      "term_kr": "나이",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Umur",
+      "term_en": "Enter Age",
+      "term_kr": "나이 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Bulan",
+      "term_en": "Month",
+      "term_kr": "월",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Bulan",
+      "term_en": "Enter Month",
+      "term_kr": "월을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Email",
+      "term_en": "Email",
+      "term_kr": "이메일",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Email",
+      "term_en": "Enter Email",
+      "term_kr": "이메일을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Pekerjaan",
+      "term_en": "Job Data",
+      "term_kr": "직무 데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "Pekerjaan",
+      "term_en": "Job",
+      "term_kr": "일하다",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Pekerjaan",
+      "term_en": "Select a Job",
+      "term_kr": "직업을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "NIP",
+      "term_en": "NIP",
+      "term_kr": "집게발",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan NIP",
+      "term_en": "Enter NIP",
+      "term_kr": "NIP 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Tempat Kerja",
+      "term_en": "Workplace",
+      "term_kr": "직장",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tempat Kerja",
+      "term_en": "Enter Workplace",
+      "term_kr": "직장에 들어가기",
+      "category": "field"
+    },
+    {
+      "term_id": "Umur Pensiun",
+      "term_en": "Retirement Age",
+      "term_kr": "은퇴 연령",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Umur Pensiun",
+      "term_en": "Enter Retirement Age",
+      "term_kr": "은퇴 연령에 진입",
+      "category": "field"
+    },
+    {
+      "term_id": "Pensiun Bulan Ke",
+      "term_en": "Retirement Month",
+      "term_kr": "은퇴의 달",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Pensiun Bulan Ke",
+      "term_en": "Enter Monthly Retirement",
+      "term_kr": "월별 퇴직금 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Tempat Kerja",
+      "term_en": "Name of Workplace",
+      "term_kr": "직장명",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Tempat",
+      "term_en": "Enter Workplace Name",
+      "term_kr": "직장 이름을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Kerja",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Telepon Kantor",
+      "term_en": "Office Phone",
+      "term_kr": "사무실 전화",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Telepon Kantor",
+      "term_en": "Enter Office Phone",
+      "term_kr": "사무실 전화번호를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jabatan",
+      "term_en": "Job Title",
+      "term_kr": "직책",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Jabatan",
+      "term_en": "Enter Job Title",
+      "term_kr": "위치를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Tabungan Pencairan",
+      "term_en": "Credit Disbursement",
+      "term_kr": "신용 지급 저축 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Kredit",
+      "term_en": "Savings Number",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor Tabungan",
+      "term_en": "Enter Credit Disbursement",
+      "term_kr": "신용 지급 저축 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "Pencairan Kredit",
+      "term_en": "Savings Number",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Rekening Gaji",
+      "term_en": "Salary Account Number",
+      "term_kr": "급여 계좌 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor Rekening",
+      "term_en": "Enter Salary Account",
+      "term_kr": "급여 계좌 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "Gaji",
+      "term_en": "Number",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Cara Pembayaran Gaji",
+      "term_en": "Salary Payment Method",
+      "term_kr": "급여 지급 방식",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Cara Pembayaran Gaji",
+      "term_en": "Select Salary Payment",
+      "term_kr": "급여 지급 방식을",
+      "category": "field"
+    },
+    {
+      "term_id": "Gaji Pokok",
+      "term_en": "Basic salary",
+      "term_kr": "기본급",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Gaji Pokok",
+      "term_en": "Enter Basic Salary",
+      "term_kr": "기본 급여를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Suami Istri",
+      "term_en": "Spousal Allowance",
+      "term_kr": "배우자 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan Suami",
+      "term_en": "Enter Spousal Allowance",
+      "term_kr": "배우자 부양비를",
+      "category": "field"
+    },
+    {
+      "term_id": "Istri",
+      "term_en": "",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Anak",
+      "term_en": "Child Support",
+      "term_kr": "자녀 양육비",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan Anak",
+      "term_en": "Enter Child Allowance",
+      "term_kr": "아동 수당을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Beras",
+      "term_en": "Rice Allowance",
+      "term_kr": "쌀 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan Beras",
+      "term_en": "Enter Rice Allowance",
+      "term_kr": "쌀 배급량을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Jabatan",
+      "term_en": "Structural Position",
+      "term_kr": "구조적 위치 허용 오차",
+      "category": "field"
+    },
+    {
+      "term_id": "Struktural",
+      "term_en": "Allowance",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan",
+      "term_en": "Enter Structural Position",
+      "term_kr": "구조적 위치 허용값을",
+      "category": "field"
+    },
+    {
+      "term_id": "Jabatan Struktural",
+      "term_en": "Allowance",
+      "term_kr": "입력하십시오.",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Posisi",
+      "term_en": "Functional Position",
+      "term_kr": "직무 위치 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Fungsional",
+      "term_en": "Allowance",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan Posisi",
+      "term_en": "Enter Functional Position",
+      "term_kr": "기능별 직위 수당을",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Umum",
+      "term_en": "General Allowance",
+      "term_kr": "일반 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Lain Lain",
+      "term_en": "Other Allowances",
+      "term_kr": "기타 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan Lain",
+      "term_en": "Enter Other Allowances",
+      "term_kr": "기타 수당을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Lain",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Askes Bersih",
+      "term_en": "Clean Health Insurance",
+      "term_kr": "클린 헬스 인슈어런스",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Askes Bersih",
+      "term_en": "Enter Clean Health",
+      "term_kr": "깨끗한 질문을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pembulatan",
+      "term_en": "Rounding",
+      "term_kr": "반올림",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Pembulatan",
+      "term_en": "Enter Rounding",
+      "term_kr": "반올림 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Total Pendapatan",
+      "term_en": "Total Revenue",
+      "term_kr": "총 수익",
+      "category": "field"
+    },
+    {
+      "term_id": "PFK Beras",
+      "term_en": "Rice PFK",
+      "term_kr": "쌀 PFK",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan PFK Beras",
+      "term_en": "Enter PFK Rice",
+      "term_kr": "PFK 라이스를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Simpanan Wajib",
+      "term_en": "Mandatory Savings",
+      "term_kr": "의무 저축",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Simpanan Wajib",
+      "term_en": "Enter Mandatory Savings",
+      "term_kr": "의무 저축액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Sewa Rumah",
+      "term_en": "Rent a house",
+      "term_kr": "집을 임대하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Biaya Sewa",
+      "term_en": "Enter House Rent Cost",
+      "term_kr": "집세 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Rumah",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Tabungan Rumah PNS",
+      "term_en": "Civil Servant Home Savings",
+      "term_kr": "공무원 주택저축",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tabungan Rumah",
+      "term_en": "Enter Civil Servant Home",
+      "term_kr": "공무원 주택저축 계좌에",
+      "category": "field"
+    },
+    {
+      "term_id": "PNS",
+      "term_en": "Savings",
+      "term_kr": "가입하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Hutang Kelebihan",
+      "term_en": "Excess Debt",
+      "term_kr": "과도한 부채",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Hutang",
+      "term_en": "Enter Excess Debt",
+      "term_kr": "초과 부채를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Kelebihan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Lain Lain",
+      "term_en": "Etc",
+      "term_kr": "등",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Biaya Lain Lain",
+      "term_en": "Enter Other Costs",
+      "term_kr": "기타 비용을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pajak Penghasilan",
+      "term_en": "Income tax",
+      "term_kr": "소득세",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Pajak",
+      "term_en": "Enter Income Tax",
+      "term_kr": "소득세를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Penghasilan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Askes Potongan",
+      "term_en": "Discounted Health",
+      "term_kr": "할인된 건강 보험",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Askes Potongan",
+      "term_en": "Enter Discounted Health",
+      "term_kr": "할인 요청 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Total Potongan",
+      "term_en": "Total Deductions",
+      "term_kr": "총 공제액",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Total Potongan",
+      "term_en": "Enter Total Deductions",
+      "term_kr": "총 공제액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Total Gaji Bersih",
+      "term_en": "Total Net Salary",
+      "term_kr": "총 순수 급여",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan TKD TPP",
+      "term_en": "TKD TPP Allowance",
+      "term_kr": "TKD TPP 허용량",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunjangan TKD",
+      "term_en": "Enter TKD TPP Allowance",
+      "term_kr": "TKD TPP 허용량을",
+      "category": "field"
+    },
+    {
+      "term_id": "TPP",
+      "term_en": "",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Lain",
+      "term_en": "Other Allowances",
+      "term_kr": "기타 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Total Tunjangan Lain",
+      "term_en": "Total Other Allowances",
+      "term_kr": "기타 수당 총액",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan Lain Di Luar Gaji",
+      "term_en": "Other Allowances Outside",
+      "term_kr": "채무자의 순 급여 외 기타",
+      "category": "field"
+    },
+    {
+      "term_id": "Bersih Debitur",
+      "term_en": "of the Debtor's Net Salary",
+      "term_kr": "수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Penghasilan Keluarga",
+      "term_en": "Other Family Income",
+      "term_kr": "기타 가족 소득",
+      "category": "field"
+    },
+    {
+      "term_id": "Lainnya",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Penghasilan Lainnya",
+      "term_en": "Other Income",
+      "term_kr": "기타 소득",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Penghasilan",
+      "term_en": "Enter Other Income",
+      "term_kr": "기타 소득을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jumlah Keseluruhan",
+      "term_en": "Total salary amount",
+      "term_kr": "총 급여 금액",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Fasilitas",
+      "term_en": "Facility Data",
+      "term_kr": "시설 데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "Fasilitas Kredit",
+      "term_en": "Credit Facilities",
+      "term_kr": "신용 시설",
+      "category": "field"
+    },
+    {
+      "term_id": "Ringkasan",
+      "term_en": "Summary",
+      "term_kr": "요약",
+      "category": "field"
+    },
+    {
+      "term_id": "ID Fasilitas",
+      "term_en": "Facility ID",
+      "term_kr": "시설 ID",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Kredit yang",
+      "term_en": "Type of Credit Required",
+      "term_kr": "필요한 학점 종류",
+      "category": "field"
+    },
+    {
+      "term_id": "dibutuhkan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Kredit yang",
+      "term_en": "Select the type of credit",
+      "term_kr": "필요한 학점 유형을",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Pengajuan",
+      "term_en": "Submission Type",
+      "term_kr": "제출 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Pengajuan",
+      "term_en": "Select Submission Type",
+      "term_kr": "제출 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Palfon Kredit yang Diminta",
+      "term_en": "Requested Credit Ceiling",
+      "term_kr": "요청된 신용 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Plafon Kredit",
+      "term_en": "Enter the requested credit",
+      "term_kr": "요청하신 신용 한도를",
+      "category": "field"
+    },
+    {
+      "term_id": "yang Diminta",
+      "term_en": "limit",
+      "term_kr": "입력하세요.",
+      "category": "field"
+    },
+    {
+      "term_id": "Produk Kredit yang",
+      "term_en": "Required Credit Products",
+      "term_kr": "필수 신용 상품",
+      "category": "field"
+    },
+    {
+      "term_id": "Dibutuhkan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Produk Kredit yang",
+      "term_en": "Select the required credit",
+      "term_kr": "필요한 신용 상품을",
+      "category": "field"
+    },
+    {
+      "term_id": "Blokir Angsuran",
+      "term_en": "Installment Block",
+      "term_kr": "할부 블록",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Blokir Angsuran",
+      "term_en": "Select Block Installment",
+      "term_kr": "분할 납부 방식을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tujuan Penggunaan SID",
+      "term_en": "Purpose of Using SID",
+      "term_kr": "SID 사용 목적",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tujuan Penggunaan",
+      "term_en": "Select the Purpose of Using",
+      "term_kr": "SID 사용 목적을",
+      "category": "field"
+    },
+    {
+      "term_id": "SID",
+      "term_en": "SID",
+      "term_kr": "선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tujuan Penggunaan LBU",
+      "term_en": "Purpose of Using LBU",
+      "term_kr": "LBU 사용 목적",
+      "category": "field"
+    },
+    {
+      "term_id": "LBU",
+      "term_en": "LBU",
+      "term_kr": "선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jangka Waktu yang Diminta",
+      "term_en": "Requested Timeframe",
+      "term_kr": "요청된 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Jangka Waktu",
+      "term_en": "Enter the requested time",
+      "term_kr": "원하는 기간을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Bunga",
+      "term_en": "Type of Interest",
+      "term_kr": "대출 이자 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Bunga",
+      "term_en": "Select Interest",
+      "term_kr": "대출 이자 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Suku Bunga Efektif",
+      "term_en": "Effective Interest Rate",
+      "term_kr": "실효이자율",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Suku Bunga",
+      "term_en": "Enter Effective Interest Rate",
+      "term_kr": "실효이자율을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Efektif",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Kredit Selesai",
+      "term_en": "Credit Completed",
+      "term_kr": "학점 이수 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Kredit Selesai",
+      "term_en": "Enter Credit Completed",
+      "term_kr": "학점 입력 완료",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran",
+      "term_en": "Installments",
+      "term_kr": "할부",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Angsuran",
+      "term_en": "Enter Installment",
+      "term_kr": "할부 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Gaji Debitur",
+      "term_en": "Debtor's Salary",
+      "term_kr": "채무자의 급여",
+      "category": "field"
+    },
+    {
+      "term_id": "Persen THP",
+      "term_en": "THP Percentage",
+      "term_kr": "THP 비율",
+      "category": "field"
+    },
+    {
+      "term_id": "Sisa Gaji Bersih yang",
+      "term_en": "Net Salary Remaining",
+      "term_kr": "남은 순수 급여",
+      "category": "field"
+    },
+    {
+      "term_id": "diterima (setelah dipotong",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "angsuran kredit)",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Penghasilan Keluarga Diluar",
+      "term_en": "Family Income Excluding",
+      "term_kr": "가족 소득 (소득 제외)",
+      "category": "field"
+    },
+    {
+      "term_id": "Gaji Debitur + Penghasilan",
+      "term_en": "Debtor's Salary + Family",
+      "term_kr": "채무자의 급여 + 가족 소득",
+      "category": "field"
+    },
+    {
+      "term_id": "Keluarga",
+      "term_en": "Income",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran Kredit Tidak",
+      "term_en": "Unpaid Credit Installments",
+      "term_kr": "미납 신용 할부금",
+      "category": "field"
+    },
+    {
+      "term_id": "Dilunasi",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Total Angsuran",
+      "term_en": "Total Installment",
+      "term_kr": "총 할부금",
+      "category": "field"
+    },
+    {
+      "term_id": "Penghasilan Keluarga -",
+      "term_en": "Family Income - Credit",
+      "term_kr": "가족 소득 - 대출 분할 상환",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran Kredit",
+      "term_en": "Installments",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Blokir Angsuran Pra",
+      "term_en": "Block Pre-Retirement",
+      "term_kr": "퇴직 전 분할 납부",
+      "category": "field"
+    },
+    {
+      "term_id": "Purnabakti",
+      "term_en": "Installments",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Sisa Diterima",
+      "term_en": "Remainder Received",
+      "term_kr": "나머지 금액 수령",
+      "category": "field"
+    },
+    {
+      "term_id": "Pelunasan Pinjaman Lama",
+      "term_en": "Old Loan Repayment",
+      "term_kr": "기존 대출금 상환",
+      "category": "field"
+    },
+    {
+      "term_id": "Jumlah Bulan Sebelum",
+      "term_en": "Number of Months Before",
+      "term_kr": "은퇴까지 남은 개월 수",
+      "category": "field"
+    },
+    {
+      "term_id": "Pensiun",
+      "term_en": "Retirement",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Kredit",
+      "term_en": "Type of Credit",
+      "term_kr": "신용 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Kredit",
+      "term_en": "Select Credit Type",
+      "term_kr": "신용 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Perjanjian Kredit",
+      "term_en": "Credit Agreement Number",
+      "term_kr": "신용 계약 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor",
+      "term_en": "Enter Credit Agreement",
+      "term_kr": "신용 계약 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "Perjanjian",
+      "term_en": "Number",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Perjanjian Kredit",
+      "term_en": "Credit Agreement Date",
+      "term_kr": "신용 계약일",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Rekening",
+      "term_en": "Account number",
+      "term_kr": "계좌번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Kolektabilitas",
+      "term_en": "Collectibility",
+      "term_kr": "수집 가능성",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Kolektabilitas",
+      "term_en": "Enter Collectability",
+      "term_kr": "수집 가능성에 참여하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Rekening",
+      "term_en": "Account Status",
+      "term_kr": "계정 상태",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Status Rekening",
+      "term_en": "Select Account Status",
+      "term_kr": "계정 상태를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Plafon",
+      "term_en": "Loan Limit",
+      "term_kr": "대출 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Plafon",
+      "term_en": "Enter Loan Limit",
+      "term_kr": "대출 한도를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Fasilitas Kredit Existing",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "External",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Debitur",
+      "term_en": "Debtor",
+      "term_kr": "채무자",
+      "category": "field"
+    },
+    {
+      "term_id": "Tenor",
+      "term_en": "Tenor",
+      "term_kr": "테너",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tenor",
+      "term_en": "Enter Tenor",
+      "term_kr": "테너를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Baki Debit",
+      "term_en": "Debit Balance",
+      "term_kr": "차변 잔액",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Baki Debit",
+      "term_en": "Enter Debit Balance",
+      "term_kr": "직불 카드 트레이에 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran Pokok",
+      "term_en": "Principal Installment",
+      "term_kr": "원금 할부금",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Angsuran Pokok",
+      "term_en": "Enter Principal Installment",
+      "term_kr": "원금 납부액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran Bunga",
+      "term_en": "Interest Installment",
+      "term_kr": "이자 할부",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Angsuran Bunga",
+      "term_en": "Enter Interest Installment",
+      "term_kr": "이자 할부 금액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Total Angsuran",
+      "term_en": "Enter Total Installment",
+      "term_kr": "총 할부금을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Bunga Berjalan",
+      "term_en": "floating interest rate",
+      "term_kr": "변동금리",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Bunga Berjalan",
+      "term_en": "Enter floating interest rate",
+      "term_kr": "변동금리를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunggakan Pokok",
+      "term_en": "Principal Arrears",
+      "term_kr": "원금 연체금",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunggakan Pokok",
+      "term_en": "Enter Principal Arrears",
+      "term_kr": "원금 연체금을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunggakan Bunga",
+      "term_en": "Interest Arrears",
+      "term_kr": "이자 연체",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Tunggakan",
+      "term_en": "Enter Interest Arrears",
+      "term_kr": "이자 연체액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Bunga",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Penalti",
+      "term_en": "Penalty",
+      "term_kr": "패널티",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Penalti",
+      "term_en": "Enter Penalty",
+      "term_kr": "벌칙 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Akan Dilunasi",
+      "term_en": "Will be paid off",
+      "term_kr": "상환될 것입니다",
+      "category": "field"
+    },
+    {
+      "term_id": "Bank",
+      "term_en": "Bank",
+      "term_kr": "은행",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Bank",
+      "term_en": "Select Bank",
+      "term_kr": "셀렉트 뱅크",
+      "category": "field"
+    },
+    {
+      "term_id": "Penyebab Deviasi",
+      "term_en": "Causes of Deviation",
+      "term_kr": "편차의 원인",
+      "category": "field"
+    },
+    {
+      "term_id": "Keterangan Deviasi",
+      "term_en": "Deviation Description",
+      "term_kr": "편차 설명",
+      "category": "field"
+    },
+    {
+      "term_id": "Detail slik resultd",
+      "term_en": "Detail slik result",
+      "term_kr": "SLIK 조회 결과 상세",
+      "category": "field"
+    },
+    {
+      "term_id": "Total fasilitas",
+      "term_en": "Total",
+      "term_kr": "총 시설 수",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Pasangan",
+      "term_en": "Partner's Name",
+      "term_kr": "파트너 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Pasangan",
+      "term_en": "Enter Partner Name",
+      "term_kr": "파트너 이름을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Kontrak fasilitas aktif",
+      "term_en": "Active Facilitie Contract",
+      "term_kr": "활성 금융시설 계약",
+      "category": "field"
+    },
+    {
+      "term_id": "Internal",
+      "term_en": "Facilities",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Total fasilitas aktif",
+      "term_en": "Total Active Facilities",
+      "term_kr": "총 활성 금융시설",
+      "category": "field"
+    },
+    {
+      "term_id": "Platfon efective",
+      "term_en": "Efectif credit limit",
+      "term_kr": "유효 신용한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Policy result",
+      "term_en": "Policy result",
+      "term_kr": "정책 결과",
+      "category": "field"
+    },
+    {
+      "term_id": "Kontrak fasilitas lunas",
+      "term_en": "Settled Facility Contract",
+      "term_kr": "상환 완료 금융시설 계약",
+      "category": "field"
+    },
+    {
+      "term_id": "Kontrak fasilitas lain lain",
+      "term_en": "Other Facility Contract",
+      "term_kr": "기타 금융시설 계약",
+      "category": "field"
+    },
+    {
+      "term_id": "Master Produk",
+      "term_en": "Master Product",
+      "term_kr": "마스터 제품",
+      "category": "field"
+    },
+    {
+      "term_id": "Kontrak fasilitas hapus",
+      "term_en": "Written-off Facility",
+      "term_kr": "상각 금융시설 계약",
+      "category": "field"
+    },
+    {
+      "term_id": "buku",
+      "term_en": "Contract",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Deviasi",
+      "term_en": "Deviation",
+      "term_kr": "편차",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Export PDF",
+      "term_en": "PDF Export Confirmation",
+      "term_kr": "PDF 내보내기 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "melakukan export data",
+      "term_en": "export the data as a PDF?",
+      "term_kr": "내보내시겠습니까?",
+      "category": "field"
+    },
+    {
+      "term_id": "dalam bentuk PDF?",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfirmasi Export TXT",
+      "term_en": "TXT Export Confirmation",
+      "term_kr": "TXT 내보내기 확인",
+      "category": "field"
+    },
+    {
+      "term_id": "Apakah Anda yakin ingin",
+      "term_en": "Are you sure you want to",
+      "term_kr": "데이터를 TXT 형식으로",
+      "category": "field"
+    },
+    {
+      "term_id": "mengekspor data dalam",
+      "term_en": "export the data as a TXT",
+      "term_kr": "내보내시겠습니까?",
+      "category": "field"
+    },
+    {
+      "term_id": "format TXT?",
+      "term_en": "file?",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Export pdf",
+      "term_en": "Export PDF",
+      "term_kr": "PDF 내보내기",
+      "category": "field"
+    },
+    {
+      "term_id": "Export TXT",
+      "term_en": "Export TXT",
+      "term_kr": "TXT 내보내기",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Produk",
+      "term_en": "Product name",
+      "term_kr": "제품명",
+      "category": "field"
+    },
+    {
+      "term_id": "kesimpulan",
+      "term_en": "Conclusion",
+      "term_kr": "결론",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama Produk",
+      "term_en": "Enter Product Name",
+      "term_kr": "제품명을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Deskripsi",
+      "term_en": "Enter Description",
+      "term_kr": "설명을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal berlaku",
+      "term_en": "Effective Date",
+      "term_kr": "시행일",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Kedaluwarsa",
+      "term_en": "Expiry Date",
+      "term_kr": "만료일",
+      "category": "field"
+    },
+    {
+      "term_id": "Kriteria Nasabah",
+      "term_en": "Customer Criteria",
+      "term_kr": "고객 기준",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal Umur",
+      "term_en": "Minimum Age",
+      "term_kr": "최소 연령",
+      "category": "field"
+    },
+    {
+      "term_id": "Pengaturan Fasilitas",
+      "term_en": "Facility Setting",
+      "term_kr": "시설 설정",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal Plafon",
+      "term_en": "Minimal Plafon",
+      "term_kr": "대출 최저 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Minimal Plafon",
+      "term_en": "Enter Minimal Plafon",
+      "term_kr": "대출 대출 한도를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Setoran Awal Minimum",
+      "term_en": "Minimum Initial Deposit",
+      "term_kr": "최소 초기 예치금",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Setoran Awal",
+      "term_en": "Enter Minimum Initial",
+      "term_kr": "최소 초기 예치금을",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimum",
+      "term_en": "Deposit",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal Tenor",
+      "term_en": "Minimal Tenor",
+      "term_kr": "미니멀 테너",
+      "category": "field"
+    },
+    {
+      "term_id": "Maximal Tenor",
+      "term_en": "Maximal Tenor",
+      "term_kr": "최대 테너",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Maximal Tenor",
+      "term_en": "Enter the maximum tenor",
+      "term_kr": "최대 테너를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Promo Bunga Spesial",
+      "term_en": "Promo Interest",
+      "term_kr": "프로모션 관심",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Promo Bunga",
+      "term_en": "Enter Promo Interest",
+      "term_kr": "특별 관심 분야 프로모션에",
+      "category": "field"
+    },
+    {
+      "term_id": "Spesial",
+      "term_en": "",
+      "term_kr": "참여하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Promo Period",
+      "term_en": "Promo Period",
+      "term_kr": "프로모션 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Promo Period",
+      "term_en": "Enter Promo Period",
+      "term_kr": "프로모션 기간 참여하기",
+      "category": "field"
+    },
+    {
+      "term_id": "Spesifikasi Objek",
+      "term_en": "Object Specification",
+      "term_kr": "객체 명세",
+      "category": "field"
+    },
+    {
+      "term_id": "Dokumen Jaminan",
+      "term_en": "Collateral Document",
+      "term_kr": "담보 서류",
+      "category": "field"
+    },
+    {
+      "term_id": "Pengaturan Jaminan",
+      "term_en": "Collateral Setting",
+      "term_kr": "담보 설정",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Kode Produk",
+      "term_en": "Enter Product Code",
+      "term_kr": "제품 코드를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Versi",
+      "term_en": "Version",
+      "term_kr": "버전",
+      "category": "field"
+    },
+    {
+      "term_id": "Deviasi Konsumer",
+      "term_en": "Consumer Deviation",
+      "term_kr": "소비자 편차",
+      "category": "field"
+    },
+    {
+      "term_id": "Deviasi Komersil",
+      "term_en": "Commercial Deviation",
+      "term_kr": "상업적 편차",
+      "category": "field"
+    },
+    {
+      "term_id": "Dokumen Daftar Periksa",
+      "term_en": "Checklist Document",
+      "term_kr": "체크리스트 문서",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Minimal Umur",
+      "term_en": "Enter Minimum Age",
+      "term_kr": "최소 연령을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Maksimal Umur",
+      "term_en": "Maximum Age",
+      "term_kr": "최대 연령",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Maksimal Umur",
+      "term_en": "Enter Maximum Age",
+      "term_kr": "최대 연령을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis Tempat Pekerjaan",
+      "term_en": "Occupation Type",
+      "term_kr": "직업 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Jenis Tempat Pekerjaan",
+      "term_en": "Select Occupation Type",
+      "term_kr": "직업 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Status Karyawan",
+      "term_en": "Employee Status",
+      "term_kr": "직원 상태",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Status Karyawan",
+      "term_en": "Select Employee Status",
+      "term_kr": "직원 상태를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Periode Kerja Minimum",
+      "term_en": "Minimum Work Period",
+      "term_kr": "최소 근무 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Periode Kerja",
+      "term_en": "Enter Minimum Work Period",
+      "term_kr": "최소 근무 기간을",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal Pendapatan",
+      "term_en": "Minimum Income",
+      "term_kr": "최저 소득",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Minimal",
+      "term_en": "Enter Minimum Income",
+      "term_kr": "최소 소득을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pendapatan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Dokumen Fasilitas",
+      "term_en": "Facility Document Type",
+      "term_kr": "시설 문서 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Wajib",
+      "term_en": "Mandatory",
+      "term_kr": "필수적인",
+      "category": "field"
+    },
+    {
+      "term_id": "Tarif Bertingkat",
+      "term_en": "Tiered Rate",
+      "term_kr": "단계별 요금",
+      "category": "field"
+    },
+    {
+      "term_id": "Skema Bunga",
+      "term_en": "Interest Schema",
+      "term_kr": "관심 계획",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Skema Bunga",
+      "term_en": "Select Interest Schema",
+      "term_kr": "관심 분야 선택",
+      "category": "field"
+    },
+    {
+      "term_id": "Regular Promo",
+      "term_en": "Regular Promo",
+      "term_kr": "일반 프로모션",
+      "category": "field"
+    },
+    {
+      "term_id": "Flat Anuitas",
+      "term_en": "Flat Annuity",
+      "term_kr": "정액 연금",
+      "category": "field"
+    },
+    {
+      "term_id": "Anuitas",
+      "term_en": "Annuity",
+      "term_kr": "연금",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Minimal Tenor",
+      "term_en": "Enter Minimum Tenor",
+      "term_kr": "최소 테너를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Flat Anuitas",
+      "term_en": "Enter Flat Annuity",
+      "term_kr": "정액 연금 상품에 가입하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Bunga Promosi",
+      "term_en": "Promo Interest",
+      "term_kr": "프로모션 관심",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Bunga Promosi",
+      "term_en": "Enter Promo Interest",
+      "term_kr": "프로모션 관심 분야를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Periode Promosi",
+      "term_en": "Promo Period",
+      "term_kr": "프로모션 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Periode Promosi",
+      "term_en": "Enter Promo Period",
+      "term_kr": "프로모션 기간 참여하기",
+      "category": "field"
+    },
+    {
+      "term_id": "Maximal Plafon",
+      "term_en": "Maximal Plafon",
+      "term_kr": "막시말 플라폰",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Maximal Plafon",
+      "term_en": "Enter Maximal Plafon",
+      "term_kr": "최대 천장을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Konfigurasi Biaya",
+      "term_en": "Fee Configuration",
+      "term_kr": "수수료 구성",
+      "category": "field"
+    },
+    {
+      "term_id": "Robot Slik",
+      "term_en": "Robot Slik",
+      "term_kr": "슬릭 로봇",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan URL",
+      "term_en": "Enter URL",
+      "term_kr": "URL을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "URL Stream",
+      "term_en": "URL Stream",
+      "term_kr": "스트림 URL",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan URL Stream",
+      "term_en": "Enter Stream URL",
+      "term_kr": "스트림 URL을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "URL VNC",
+      "term_en": "URL VNC",
+      "term_kr": "URL VNC",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan URL VNC",
+      "term_en": "Enter URL VNC",
+      "term_kr": "VNC URL을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pembuatan Dokumen",
+      "term_en": "Document Creation",
+      "term_kr": "문서 작성",
+      "category": "field"
+    },
+    {
+      "term_id": "Kriteria nasabah",
+      "term_en": "Customer criteria",
+      "term_kr": "고객 기준",
+      "category": "field"
+    },
+    {
+      "term_id": "Parameter general",
+      "term_en": "General parameters",
+      "term_kr": "일반 매개변수",
+      "category": "field"
+    },
+    {
+      "term_id": "Spesifikasi objek",
+      "term_en": "Object specification",
+      "term_kr": "객체 사양",
+      "category": "field"
+    },
+    {
+      "term_id": "Inquiry pengajuan",
+      "term_en": "Application inquiry",
+      "term_kr": "신청 조회",
+      "category": "field"
+    },
+    {
+      "term_id": "Fasilitas Kredit Internal",
+      "term_en": "Fasilitas Kredit Existing",
+      "term_kr": "Fasilitas 신용 기존 내부",
+      "category": "field"
+    },
+    {
+      "term_id": "Pengajuan Detail",
+      "term_en": "Submission Details",
+      "term_kr": "제출 세부 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Pelunasan",
+      "term_en": "Settlement",
+      "term_kr": "합의",
+      "category": "field"
+    },
+    {
+      "term_id": "Skema bunga",
+      "term_en": "Interest schema",
+      "term_kr": "이자 방식",
+      "category": "field"
+    },
+    {
+      "term_id": "regular/promo",
+      "term_en": "regular/promo",
+      "term_kr": "일반 / 프로모션",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal plafon",
+      "term_en": "Minimal plafon",
+      "term_kr": "최소 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Pelunasan",
+      "term_en": "Enter Settlement",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan minimal plafon",
+      "term_en": "Enter minimal plafon",
+      "term_kr": "최소 한도를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Maximal plafon",
+      "term_en": "Maximal plafon",
+      "term_kr": "최대 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimum Setoran Awal",
+      "term_en": "Minimum initial deposit",
+      "term_kr": "최소 초기 예치금",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan setoran awal",
+      "term_en": "Enter minimum initial",
+      "term_kr": "최소 초기 예치금을",
+      "category": "field"
+    },
+    {
+      "term_id": "Keterangan Biaya",
+      "term_en": "Cost Description",
+      "term_kr": "비용 설명",
+      "category": "field"
+    },
+    {
+      "term_id": "Minimal tenor",
+      "term_en": "Minimum tenor",
+      "term_kr": "최소 대출 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan minimal tenor",
+      "term_en": "Enter minimum tenor",
+      "term_kr": "최소 대출 기간을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Persentase",
+      "term_en": "Percentage",
+      "term_kr": "백분율",
+      "category": "field"
+    },
+    {
+      "term_id": "Maksimal tenor",
+      "term_en": "Maximal tenor",
+      "term_kr": "최대 대출 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan maksimal tenor",
+      "term_en": "Enter maximal tenor",
+      "term_kr": "최대 대출 기간을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Nominal Biaya",
+      "term_en": "Fee Amount",
+      "term_kr": "수수료 금액",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nominal Biaya",
+      "term_en": "Enter Fee Amount",
+      "term_kr": "수수료 금액을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Dengan agunan / tanpa",
+      "term_en": "secured/unsecured",
+      "term_kr": "담보 / 무담보",
+      "category": "field"
+    },
+    {
+      "term_id": "agunan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Biaya",
+      "term_en": "Fee",
+      "term_kr": "수수료",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Biaya",
+      "term_en": "Enter Fee",
+      "term_kr": "수수료를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih dengan agunan / tanpa",
+      "term_en": "Enter secure/unsecure",
+      "term_kr": "담보/무담보를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Suku bunga bertingkat",
+      "term_en": "Tiered rate",
+      "term_kr": "단계별 금리",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Penyebab",
+      "term_en": "Enter Deviation Reason",
+      "term_kr": "편차 사유를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Deviasiat",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Flat anuitas",
+      "term_en": "Flat annuity",
+      "term_kr": "고정금리 원리금균등상환",
+      "category": "field"
+    },
+    {
+      "term_id": "anuitas",
+      "term_en": "annuity",
+      "term_kr": "원리금 균등상환",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal Dibuat",
+      "term_en": "Created Date",
+      "term_kr": "생성일",
+      "category": "field"
+    },
+    {
+      "term_id": "Dibuat Oleh",
+      "term_en": "Created By",
+      "term_kr": "생성자",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih regular promo",
+      "term_en": "Select regular promo",
+      "term_kr": "일반/프로모션을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan anuitas",
+      "term_en": "Enter annuity",
+      "term_kr": "원리금 균등상환을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe bunga",
+      "term_en": "Interest type",
+      "term_kr": "금리 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Objek spesifikasi",
+      "term_en": "Object specification",
+      "term_kr": "객체 사양",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe jaminan",
+      "term_en": "Collateral type",
+      "term_kr": "담보 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Objek jaminan",
+      "term_en": "Collateral objek",
+      "term_kr": "담보 대상",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih tipe jaminan",
+      "term_en": "Select type collateral",
+      "term_kr": "담보 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Deskripsi Pihak Terkait",
+      "term_en": "Description Related Parties",
+      "term_kr": "관련 당사자 설명",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Deskripsi Pihak",
+      "term_en": "Enter Description of",
+      "term_kr": "관련 당사자 설명을",
+      "category": "field"
+    },
+    {
+      "term_id": "Terkait",
+      "term_en": "Related Parties",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Partner",
+      "term_en": "Partner Data",
+      "term_kr": "파트너 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Link Jaminan",
+      "term_en": "Collateral Link",
+      "term_kr": "담보 연결",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Jaminan Fasilitas",
+      "term_en": "Facility Collateral Type",
+      "term_kr": "시설 담보 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Jaminan Fasilitas",
+      "term_en": "Select Facility Collateral",
+      "term_kr": "시설 담보 유형을",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe Dokumen Jaminan",
+      "term_en": "Collateral Document Type",
+      "term_kr": "담보 서류 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih Tipe Dokumen Jaminan",
+      "term_en": "Select Collateral Document",
+      "term_kr": "담보 서류 유형을",
+      "category": "field"
+    },
+    {
+      "term_id": "Kepemilikan Jaminan",
+      "term_en": "Facility Collateral",
+      "term_kr": "시설 담보 소유권",
+      "category": "field"
+    },
+    {
+      "term_id": "Fasilitas",
+      "term_en": "Ownership",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Kepemilikan Jaminan",
+      "term_en": "Collateral Ownership Data",
+      "term_kr": "담보 소유 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor Identitas",
+      "term_en": "Collateral Ownership",
+      "term_kr": "담보 소유자 신분증 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nomor Identitas",
+      "term_en": "Enter Collateral Ownership",
+      "term_kr": "담보 소유자 신분증 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama Kepemilikan Jaminan",
+      "term_en": "Collateral Owner Name",
+      "term_kr": "담보 소유자 이름",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Nama",
+      "term_en": "Enter Collateral Owner",
+      "term_kr": "담보 소유자 이름을",
+      "category": "field"
+    },
+    {
+      "term_id": "Objek Jaminan",
+      "term_en": "Collateral Object",
+      "term_kr": "담보 대상",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan Objek Jaminan",
+      "term_en": "Enter Collateral Object",
+      "term_kr": "담보 대상을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Draft Pengajuan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Pengajuan Baru",
+      "term_en": "New Application",
+      "term_kr": "신규 신청",
+      "category": "field"
+    },
+    {
+      "term_id": "Alamat KTP",
+      "term_en": "ID Card Address",
+      "term_kr": "신분증 주소",
+      "category": "field"
+    },
+    {
+      "term_id": "Kode Pos",
+      "term_en": "ZIP Code",
+      "term_kr": "우편번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal devias",
+      "term_en": "Deviation date",
+      "term_kr": "일탈일자",
+      "category": "field"
+    },
+    {
+      "term_id": "Deviasi oleh",
+      "term_en": "Deviation by",
+      "term_kr": "일탈자",
+      "category": "field"
+    },
+    {
+      "term_id": "Produk Credit",
+      "term_en": "Credit product",
+      "term_kr": "여신상품",
+      "category": "field"
+    },
+    {
+      "term_id": "Platfon credit",
+      "term_en": "Credit limit",
+      "term_kr": "여신한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis bunga",
+      "term_en": "Interest type",
+      "term_kr": "금리 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Proses akad kredit",
+      "term_en": "Loan Agreement Process",
+      "term_kr": "대출 약정 절차",
+      "category": "field"
+    },
+    {
+      "term_id": "Data Tambahan",
+      "term_en": "Additional Data",
+      "term_kr": "추가 데이터",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal sk direksi",
+      "term_en": "Board of Directors Decree",
+      "term_kr": "이사회 결의서 날짜",
+      "category": "field"
+    },
+    {
+      "term_id": "Pasal untuk addendum",
+      "term_en": "Article for addendum",
+      "term_kr": "부속합의서 조항",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan pasal untuk",
+      "term_en": "Enter article for addendum",
+      "term_kr": "부속합의서 조항 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "addendum",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Ayat untuk addendum",
+      "term_en": "Paragraph for addendum",
+      "term_kr": "부속합의서 항",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan ayat untuk",
+      "term_en": "Enter paragraph for",
+      "term_kr": "부속합의서 항 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Bunyi ayat",
+      "term_en": "Paragraph content",
+      "term_kr": "조항 내용",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan bunyi ayat",
+      "term_en": "Enter paragraph content",
+      "term_kr": "조항 내용 입력",
+      "category": "field"
+    },
+    {
+      "term_id": "Domisili kantor panitera",
+      "term_en": "Domicile of the District",
+      "term_kr": "지방법원 서기관 사무실",
+      "category": "field"
+    },
+    {
+      "term_id": "pengadilan negeri",
+      "term_en": "Court Registrar's Office",
+      "term_kr": "소재지",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor sk direksi",
+      "term_en": "Board of Directors Decree",
+      "term_kr": "이사회 결정 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan domisili kantor",
+      "term_en": "Enter the Domicile of the",
+      "term_kr": "지방법원 서기관 사무실",
+      "category": "field"
+    },
+    {
+      "term_id": "panitera pengadilan negeri",
+      "term_en": "District Court Registrar's",
+      "term_kr": "소재지를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan nomor sk direksi",
+      "term_en": "Enter the Board of Directors",
+      "term_kr": "이사회 결정 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "Biaya perolehan",
+      "term_en": "Acquisition Cost",
+      "term_kr": "취득 비용",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan biaya perolehan",
+      "term_en": "Enter the Acquisition Cost",
+      "term_kr": "취득 비용을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih tipe bunga",
+      "term_en": "Select interest type",
+      "term_kr": "이자 유형을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masa tenggang pokok",
+      "term_en": "Principal Grace Period",
+      "term_kr": "원금 거치 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan masa tenggang",
+      "term_en": "Enter principak grace",
+      "term_kr": "원금 거치 기간을",
+      "category": "field"
+    },
+    {
+      "term_id": "pokok",
+      "term_en": "period",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masa tunda bunga",
+      "term_en": "Interest grace period",
+      "term_kr": "이자 거치 기간",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan masa tunda",
+      "term_en": "Enter interest grace period",
+      "term_kr": "이자 거치 기간을",
+      "category": "field"
+    },
+    {
+      "term_id": "bunga",
+      "term_en": "",
+      "term_kr": "입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Distr. Tunda bunga",
+      "term_en": "Interest Grace Period",
+      "term_kr": "이자 거치 기간 분배",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan distr. Tunda",
+      "term_en": "Enter interest grace period",
+      "term_kr": "이자 거치 기간 분배를",
+      "category": "field"
+    },
+    {
+      "term_id": "Pembayaran via",
+      "term_en": "Payment method",
+      "term_kr": "결제 방법",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih pembayaran via",
+      "term_en": "Select payment method",
+      "term_kr": "결제 방법을 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal pembayaran",
+      "term_en": "Payment date",
+      "term_kr": "지급일",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan tanggal",
+      "term_en": "Enter payment date",
+      "term_kr": "지급일을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "pembayaran",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal pemblokiran afiliasi",
+      "term_en": "Affiliate Blocking Date",
+      "term_kr": "제휴 차단일",
+      "category": "field"
+    },
+    {
+      "term_id": "pemblokiran afiliasi",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Menggunakan asuransi",
+      "term_en": "Use insurance",
+      "term_kr": "보험 사용",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih menggunakan asuransi",
+      "term_en": "Pilih menggunakan",
+      "term_kr": "보험 사용 여부를",
+      "category": "field"
+    },
+    {
+      "term_id": "Catatan",
+      "term_en": "note",
+      "term_kr": "비고",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan catatan",
+      "term_en": "Enter note",
+      "term_kr": "비고를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "referal",
+      "term_en": "referral",
+      "term_kr": "추천 경로",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan referal",
+      "term_en": "Enter referral",
+      "term_kr": "추천 경로를 선택하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Status sindikasi",
+      "term_en": "Syndication status",
+      "term_kr": "신디케이션 상태",
+      "category": "field"
+    },
+    {
+      "term_id": "Peran sindikasi",
+      "term_en": "Syndication role",
+      "term_kr": "신디케이션 역할",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih peran sindikasi",
+      "term_en": "Select syndication role",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Data asuransi",
+      "term_en": "Insurance information",
+      "term_kr": "보험 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Premi",
+      "term_en": "Premi",
+      "term_kr": "보험료",
+      "category": "field"
+    },
+    {
+      "term_id": "Perusahaan asuransi",
+      "term_en": "Insurance company",
+      "term_kr": "보험회사",
+      "category": "field"
+    },
+    {
+      "term_id": "Contact person",
+      "term_en": "Contact person",
+      "term_kr": "담당자",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal jatuh tempo",
+      "term_en": "Due Date",
+      "term_kr": "만기일",
+      "category": "field"
+    },
+    {
+      "term_id": "Tambah asuransi",
+      "term_en": "Add insurance",
+      "term_kr": "보험 추가",
+      "category": "field"
+    },
+    {
+      "term_id": "Id fasilitas",
+      "term_en": "Facility id",
+      "term_kr": "시설 ID",
+      "category": "field"
+    },
+    {
+      "term_id": "Asuransi",
+      "term_en": "Insurance",
+      "term_kr": "보험",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor polis",
+      "term_en": "Police number",
+      "term_kr": "보험증권 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Vendor",
+      "term_en": "Vendor",
+      "term_kr": "공급업체",
+      "category": "field"
+    },
+    {
+      "term_id": "Data pencairan kredit",
+      "term_en": "Loan Disbursement",
+      "term_kr": "대출 실행 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "cif",
+      "term_en": "cif",
+      "term_kr": "cif",
+      "category": "field"
+    },
+    {
+      "term_id": "Metode pencairan",
+      "term_en": "Disbursement Method",
+      "term_kr": "대출 실행 방식",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan cif",
+      "term_en": "Enter cif",
+      "term_kr": "CIF를 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan jatuh tempo",
+      "term_en": "Enter due date",
+      "term_kr": "납부 기한일을 입력하세요",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis perjanjian kredit",
+      "term_en": "Credit agreement type",
+      "term_kr": "대출 약정 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih jenis perjanjian kredit",
+      "term_en": "Select credit agreement",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "No rekening afiliasi",
+      "term_en": "Affiliate account number",
+      "term_kr": "제휴 계좌 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Pilih no rekening afiliasi",
+      "term_en": "Select affiliate account",
+      "term_kr": "제휴 계좌 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "No rekening",
+      "term_en": "Account number",
+      "term_kr": "계좌 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "No. pk",
+      "term_en": "Credit agreement number",
+      "term_kr": "대출 약정 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Masukkan no. pk",
+      "term_en": "Enter credit agreement",
+      "term_kr": "대출 약정 번호를",
+      "category": "field"
+    },
+    {
+      "term_id": "No. SPPK",
+      "term_en": "Credit Approval Letter",
+      "term_kr": "대출 승인서 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Upload dokumen",
+      "term_en": "Upload document",
+      "term_kr": "문서 업로드",
+      "category": "field"
+    },
+    {
+      "term_id": "Data pencairan",
+      "term_en": "Disbursement information",
+      "term_kr": "실행 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Biaya-biaya",
+      "term_en": "Fee / costs",
+      "term_kr": "수수료 / 비용",
+      "category": "field"
+    },
+    {
+      "term_id": "Keterangan biaya",
+      "term_en": "Fee description",
+      "term_kr": "수수료 설명",
+      "category": "field"
+    },
+    {
+      "term_id": "Persen",
+      "term_en": "Percent",
+      "term_kr": "퍼센트",
+      "category": "field"
+    },
+    {
+      "term_id": "Nominal biaya",
+      "term_en": "Fee amount",
+      "term_kr": "수수료 금액",
+      "category": "field"
+    },
+    {
+      "term_id": "persentase",
+      "term_en": "percentage",
+      "term_kr": "백분율",
+      "category": "field"
+    },
+    {
+      "term_id": "Data akad kredit",
+      "term_en": "Credit agreement",
+      "term_kr": "대출 약정 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Data debitur",
+      "term_en": "Data debitur",
+      "term_kr": "차주 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Alamat domisili",
+      "term_en": "Residential address",
+      "term_kr": "거주지 주소",
+      "category": "field"
+    },
+    {
+      "term_id": "Nama panggilan",
+      "term_en": "Nickname",
+      "term_kr": "별명",
+      "category": "field"
+    },
+    {
+      "term_id": "Pihak terkaitd",
+      "term_en": "Relate parties",
+      "term_kr": "관련 당사자",
+      "category": "field"
+    },
+    {
+      "term_id": "data pasangan",
+      "term_en": "Spouse information",
+      "term_kr": "배우자 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Jumlah tanggungan anak",
+      "term_en": "Number of dependent",
+      "term_kr": "부양 자녀 수",
+      "category": "field"
+    },
+    {
+      "term_id": "Alamat sesuai ktp",
+      "term_en": "Address as per id card",
+      "term_kr": "신분증 기재 주소",
+      "category": "field"
+    },
+    {
+      "term_id": "Data kerabat",
+      "term_en": "Relative information",
+      "term_kr": "친족 정보",
+      "category": "field"
+    },
+    {
+      "term_id": "Hubungan",
+      "term_en": "Relationship",
+      "term_kr": "관계",
+      "category": "field"
+    },
+    {
+      "term_id": "Pensiun bulan ke",
+      "term_en": "Retirement month",
+      "term_kr": "퇴직 월",
+      "category": "field"
+    },
+    {
+      "term_id": "Pendapatan gaji bersih",
+      "term_en": "Borrower’s Net Salary",
+      "term_kr": "차주의 순급여 소득",
+      "category": "field"
+    },
+    {
+      "term_id": "debitur",
+      "term_en": "Income",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Potongan gaji bersih debitur",
+      "term_en": "Borrower’s Net Salary",
+      "term_kr": "차주의 순급여 공제액",
+      "category": "field"
+    },
+    {
+      "term_id": "Dokumen cheklist",
+      "term_en": "Document checklist",
+      "term_kr": "문서 체크리스트",
+      "category": "field"
+    },
+    {
+      "term_id": "Terunggah",
+      "term_en": "Uploaded",
+      "term_kr": "업로드됨",
+      "category": "field"
+    },
+    {
+      "term_id": "Tipe dokumen",
+      "term_en": "Document Type",
+      "term_kr": "문서 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Diunggah oleh",
+      "term_en": "Uploaded By",
+      "term_kr": "업로드한 사람",
+      "category": "field"
+    },
+    {
+      "term_id": "Tanggal unggah",
+      "term_en": "Upload date",
+      "term_kr": "업로드 날짜",
+      "category": "field"
+    },
+    {
+      "term_id": "Fasilitas kredit existing",
+      "term_en": "Existing internal credit",
+      "term_kr": "기존 내부 신용 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "internal",
+      "term_en": "fasility",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "reverse",
+      "term_en": "reverse",
+      "term_kr": "역처리",
+      "category": "field"
+    },
+    {
+      "term_id": "Jenis kredit yang",
+      "term_en": "Required credit type",
+      "term_kr": "필요한 신용 유형",
+      "category": "field"
+    },
+    {
+      "term_id": "Plafon kredit yang diminta",
+      "term_en": "Requested credit limit",
+      "term_kr": "신청 신용 한도",
+      "category": "field"
+    },
+    {
+      "term_id": "Produk kredit yang",
+      "term_en": "Required Credit Produk",
+      "term_kr": "필요한 신용 상품",
+      "category": "field"
+    },
+    {
+      "term_id": "Kredit selesai pada umur",
+      "term_en": "Loan maturity age",
+      "term_kr": "대출 만기 연령",
+      "category": "field"
+    },
+    {
+      "term_id": "Total penghasilan keluarga –",
+      "term_en": "Total family income – loan",
+      "term_kr": "가족 총소득 - 대출 상환액",
+      "category": "field"
+    },
+    {
+      "term_id": "angsuran kredit",
+      "term_en": "installment",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Nomor rekening gaji untuk",
+      "term_en": "Salary Account Number for",
+      "term_kr": "지급용 급여 계좌 번호",
+      "category": "field"
+    },
+    {
+      "term_id": "Gaji suami/istri",
+      "term_en": "Spouse’s salary",
+      "term_kr": "배우자 급여",
+      "category": "field"
+    },
+    {
+      "term_id": "Angsuran pinjaman",
+      "term_en": "Loan installment",
+      "term_kr": "대출 상환액",
+      "category": "field"
+    },
+    {
+      "term_id": "Tunjangan tkd suami/istri",
+      "term_en": "Spouse's tkd allowance",
+      "term_kr": "배우자 TKD 수당",
+      "category": "field"
+    },
+    {
+      "term_id": "Total penghasilan",
+      "term_en": "Total income",
+      "term_kr": "총소득",
+      "category": "field"
+    },
+    {
+      "term_id": "suami/istri",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "keseluruhan",
+      "term_en": "",
+      "term_kr": "",
+      "category": "field"
+    },
+    {
+      "term_id": "Disposisi",
+      "term_en": "Disposition",
+      "term_kr": "처리 지시",
+      "category": "field"
+    },
+    {
+      "term_id": "Review Hasil Upload",
+      "term_en": "Review Upload Results",
+      "term_kr": "업로드 결과 검토",
+      "category": "field"
+    }
+  ]
+}

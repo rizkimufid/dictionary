@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary Search — Pengaturan</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: #f3f4f6;
+        margin: 0;
+        padding: 32px 16px;
+        color: #111827;
+        font-size: 14px;
+      }
+      .card {
+        max-width: 520px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      h1 {
+        font-size: 18px;
+        margin: 0 0 4px;
+      }
+      p.sub {
+        color: #6b7280;
+        margin: 0 0 20px;
+        font-size: 13px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        font-size: 12px;
+        margin: 14px 0 6px;
+      }
+      input[type="text"],
+      input[type="password"],
+      textarea {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 13px;
+        font-family: inherit;
+      }
+      input:focus,
+      textarea:focus {
+        outline: 2px solid #93c5fd;
+        border-color: #3b82f6;
+      }
+      textarea {
+        min-height: 90px;
+        resize: vertical;
+        font-family: ui-monospace, monospace;
+      }
+      .hint {
+        color: #6b7280;
+        font-size: 12px;
+        margin-top: 4px;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 20px;
+      }
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 9px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .primary {
+        background: #111827;
+        color: #fff;
+      }
+      .ghost {
+        background: transparent;
+        color: #6b7280;
+      }
+      #status {
+        margin-top: 12px;
+        color: #059669;
+        font-size: 13px;
+        min-height: 18px;
+      }
+      #grants ul {
+        list-style: none;
+        margin: 8px 0 0;
+        padding: 0;
+        font-family: ui-monospace, monospace;
+        font-size: 12px;
+      }
+      #grants .ok {
+        color: #059669;
+      }
+      #grants .no {
+        color: #b45309;
+      }
+      #grants {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Dictionary Search</h1>
+      <p class="sub">Klik badge EN/ID/KR di domain target → cari terjemahan dari dictionary.</p>
+
+      <label for="domains">Domain situs target (satu per baris)</label>
+      <textarea id="domains" placeholder="localhost&#10;auto-layout.mycompany.com"></textarea>
+      <div class="hint">Subdomain ikut terdeteksi. Tanpa http:// dan tanpa port.</div>
+
+      <label for="supabaseUrl">Supabase URL</label>
+      <input type="text" id="supabaseUrl" placeholder="https://xxxxx.supabase.co" />
+
+      <label for="supabaseAnonKey">Supabase anon key</label>
+      <input type="password" id="supabaseAnonKey" placeholder="eyJhbGciOi…" />
+
+      <div class="row">
+        <button class="ghost" id="saveBtn">Simpan</button>
+      </div>
+      <div id="grants"></div>
+      <div id="status"></div>
+    </div>
+
+    <script src="patterns.js"></script>
+    <script src="../common/register.js"></script>
+    <script src="../common/terms.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy — Dictionary Search</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        color: #1f2937;
+        line-height: 1.6;
+        font-size: 15px;
+      }
+      h1 {
+        font-size: 22px;
+      }
+      h2 {
+        font-size: 16px;
+        margin-top: 28px;
+      }
+      code {
+        background: #f3f4f6;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-size: 13px;
+      }
+      .updated {
+        color: #6b7280;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Privacy Policy — Dictionary Search</h1>
+    <p class="updated">Last updated: 2026-09-24</p>
+
+    <p>
+      Extension browser "Dictionary Search" membantu mencari terjemahan label multi-bahasa
+      (Indonesia / English / Korean) dari aplikasi Kamus (dictionary) milik pengguna sendiri.
+    </p>
+
+    <h2>Data yang diakses</h2>
+    <ul>
+      <li>
+        <strong>Data kamus via Supabase:</strong> extension membaca daftar term
+        (<code>terms</code>) dari project Supabase yang dikonfigurasi pengguna (<em>read-only</em>,
+        menggunakan anon key milik pengguna sendiri). Tidak ada penulisan/perubahan data.
+      </li>
+      <li>
+        <strong>Konten halaman web:</strong> di situs yang disetujui pengguna, extension membaca
+        teks elemen bertanda EN/ID/KR dan posisi klik untuk menampilkan kotak pencarian, serta
+        mengisi nilai pada kolom input yang sedang aktif.
+      </li>
+    </ul>
+
+    <h2>Data yang disimpan</h2>
+    <p>
+      Pengaturan (daftar domain target, Supabase URL, anon key) disimpan lokal di
+      <code>chrome.storage.sync</code> / <code>browser.storage.sync</code> milik pengguna.
+    </p>
+
+    <h2>Data yang tidak dikumpulkan</h2>
+    <ul>
+      <li>Extension <strong>tidak</strong> mengirim data ke server pihak ketiga mana pun.</li>
+      <li>Tidak ada tracking, analitik, maupun pengumpulan data pribadi.</li>
+      <li>Konten halaman yang dibaca hanya dipakai pada sesi tersebut untuk fitur pencarian.</li>
+    </ul>
+
+    <h2>Kontak</h2>
+    <p>
+      Developer: PDG. Untuk pertanyaan, buat isu di repository publik project ini
+      (lookup sesuai link listing store).
+    </p>
+  </body>
+</html>

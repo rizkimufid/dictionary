@@ -1,0 +1,632 @@
+﻿Indonesia,Inggris,Korea
+Nama Debitur,Debtor Name,채무자 이름
+Masukkan Nama Debitur,Enter Debtor Name,채무자 이름 입력
+Nomor Surat,Letter Number,문서 번호
+Masukkan Nomor Surat,Enter Letter Number,문서 번호를 입력하세요
+no,no,숫자
+id,id,아이디
+Kode,Code,암호
+Nama,Name,이름
+NIK,NIK,주민등록번호
+Masukkan NIK,Enter NIK,주민등록번호 입력
+NPWP,NPWP,세금 식별 번호
+Masukkan NPWP,Enter NPWP,세금 식별 번호를 입력하세요
+Passport,Passport,여권
+Masukkan Passport,Enter Passport,여권을 입력하세요
+Tanggal Mulai,Start Date,시작일
+Pilih Tanggal,Select Date,날짜 선택
+Tanggal Berakhir,End Date,만료일
+User Input,User Input,사용자 입력
+Pilih User,Select User,사용자 선택
+Produk,Product,제품
+Pilih Produk,Select Product,제품 선택
+Tujuan Permintaan,Request Purpose,요청 목적
+Pilih Tujuan Permintaan,Select Request Purpose,요청 목적 선택
+Format,Format,형식
+Masukkan Format,Enter Format,형식 입력
+Tanggal Lahir,Date of Birth,생일
+status,status,상태
+aksi,action,행동
+Ganti status,Change status,상태 변경
+Konfirmasi Ganti Status,Confirm Change Status,상태 변경 확인
+Apakah anda yakin untuk mengganti status pada data ini?,Are you sure you want to change the status of this data?,이 데이터의 상태를 변경하시겠습니까?
+Kata Kunci,keyword,키워드
+Masukkan Kata Kunci,Enter keyword,키워드를 입력하세요
+Pilih status,Select status,상태 선택
+Masukkan kode,Enter Code,코드를 입력하세요
+edit,edit,편집하다
+pertanggal,As of date,날짜 기준
+Masukkan pertanggal,Enter as of date,날짜를 입력하세요
+Perbarui,Update,업데이트
+perhari,More days,하루에
+Export,Export,수출
+Masukkan id,Enter id,아이디를 입력하세요
+Masukkan per hari,Enter more days,하루에 입력
+Tambah,Add,추가하다
+Masukkan nama,Enter name,이름을 입력하세요
+Request,Request,요청
+Masukkan Request,Enter Request,요청을 입력하세요
+Input Request Inquiry,Input Request Inquiry,입력 요청 문의
+Jenis Nasabah,Debtor Type,고객 유형
+Pilih Tipe Debitur,Select Debtor Type,채무자 유형 선택
+Tipe Pencarian,Robot Find Result,검색 유형
+Pilih Tipe Pencarian,Select Robot Find Result,검색 유형 선택
+Simpan,Save,구하다
+Mode Kecocokan,Match Mode,일치 모드
+Pilih Mode Kecocokan,Select Match Mode,호환 모드 선택
+Saluran,Channel,채널
+Pilih Saluran,Select Channel,채널 선택
+Cabang,Branch,지점
+Pilih Cabang,Select Branch,지점 선택
+Tipe Customer,Customer Type,고객 유형
+Pilih Tipe Customer,Select Customer Type,고객 유형 선택
+value,value,값
+Masukkan value,Enter value,값을 입력하세요
+Nama Customer,Customer Name,고객 이름
+Masukkan Nama Customer,Enter Customer Name,고객 이름 입력
+Tipe Identitas,Select Identity Type,신분 유형
+Pilih Tipe Identitas,Select Identity Type,신분 유형 선택
+KTP,KTP,주민등록증
+Masukkan nomor KTP,Enter KTP Number,신분증 번호를 입력하세요
+Flag Identity Number Exception,Flag Identity Number Exception,플래그 식별 번호 예외
+Masukkan Flag Identity Number Exception,Enter Flag Identity Number Exception,플래그 신원 번호 예외 입력
+Jenis Kelamin,Gender / Select Gender,성별
+Pilih Jenis Kelamin,Select Gender,성별 선택
+Tempat Lahir,Place of Birth,출생지
+Masukkan Tempat Lahir,Enter Place of Birth,출생지 입력
+Tanggal Berdiri,Date of Establishment,설립일
+Jenis Badan Usaha,Types of Business Entities,사업체 유형
+Created date,Created date,생성일
+Pilih Jenis Badan Usaha,Select Type of Business Entity,사업체 유형 선택
+Status Perkawinan,Marital Status,혼인 상태
+Pilih Status Perkawinan,Select Marital Status,결혼 상태 선택
+Kewarganegaraan,Nationality,국적
+Pilih Kewarganegaraan,Select Nationality,국적 선택
+Nama Gadis Ibu Kandung,Mother Name,어머니의 이름
+Masukkan Nama Gadis Ibu Kandung,Enter Mother Name,어머니 이름을 입력하세요
+Nomor Telepon,Phone Number,전화 번호
+Masukkan Nomor Telepon,Enter Phone Number,전화번호를 입력하세요
+Alamat,Address,주소
+Masukkan Alamat,Enter Address,주소를 입력하세요
+Provinsi,Province,주
+Pilih Provinsi,Select Province,주 선택
+Kota,City,도시
+Pilih Kota,Select City,도시 선택
+Kecamatan,District,구
+Pilih Kecamatan,Select District,구를 선택하세요
+Kelurahan,Village,행정동
+Pilih Kelurahan,Select Village,동 선택
+Kirim Data Non Debitur,Send Non-Debtor Data,비채무자 데이터 전송
+Ip address,Ip address,인터넷 프로토콜 주소
+Dokumen,Documents,문서
+Masukkan ip address,Enter ip address,인터넷 프로토콜 주소를 입력하세요
+Tipe Debitur,Debtor Type,채무자 유형
+Url api,Url api,통합 자원 식별자 애플리케이션 프로그래밍 인터페이스
+Pilih Tipe Debitur,Select Debtor Type,채무자 유형 선택
+Upload Data Request,Upload Data Request,데이터 업로드 요청
+File,File,파일
+Pilih File,Select File,파일 선택
+Line,Line,라인
+Kode Produk,Product Code,제품 코드
+User slik,User slik,사용자 클릭
+Masukkan user slik,Enter user slik,사용자 slik을 입력하세요
+Nama user,Username,사용자 이름
+Nama Lengkap,Full Name,성명
+Is Flag Identity Number,Is Flag Identity Number,플래그 식별 번호인가요
+role,role,역할
+Pilih role,Select role,역할 선택
+Valid,Valid,유효한
+Tidak Valid,Not Valid,유효하지 않음
+Pesan Error,Message Error,에러 메시지
+Approve Data Request Tanggal Input,Approve Data Request Input Date,데이터 요청 승인 입력 날짜
+Stage,Stage,무대
+Masukkan nama user,Enter username,사용자 이름을 입력하세요
+Password slik,Password slik,비밀번호를 클릭하세요
+Masukkan password slik,Enter password slik,비밀번호를 입력하세요 slik
+Password ideb,Password ideb,ideb 비밀번호
+Masukkan password ideb,Enter password ideb,비밀번호 ideb를 입력하세요
+Informasi Customer,Customer Information,고객 정보
+Data Nasabah,Customer Data,고객 데이터
+Supervisor,Supervisor,감독자
+Pilih supervisor,Select supervisor,감독자 선택
+AKTIF,ACTIVE,활동적인
+NON AKTIF,NON ACTIVE,비활성
+Non Debitur List,Non Debitur List,부도 채권자 명단
+Hapus,Delete,닦음
+url,Url,균일 자원 식별자
+Masukkan url,Enter url,균일 자원 식별자(URL)를 입력하십시오.
+Konfirmasi Hapus,Confirm Delete,삭제 확인
+Apakah anda yakin untuk menghapus data ini?,Are you sure you want to delete this data?,이 데이터를 삭제하시겠습니까?
+Tanggal berakhir,End date,만료일
+Tampilan Diagram,Diagram View,다이어그램 보기
+data,data,데이터
+breadcrumb,breadcrumb,브레드크럼
+Halaman Belum Tersedia,Page Not Available,페이지를 사용할 수 없습니다
+Tanggal Input,Input Date,입력 날짜
+Umum,General,일반
+Token core,Token core,핵심 토큰
+Minimal skor,Minimal score,최소 득점
+Form General,Form General,일반 양식
+List Scoring,List Scoring,리스트 스코어링
+Status Request,Status Request,상태 요청
+PROCESS DONE,PROCESS DONE,프로세스 완료
+SUBMITTED,SUBMITTED,제출됨
+APPROVED,APPROVED,승인됨
+Konfirmasi Pengajuan,Submit Confirmation,제출 확인
+Konfirmasi Approve,Approve Confirmation,승인 확인
+Konfirmasi Reject,Reject Confirmation,거부 확인
+Konfirmasi Revisi,Revision Confirmation,수정 확인
+Report slik result,Report slik result,보고서 슬릭 결과
+Alasan,Reason,이유
+Approval Variable,Approval Variable,승인 변수
+Id App Request,Id App Request,앱 ID 요청
+detail,details,세부
+Debitur utama,Main debtor,주요 채무자
+counter,counter,카운터
+operator,operator,운영자
+Pembaruan Terakhir,Last Update,최종 업데이트
+No Ref Counter,No Ref Counter,참고 카운터 없음
+Data Konsumen,Consumer Data,소비자 데이터
+Status Pelamar,Status Applicant,신청자 현황
+Jumlah Percobaan Ulang,Retry Count,재시도 횟수
+Robot,Robot,기계 인간
+Aktivitas Robot,Robot Activity,로봇 활동
+MENUNGGU ANTRIAN,WAITING IN QUEUE,줄 서서 기다리는 중
+PROSES PENGAJUAN,APPLICATION PROCESS,지원 절차
+PENGAJUAN SELESAI,SUBMISSION COMPLETED,제출 완료
+PENGAJUAN GAGAL,SUBMISSION FAILED,제출 실패
+ANTRIAN PERSETUJUAN,APPROVAL QUEUE,승인 대기열
+PERSETUJUAN SELESAI,AGREEMENT COMPLETED,계약 완료
+PERSETUJUAN GAGAL ANTRIAN EKSTRAKSI,AGREEMENT FAILED EXTRACTION QUEUE,합의가 결렬되었습니다 추출 대기열
+EXTRAKSI SELESAI,EXTRACTION COMPLETE,추출 완료
+EXTRAKSI GAGAL,EXTRACTION FAILED,추출 실패
+PROSES ROBOT BERHASIL,ROBOT PROCESS SUCCESSFUL,로봇 프로세스 성공
+PROSES IDEB GAGAL,IDEB PROCESS FAILED,IDEB 프로세스가 실패했습니다
+PROSES IDEB SELESAI,IDEB PROCESS COMPLETED,IDEB 프로세스가 완료되었습니다
+IDEB PROCESS,IDEB PROCESS,IDEB 프로세스
+ANTRIAN PROSES IDEB,IDEB PROCESS QUEUE,IDEB 프로세스 큐
+PROSES SLIK GAGAL,SLIK PROCESS FAILED,SLIK 프로세스가 실패했습니다
+SLIK TIDAK DITEMUKAN,SLIK NOT FOUND,SLIK을 찾을 수 없습니다
+PROSES PENCARIAN SLIK GAGAL,SLIK SEARCH PROCESS FAILED,SLIK 검색 프로세스 실패
+PROSES BERJALAN,PROCESS IN PROGRESS,진행 중
+Status Distribusi,Distribution Status,배포 상태
+Perbarui Tabel Permintaan Aplikasi,Update App Request Table,앱 업데이트 요청 테이블
+Perbarui Aplikasi Distribusi Tabel,Update App Distribusi Table,Perbarui Aplikasi Distribusi Tabel
+Pembaruan Robot,Update Robot,업데이트 로봇
+Dedup,Dedup,중복 제거
+Parameter User List,Parameter User List,사용자 목록 매개변수
+REJECTED,REJECTED,거부됨
+EXTRACT IDEB,EXTRACT IDEB,IDEB 추출
+PROSES SLIK,SLIK PROCESS,슬릭 프로세스
+SUBMITED,SUBMITED,제출됨
+PROSES SELESAI,DONE,프로세스가 완료되었습니다
+ANTRIAN,QUEUE,대기줄
+PROSES GAGAL,PROCESS FAILED,프로세스가 실패했습니다
+Diagram Flow,Diagram Flow,다이어그램 흐름
+PROSES EXTRAKSI,PROSES EXTRAKSI,추출 과정
+PROSES IDEB,IDEB PROCESS,IDEB 프로세스
+Penanggung Jawab,PIC,담당자
+Masukkan Penanggung Jawab,Enter PIC,담당자 이름을 입력하십시오.
+Syarat dan Ketentuan,Terms and Conditions,약관
+Deskripsi,Description,설명
+Edit Data Non Debitur,Edit Data Non Debitur,비채무자 데이터 편집
+Tahap,Stage,단계
+Mengajukan,Submit,제출하다
+Setuju,Approve,승인하다
+Apakah anda yakin untuk melakukan pengajuan terhadap data ini?,Are you sure you want to submit this data?,이 데이터를 제출하시겠어요?
+Konfirmasi Simpan,Save Confirmation,저장 확인
+Apakah anda yakin ingin menyimpan data ini?,Are you sure you want to save this data?,이 데이터를 저장하시겠어요?
+Detail Approval,,세부 승인
+Data Nasabah,Customer Data,고객 데이터
+Pengajuan,Submission,제출
+Segment,Segment,분절
+Pilih Segment,Select Segment,세그먼트를 선택하세요
+Umur,Age,나이
+Masukkan Umur,Enter Age,나이 입력
+Bulan,Month,월
+Masukkan Bulan,Enter Month,월을 입력하세요
+Email,Email,이메일
+Masukkan Email,Enter Email,이메일을 입력하세요
+Data Pekerjaan,Job Data,직무 데이터
+Pekerjaan,Job,일하다
+Pilih Pekerjaan,Select a Job,직업을 선택하세요
+NIP,NIP,집게발
+Masukkan NIP,Enter NIP,NIP 입력
+Tempat Kerja,Workplace,직장
+Masukkan Tempat Kerja,Enter Workplace,직장에 들어가기
+Umur Pensiun,Retirement Age,은퇴 연령
+Masukkan Umur Pensiun,Enter Retirement Age,은퇴 연령에 진입
+Pensiun Bulan Ke,Retirement Month,은퇴의 달
+Masukkan Pensiun Bulan Ke,Enter Monthly Retirement,월별 퇴직금 입력
+Nama Tempat Kerja,Name of Workplace,직장명
+Masukkan Nama Tempat Kerja,Enter Workplace Name,직장 이름을 입력하세요
+Telepon Kantor,Office Phone,사무실 전화
+Masukkan Telepon Kantor,Enter Office Phone,사무실 전화번호를 입력하세요
+Jabatan,Job Title,직책
+Masukkan Jabatan,Enter Job Title,위치를 입력하세요
+Nomor Tabungan Pencairan Kredit,Credit Disbursement Savings Number,신용 지급 저축 번호
+Masukkan Nomor Tabungan Pencairan Kredit,Enter Credit Disbursement Savings Number,신용 지급 저축 번호를 입력하세요
+Nomor Rekening Gaji,Salary Account Number,급여 계좌 번호
+Masukkan Nomor Rekening Gaji,Enter Salary Account Number,급여 계좌 번호를 입력하세요
+Cara Pembayaran Gaji,Salary Payment Method,급여 지급 방식
+Pilih Cara Pembayaran Gaji,Select Salary Payment Method,급여 지급 방식을 선택하세요
+Gaji Pokok,Basic salary,기본급
+Masukkan Gaji Pokok,Enter Basic Salary,기본 급여를 입력하세요
+Tunjangan Suami Istri,Spousal Allowance,배우자 수당
+Masukkan Tunjangan Suami Istri,Enter Spousal Allowance,배우자 부양비를 입력하세요
+Tunjangan Anak,Child Support,자녀 양육비
+Masukkan Tunjangan Anak,Enter Child Allowance,아동 수당을 입력하세요
+Tunjangan Beras,Rice Allowance,쌀 수당
+Masukkan Tunjangan Beras,Enter Rice Allowance,쌀 배급량을 입력하세요
+Tunjangan Jabatan Struktural,Structural Position Allowance,구조적 위치 허용 오차
+Masukkan Tunjangan Jabatan Struktural,Enter Structural Position Allowance,구조적 위치 허용값을 입력하십시오.
+Tunjangan Posisi Fungsional,Functional Position Allowance,직무 위치 수당
+Masukkan Tunjangan Posisi Fungsional,Enter Functional Position Allowance,기능별 직위 수당을 입력하십시오
+Tunjangan Umum,General Allowance,일반 수당
+Masukkan Tunjangan Umum,Enter General Allowance,일반 수당을 입력하세요
+Tunjangan Lain Lain,Other Allowances,기타 수당
+Masukkan Tunjangan Lain Lain,Enter Other Allowances,기타 수당을 입력하세요
+Askes Bersih,Clean Health Insurance,클린 헬스 인슈어런스
+Masukkan Askes Bersih,Enter Clean Health Insurance,깨끗한 질문을 입력하세요
+Pembulatan,Rounding,반올림
+Masukkan Pembulatan Total Pendapatan,Enter Rounding Total Revenue,반올림 입력 총 수익
+PFK Beras,Rice PFK,쌀 PFK
+Masukkan PFK Beras,Enter PFK Rice,PFK 라이스를 입력하세요
+Simpanan Wajib,Mandatory Savings,의무 저축
+Masukkan Simpanan Wajib,Enter Mandatory Savings,의무 저축액을 입력하세요
+Sewa Rumah,Rent a house,집을 임대하세요
+Masukkan Biaya Sewa Rumah,Enter House Rent Cost,집세 입력
+Tabungan Rumah PNS,Civil Servant Home Savings,공무원 주택저축
+Masukkan Tabungan Rumah PNS,Enter Civil Servant Home Savings,공무원 주택저축 계좌에 가입하세요
+Hutang Kelebihan,Excess Debt,과도한 부채
+Masukkan Hutang Kelebihan,Enter Excess Debt,초과 부채를 입력하세요
+Lain Lain,Etc,등
+Masukkan Biaya Lain Lain,Enter Other Costs,기타 비용을 입력하세요
+Pajak Penghasilan,Income tax,소득세
+Masukkan Pajak Penghasilan,Enter Income Tax,소득세를 입력하세요
+Askes Potongan,Discounted Health Insurance,할인된 건강 보험
+Masukkan Askes Potongan,Enter Discounted Health Insurance,할인 요청 입력
+Total Potongan,Total Deductions,총 공제액
+Masukkan Total Potongan,Enter Total Deductions,총 공제액을 입력하세요
+Total Gaji Bersih,Total Net Salary,총 순수 급여
+Tunjangan TKD TPP,TKD TPP Allowance,TKD TPP 허용량
+Masukkan Tunjangan TKD TPP,Enter TKD TPP Allowance,TKD TPP 허용량을 입력하세요
+Tunjangan Lain,Other Allowances,기타 수당
+Masukkan Tunjangan Lain,Enter Other Allowances,기타 수당을 입력하세요
+Total Tunjangan Lain,Total Other Allowances,기타 수당 총액
+Tunjangan Lain Di Luar Gaji Bersih Debitur,Other Allowances Outside of the Debtor's Net Salary,채무자의 순 급여 외 기타 수당
+Penghasilan Keluarga Lainnya,Other Family Income,기타 가족 소득
+Penghasilan Lainnya,Other Income,기타 소득
+Masukkan Penghasilan Lainnya,Enter Other Income,기타 소득을 입력하세요
+Jumlah Keseluruhan,Total salary amount,총 급여 금액
+Data Fasilitas,Facility Data,시설 데이터
+Fasilitas Kredit,Credit Facilities,신용 시설
+Ringkasan,Summary,요약
+ID Fasilitas,Facility ID,시설 ID
+Jenis Kredit yang dibutuhkan,Type of Credit Required,필요한 학점 종류
+Pilih Jenis Kredit yang dibutuhkan,Select the type of credit required,필요한 학점 유형을 선택하세요
+Jenis Pengajuan,Submission Type,제출 유형
+Pilih Jenis Pengajuan,Select Submission Type,제출 유형을 선택하세요
+Palfon Kredit yang Diminta,Requested Credit Ceiling,요청된 신용 한도
+Masukkan Plafon Kredit yang Diminta,Enter the requested credit limit,요청하신 신용 한도를 입력하세요.
+Produk Kredit yang Dibutuhkan,Required Credit Products,필수 신용 상품
+Pilih Produk Kredit yang Dibutuhkan,Select the required credit product,필요한 신용 상품을 선택하세요
+Blokir Angsuran,Installment Block,할부 블록
+Pilih Blokir Angsuran,Select Block Installment,분할 납부 방식을 선택하세요
+Tujuan Penggunaan SID,Purpose of Using SID,SID 사용 목적
+Pilih Tujuan Penggunaan SID,Select the Purpose of Using SID,SID 사용 목적을 선택하세요
+Tujuan Penggunaan LBU,Purpose of Using LBU,LBU 사용 목적
+Pilih Tujuan Penggunaan LBU,Select the Purpose of Using LBU,LBU 사용 목적을 선택하세요
+Jangka Waktu yang Diminta,Requested Timeframe,요청된 기간
+Masukkan Jangka Waktu yang Diminta Jenis Bunga,Enter the requested time period Type of Interest,원하는 기간을 입력하세요 대출 이자 유형
+Pilih Jenis Bunga,Select Interest,대출 이자 유형을 선택하세요
+Suku Bunga Efektif,Effective Interest Rate,실효이자율
+Masukkan Suku Bunga Efektif,Enter Effective Interest Rate,실효이자율을 입력하세요
+Kredit Selesai,Credit Completed,학점 이수 완료
+Masukkan Kredit Selesai,Enter Credit Completed,학점 입력 완료
+Angsuran,Installments,할부
+Masukkan Angsuran,Enter Installment,할부 입력
+Gaji Debitur,Debtor's Salary,채무자의 급여
+Persen THP,THP Percentage,THP 비율
+Sisa Gaji Bersih yang diterima (setelah dipotong angsuran kredit),Net Salary Remaining,남은 순수 급여
+Penghasilan Keluarga Diluar Penghasilan,Family Income Excluding Income,가족 소득 (소득 제외)
+Gaji Debitur + Penghasilan Keluarga,Debtor's Salary + Family Income,채무자의 급여 + 가족 소득
+Angsuran Kredit Tidak Dilunasi,Unpaid Credit Installments,미납 신용 할부금
+Total Angsuran Penghasilan Keluarga - Angsuran Kredit,Total Installment Family Income - Credit Installments,총 할부금 가족 소득 - 대출 분할 상환
+Blokir Angsuran Pra Purnabakti,Block Pre-Retirement Installments,퇴직 전 분할 납부
+Sisa Diterima,Remainder Received,나머지 금액 수령
+Pelunasan Pinjaman Lama,Old Loan Repayment,기존 대출금 상환
+Jumlah Bulan Sebelum Pensiun,Number of Months Before Retirement,은퇴까지 남은 개월 수
+Jenis Kredit,Type of Credit,신용 유형
+Pilih Jenis Kredit,Select Credit Type,신용 유형을 선택하세요
+Nomor Perjanjian Kredit,Credit Agreement Number,신용 계약 번호
+Masukkan Nomor Perjanjian,Enter Credit Agreement Number,신용 계약 번호를 입력하세요
+Tanggal Perjanjian Kredit,Credit Agreement Date,신용 계약일
+Nomor Rekening,Account number,계좌번호
+Masukkan Nomor Rekening,Enter account number,계좌번호를 입력하세요
+Kolektabilitas,Collectibility,수집 가능성
+Masukkan Kolektabilitas,Enter Collectability,수집 가능성에 참여하세요
+Status Rekening,Account Status,계정 상태
+Pilih Status Rekening,Select Account Status,계정 상태를 선택하세요
+Plafon,Loan Limit,대출 한도
+Masukkan Plafon,Enter Loan Limit,대출 한도를 입력하세요
+Fasilitas Kredit Existing External,,
+Debitur,Debtor,채무자
+Data Pekerjaan,Job Data,직무 데이터
+Tenor,Tenor,테너
+Masukkan Tenor,Enter Tenor,테너를 입력하세요
+Baki Debit,Debit Balance,차변 잔액
+Masukkan Baki Debit,Enter Debit Balance,직불 카드 트레이에 입력하세요
+Angsuran Pokok,Principal Installment,원금 할부금
+Masukkan Angsuran Pokok,Enter Principal Installment,원금 납부액을 입력하세요
+Angsuran Bunga,Interest Installment,이자 할부
+Masukkan Angsuran Bunga,Enter Interest Installment,이자 할부 금액을 입력하세요
+Total Angsuran,Total Installment,총 할부금
+Masukkan Total Angsuran,Enter Total Installment,총 할부금을 입력하세요
+Bunga Berjalan,floating interest rate,변동금리
+Masukkan Bunga Berjalan,Enter floating interest rate,변동금리를 입력하세요
+Tunggakan Pokok,Principal Arrears,원금 연체금
+Masukkan Tunggakan Pokok,Enter Principal Arrears,원금 연체금을 입력하세요
+Tunggakan Bunga,Interest Arrears,이자 연체
+Masukkan Tunggakan Bunga,Enter Interest Arrears,이자 연체액을 입력하세요
+Penalti,Penalty,패널티
+Masukkan Penalti,Enter Penalty,벌칙 입력
+Akan Dilunasi,Will be paid off,상환될 것입니다
+Bank,Bank,은행
+Pilih Bank,Select Bank,셀렉트 뱅크
+Penyebab Deviasi,Causes of Deviation,편차의 원인
+Keterangan Deviasi,Deviation Description,편차 설명
+Detail slik resultd,Detail slik result,SLIK 조회 결과 상세
+Total fasilitas,Total,총 시설 수
+Nama Pasangan,Partner's Name,파트너 이름
+Masukkan Nama Pasangan,Enter Partner Name,파트너 이름을 입력하세요
+Kontrak fasilitas aktif,Active Facilitie Contract,활성 금융시설 계약
+Fasilitas Kredit Existing Internal,Existing Internal Credit Facilities,기존 내부 신용 시설
+Total fasilitas aktif,Total Active Facilities,총 활성 금융시설
+Platfon efective,Efectif credit limit,유효 신용한도
+Policy result,Policy result,정책 결과
+Kontrak fasilitas lunas,Settled Facility Contract,상환 완료 금융시설 계약
+Kontrak fasilitas lain lain,Other Facility Contract,기타 금융시설 계약
+Master Produk,Master Product,마스터 제품
+Kontrak fasilitas hapus buku,Written-off Facility Contract,상각 금융시설 계약
+Deviasi,Deviation,편차
+Konfirmasi Export PDF,PDF Export Confirmation,PDF 내보내기 확인
+Apakah anda yakin untuk melakukan export data dalam bentuk PDF?,Are you sure you want to export the data as a PDF?,데이터를 PDF 형식으로 내보내시겠습니까?
+Konfirmasi Export TXT,TXT Export Confirmation,TXT 내보내기 확인
+Apakah Anda yakin ingin mengekspor data dalam format TXT?,Are you sure you want to export the data as a TXT file?,데이터를 TXT 형식으로 내보내시겠습니까?
+Export pdf,Export PDF,PDF 내보내기
+Export TXT,Export TXT,TXT 내보내기
+Nama Produk,Product name,제품명
+Kode Produk,Product Code,제품 코드
+kesimpulan,Conclusion,결론
+Masukkan Nama Produk,Enter Product Name,제품명을 입력하세요
+Masukkan Deskripsi,Enter Description,설명을 입력하세요
+Tanggal berlaku,Effective Date,시행일
+Tanggal Kedaluwarsa,Expiry Date,만료일
+Kriteria Nasabah,Customer Criteria,고객 기준
+Minimal Umur,Minimum Age,최소 연령
+Pengaturan Fasilitas,Facility Setting,시설 설정
+Minimal Plafon,Minimal Plafon,대출 최저 한도
+Masukkan Minimal Plafon,Enter Minimal Plafon,대출 대출 한도를 입력하세요
+Setoran Awal Minimum,Minimum Initial Deposit,최소 초기 예치금
+Masukkan Setoran Awal Minimum,Enter Minimum Initial Deposit,최소 초기 예치금을 입력하세요
+Minimal Tenor,Minimal Tenor,미니멀 테너
+Maximal Tenor,Maximal Tenor,최대 테너
+Masukkan Maximal Tenor,Enter the maximum tenor,최대 테너를 입력하세요
+Promo Bunga Spesial,Promo Interest,프로모션 관심
+Masukkan Promo Bunga Spesial,Enter Promo Interest,특별 관심 분야 프로모션에 참여하세요
+Promo Period,Promo Period,프로모션 기간
+Masukkan Promo Period,Enter Promo Period,프로모션 기간 참여하기
+Spesifikasi Objek,Object Specification,객체 명세
+Dokumen Jaminan,Collateral Document,담보 서류
+Pengaturan Jaminan,Collateral Setting,담보 설정
+Masukkan Kode Produk,Enter Product Code,제품 코드를 입력하세요
+Versi,Version,버전
+Deviasi Konsumer,Consumer Deviation,소비자 편차
+Deviasi Komersil,Commercial Deviation,상업적 편차
+Dokumen Daftar Periksa,Checklist Document,체크리스트 문서
+Masukkan Minimal Umur,Enter Minimum Age,최소 연령을 입력하세요
+Maksimal Umur,Maximum Age,최대 연령
+Masukkan Maksimal Umur,Enter Maximum Age,최대 연령을 입력하세요
+Jenis Tempat Pekerjaan,Occupation Type,직업 유형
+Pilih Jenis Tempat Pekerjaan,Select Occupation Type,직업 유형을 선택하세요
+Status Karyawan,Employee Status,직원 상태
+Pilih Status Karyawan,Select Employee Status,직원 상태를 선택하세요
+Periode Kerja Minimum,Minimum Work Period,최소 근무 기간
+Masukkan Periode Kerja Minimum,Enter Minimum Work Period,최소 근무 기간을 입력하세요
+Minimal Pendapatan,Minimum Income,최저 소득
+Masukkan Minimal Pendapatan,Enter Minimum Income,최소 소득을 입력하세요
+Tipe Dokumen Fasilitas,Facility Document Type,시설 문서 유형
+Wajib,Mandatory,필수적인
+Tarif Bertingkat,Tiered Rate,단계별 요금
+Skema Bunga,Interest Schema,관심 계획
+Pilih Skema Bunga,Select Interest Schema,관심 분야 선택
+Regular Promo,Regular Promo,일반 프로모션
+Flat Anuitas,Flat Annuity,정액 연금
+Anuitas,Annuity,연금
+Masukkan Minimal Tenor,Enter Minimum Tenor,최소 테너를 입력하세요
+Masukkan Flat Anuitas,Enter Flat Annuity,정액 연금 상품에 가입하세요
+Bunga Promosi,Promo Interest,프로모션 관심
+Masukkan Bunga Promosi,Enter Promo Interest,프로모션 관심 분야를 입력하세요
+Periode Promosi,Promo Period,프로모션 기간
+Masukkan Periode Promosi,Enter Promo Period,프로모션 기간 참여하기
+Maximal Plafon,Maximal Plafon,막시말 플라폰
+Masukkan Maximal Plafon,Enter Maximal Plafon,최대 천장을 입력하세요
+Konfigurasi Biaya,Fee Configuration,수수료 구성
+Robot Slik,Robot Slik,슬릭 로봇
+Masukkan URL,Enter URL,URL을 입력하세요
+URL Stream,URL Stream,스트림 URL
+Masukkan URL Stream,Enter Stream URL,스트림 URL을 입력하세요
+URL VNC,URL VNC,URL VNC
+Masukkan URL VNC,Enter URL VNC,VNC URL을 입력하세요
+Pembuatan Dokumen,Document Creation,문서 작성
+Kriteria nasabah,Customer criteria,고객 기준
+Parameter general,General parameters,일반 매개변수
+Spesifikasi objek,Object specification,객체 사양
+Inquiry pengajuan,Application inquiry,신청 조회
+Fasilitas Kredit Internal,Fasilitas Kredit Existing Internal,Fasilitas 신용 기존 내부
+Jenis Kredit,Type of Credit,신용 유형
+Pengajuan Detail,Submission Details,제출 세부 정보
+Pelunasan,Settlement,합의
+Skema bunga,Interest schema,이자 방식
+regular/promo,regular/promo,일반 / 프로모션
+Fasilitas Kredit Existing External,Existing External Credit Facilities,기존 해외 신용 시설
+Minimal plafon,Minimal plafon,최소 한도
+Masukkan Pelunasan,Enter Settlement,
+Masukkan minimal plafon,Enter minimal plafon,최소 한도를 입력하세요
+Maximal plafon,Maximal plafon,최대 한도
+Minimum Setoran Awal,Minimum initial deposit,최소 초기 예치금
+Masukkan setoran awal,Enter minimum initial deposit,최소 초기 예치금을 입력하세요
+Keterangan Biaya,Cost Description,비용 설명
+Minimal tenor,Minimum tenor,최소 대출 기간
+Masukkan minimal tenor,Enter minimum tenor,최소 대출 기간을 입력하세요
+Persentase,Percentage,백분율
+Maksimal tenor,Maximal tenor,최대 대출 기간
+Masukkan maksimal tenor,Enter maximal tenor,최대 대출 기간을 입력하세요
+Nominal Biaya,Fee Amount,수수료 금액
+Masukkan Nominal Biaya,Enter Fee Amount,수수료 금액을 입력하세요
+Dengan agunan / tanpa agunan,secured/unsecured,담보/무담보
+Biaya,Fee,수수료
+Masukkan Biaya,Enter Fee,수수료를 입력하세요
+Pilih dengan agunan / tanpa agunan,Enter secure/unsecure,담보/무담보를 선택하세요
+Suku bunga bertingkat,Tiered rate,단계별 금리
+Penyebab Deviasi,Deviation Reason,편차 사유
+Masukkan Penyebab Deviasiat,Enter Deviation Reason,편차 사유를 입력하세요
+Flat anuitas,Flat annuity,고정금리 원리금균등상환
+anuitas,annuity,원리금 균등상환
+Tanggal Dibuat,Created Date,생성일
+Dibuat Oleh,Created By,생성자
+Pilih regular promo,Select regular promo,일반/프로모션을 선택하세요
+Masukkan anuitas,Enter annuity,원리금 균등상환을 입력하세요
+Tipe bunga,Interest type,금리 유형
+Objek spesifikasi,Object specification,객체 사양
+Tipe jaminan,Collateral type,담보 유형
+Objek jaminan,Collateral objek,담보 대상
+Pilih tipe jaminan,Select type collateral,담보 유형을 선택하세요
+Deskripsi Pihak Terkait,Description Related Parties,관련 당사자 설명
+Masukkan Deskripsi Pihak Terkait,Enter Description of Related Parties,관련 당사자 설명을 입력하세요
+Data Partner,Partner Data,파트너 정보
+Link Jaminan,Collateral Link,담보 연결
+Tipe Jaminan Fasilitas,Facility Collateral Type,시설 담보 유형
+Pilih Tipe Jaminan Fasilitas,Select Facility Collateral Type,시설 담보 유형을 선택하세요
+Tipe Dokumen Jaminan,Collateral Document Type,담보 서류 유형
+Pilih Tipe Dokumen Jaminan,Select Collateral Document Type,담보 서류 유형을 선택하세요
+Kepemilikan Jaminan Fasilitas,Facility Collateral Ownership,시설 담보 소유권
+Data Kepemilikan Jaminan,Collateral Ownership Data,담보 소유 정보
+Nomor Identitas Kepemilikan Jaminan,Collateral Ownership Identification Number,담보 소유자 신분증 번호
+Masukkan Nomor Identitas Kepemilikan Jaminan,Enter Collateral Ownership Identification Number,담보 소유자 신분증 번호를 입력하세요
+Nama Kepemilikan Jaminan,Collateral Owner Name,담보 소유자 이름
+Masukkan Nama Kepemilikan Jaminan,Enter Collateral Owner Name,담보 소유자 이름을 입력하세요
+Objek Jaminan,Collateral Object,담보 대상
+Masukkan Objek Jaminan,Enter Collateral Object,담보 대상을 입력하세요
+Draft Pengajuan,Application Draft,신청 초안
+Pengajuan Baru,New Application,신규 신청
+Alamat KTP,ID Card Address,신분증 주소
+Kode Pos,ZIP Code,우편번호
+Tanggal devias,Deviation date,일탈일자
+Deviasi oleh,Deviation by,일탈자
+Produk Credit,Credit product,여신상품
+Platfon credit,Credit limit,여신한도
+Jenis bunga,Interest type,금리 유형
+Proses akad kredit,Loan Agreement Process,대출 약정 절차
+Data Tambahan,Additional Data,추가 데이터
+Tanggal sk direksi,Board of Directors Decree Date,이사회 결의서 날짜
+Pasal untuk addendum,Article for addendum,부속합의서 조항
+Masukkan pasal untuk addendum,Enter article for addendum,부속합의서 조항 입력
+Ayat untuk addendum,Paragraph for addendum,부속합의서 항
+Masukkan ayat untuk addendum,Enter paragraph for addendum,부속합의서 항 입력
+Bunyi ayat,Paragraph content,조항 내용
+Masukkan bunyi ayat,Enter paragraph content,조항 내용 입력
+Domisili kantor panitera pengadilan negeri,Domicile of the District Court Registrar's Office,지방법원 서기관 사무실 소재지
+Nomor sk direksi,Board of Directors Decree Number,이사회 결정 번호
+Masukkan domisili kantor panitera pengadilan negeri,Enter the Domicile of the District Court Registrar's Office,지방법원 서기관 사무실 소재지를 입력하세요
+Masukkan nomor sk direksi,Enter the Board of Directors Decree Number,이사회 결정 번호를 입력하세요
+Biaya perolehan,Acquisition Cost,취득 비용
+Masukkan biaya perolehan,Enter the Acquisition Cost,취득 비용을 입력하세요
+Tipe bunga,Interest type,이자 유형
+Pilih tipe bunga,Select interest type,이자 유형을 선택하세요
+Masa tenggang pokok,Principal Grace Period,원금 거치 기간
+Masukkan masa tenggang pokok,Enter principak grace period,원금 거치 기간을 입력하세요
+Masa tunda bunga,Interest grace period,이자 거치 기간
+Masukkan masa tunda bunga,Enter interest grace period,이자 거치 기간을 입력하세요
+Distr. Tunda bunga,Interest Grace Period Distribution,이자 거치 기간 분배
+Masukkan distr. Tunda bunga,Enter interest grace period distribution,이자 거치 기간 분배를 입력하세요
+Pembayaran via,Payment method,결제 방법
+Pilih pembayaran via,Select payment method,결제 방법을 선택하세요
+Tanggal pembayaran,Payment date,지급일
+Masukkan tanggal pembayaran,Enter payment date,지급일을 입력하세요
+Tanggal pemblokiran afiliasi,Affiliate Blocking Date,제휴 차단일
+Masukkan tanggal pemblokiran afiliasi,Enter affiliate blocking date,제휴 차단일을 입력하세요
+Menggunakan asuransi,Use insurance,보험 사용
+Pilih menggunakan asuransi,Pilih menggunakan asuransi,보험 사용 여부를 선택하세요
+Catatan,note,비고
+Masukkan catatan,Enter note,비고를 입력하세요
+referal,referral,추천 경로
+Masukkan referal,Enter referral,추천 경로를 선택하세요
+Status sindikasi,Syndication status,신디케이션 상태
+Peran sindikasi,Syndication role,신디케이션 역할
+Pilih peran sindikasi,Select syndication role,
+Data asuransi,Insurance information,보험 정보
+Premi,Premi,보험료
+Perusahaan asuransi,Insurance company,보험회사
+Contact person,Contact person,담당자
+Tanggal jatuh tempo,Due Date,만기일
+Tambah asuransi,Add insurance,보험 추가
+Id fasilitas,Facility id,시설 ID
+Asuransi,Insurance,보험
+Nomor polis,Police number,보험증권 번호
+Vendor,Vendor,공급업체
+Data pencairan kredit,Loan Disbursement Information,대출 실행 정보
+cif,cif,cif
+Metode pencairan,Disbursement Method,대출 실행 방식
+Masukkan cif,Enter cif,CIF를 입력하세요
+Masukkan jatuh tempo,Enter due date,납부 기한일을 입력하세요
+Jenis perjanjian kredit,Credit agreement type,대출 약정 유형
+Pilih jenis perjanjian kredit,Select credit agreement type,대출 약정 유형을 선택하세요
+No rekening afiliasi,Affiliate account number,제휴 계좌 번호
+Pilih no rekening afiliasi,Select affiliate account number,제휴 계좌 번호를 선택하세요
+No rekening,Account number,계좌 번호
+No. pk,Credit agreement number,대출 약정 번호
+Masukkan no. pk,Enter credit agreement number,대출 약정 번호를 입력하세요
+No. SPPK,Credit Approval Letter Number,대출 승인서 번호
+Upload dokumen,Upload document,문서 업로드
+Data pencairan,Disbursement information,실행 정보
+Biaya-biaya,Fee / costs,수수료 / 비용
+Keterangan biaya,Fee description,수수료 설명
+Persen,Percent,퍼센트
+Nominal biaya,Fee amount,수수료 금액
+persentase,percentage,백분율
+Data akad kredit,Credit agreement information,대출 약정 정보
+Data debitur,Data debitur,차주 정보
+Alamat domisili,Residential address,거주지 주소
+Nama panggilan,Nickname,별명
+Pihak terkaitd,Relate parties,관련 당사자
+data pasangan,Spouse information,배우자 정보
+Jumlah tanggungan anak,Number of dependent children,부양 자녀 수
+Alamat sesuai ktp,Address as per id card,신분증 기재 주소
+Data kerabat,Relative information,친족 정보
+Hubungan,Relationship,관계
+Pensiun bulan ke,Retirement month,퇴직 월
+Pendapatan gaji bersih debitur,Borrower's Net Salary Income,차주의 순급여 소득
+Potongan gaji bersih debitur,Borrower's Net Salary Deductions,차주의 순급여 공제액
+Dokumen cheklist,Document checklist,문서 체크리스트
+Terunggah,Uploaded,업로드됨
+Tipe dokumen,Document Type,문서 유형
+Diunggah oleh,Uploaded By,업로드한 사람
+Tanggal unggah,Upload date,업로드 날짜
+Fasilitas kredit existing internal,Existing internal credit fasility,기존 내부 신용 한도
+reverse,reverse,역처리
+Jenis kredit yang dibutuhkan,Required credit type,필요한 신용 유형
+Plafon kredit yang diminta,Requested credit limit,신청 신용 한도
+Produk kredit yang dibutuhkan,Required Credit Produk,필요한 신용 상품
+Kredit selesai pada umur,Loan maturity age,대출 만기 연령
+Total penghasilan keluarga - angsuran kredit,Total family income - loan installment,가족 총소득 - 대출 상환액
+Nomor rekening gaji untuk pembayaran,Salary Account Number for Payment,지급용 급여 계좌 번호
+Gaji suami/istri,Spouse's salary,배우자 급여
+Angsuran pinjaman,Loan installment,대출 상환액
+Tunjangan tkd suami/istri,Spouse's tkd allowance,배우자 TKD 수당
+Total penghasilan,Total income,총소득
+Total penghasilan suami/istri,Spouse's Total Income,배우자 총소득
+Total penghasilan keseluruhan,Total overall income,총 전체 소득
+Disposisi,Disposition,처리 지시
+Review Hasil Upload,Review Upload Results,업로드 결과 검토
