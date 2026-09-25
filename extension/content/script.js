@@ -110,6 +110,49 @@ function groupFor(el) {
   return null
 }
 
+function siblingGroups(root, fromGroup) {
+  var out = []
+  var flags = root.querySelectorAll('span[class*="fi-"]')
+  for (var i = 0; i < flags.length; i++) {
+    var g = groupFor(flags[i])
+    if (!g || g === fromGroup) continue
+    var dup = false
+    for (var j = 0; j < out.length; j++) {
+      if (out[j] === g) {
+        dup = true
+        break
+      }
+    }
+    if (!dup) out.push(g)
+  }
+  return out
+}
+
+// Commit ulang nilai trio i18n lain (editor lain) agar triggerFieldPropsReactivity
+// memaksa re-render dan trio inert mendapat gen DOM baru yang hidup.
+async function nudgeSibling(fromGroup) {
+  var root = fromGroup && fromGroup.ownerDocument ? fromGroup.ownerDocument.body : document.body
+  var groups = siblingGroups(root, fromGroup)
+  for (var g = 0; g < groups.length; g++) {
+    var badges = groups[g].querySelectorAll('span[class*="fi-"]')
+    for (var b = 0; b < badges.length; b++) {
+      var l = langFromBadge(badges[b])
+      var inp = inputForEl(badges[b])
+      if (!l || !inp || !String(inp.value).trim()) continue
+      try {
+        inp.setAttribute("data-dictnudge", "1")
+      } catch (e) {}
+      try {
+        injectPageScript(pageTypeSnippet('[data-dictnudge="1"]', String(inp.value)))
+      } catch (err) {
+        setInputValue(inp, String(inp.value))
+      }
+      return true
+    }
+  }
+  return false
+}
+
 async function applyGroupFill(group, term) {
   var fills = []
   var nodes = group.querySelectorAll('span[class*="fi-"]')
@@ -133,6 +176,8 @@ async function applyGroupFill(group, term) {
     })
     console.info("[Dictionary Search] G> badges=" + gb.length + " langs=" + Object.keys(langsInGroup).sort().join(","))
   } catch (e) {}
+
+  await sleep(400)
 
   var order = ["id", "en", "kr"]
   var seen = {}
@@ -173,28 +218,63 @@ async function applyGroupFill(group, term) {
     var l = order[o]
     if (seen[l]) continue
     seen[l] = 1
-    if (findFill(l)) typeLang(l)
+    if (findFill(l)) {
+      typeLang(l)
+      await sleep(600)
+    }
     pageSample("step-" + l)
   }
-  await sleep(500)
-  var retryNeed = []
-  for (var q = 0; q < fills.length; q++) {
-    var inpQ = inputForEl(findBadge(group, fills[q].lang))
-    if (!inpQ || String(inpQ.value).trim() !== String(fills[q].text).trim()) {
-      retryNeed.push(fills[q].lang)
+  var tries = 0
+  while (tries < 5) {
+    var need = []
+    for (var q = 0; q < fills.length; q++) {
+      var inpQ = inputForEl(findBadge(group, fills[q].lang))
+      if (!inpQ || String(inpQ.value).trim() !== String(fills[q].text).trim()) {
+        need.push(fills[q].lang)
+      }
     }
-  }
-  if (retryNeed.length) {
+    if (!need.length) break
+    tries++
     try {
-      console.info("[Dictionary Search] R> retry langs=" + retryNeed.join(","))
+      console.info("[Dictionary Search] R> retry#" + tries + " langs=" + need.join(","))
     } catch (e) {}
-    for (var r = 0; r < retryNeed.length; r++) {
-      typeIntoInp(retryNeed[r], findFill(retryNeed[r]).text)
+    for (var r = 0; r < need.length; r++) {
+      typeIntoInp(need[r], findFill(need[r]).text)
+      await sleep(600)
     }
-    await sleep(500)
+    var after = []
+    for (var q2 = 0; q2 < fills.length; q2++) {
+      var inpV = inputForEl(findBadge(group, fills[q2].lang))
+      if (!inpV || String(inpV.value).trim() !== String(fills[q2].text).trim()) {
+        after.push(fills[q2].lang)
+      }
+    }
+    if (after.length && tries === 2) {
+      var nudged = false
+      try {
+        nudged = await nudgeSibling(group)
+      } catch (e) {}
+      try {
+        console.info("[Dictionary Search] N> nudge=" + (nudged ? 1 : 0))
+      } catch (e) {}
+      if (nudged) {
+        await sleep(500)
+        for (var n2 = 0; n2 < after.length; n2++) {
+          typeIntoInp(after[n2], findFill(after[n2]).text)
+          await sleep(600)
+        }
+      }
+    }
   }
   try {
-    console.info("[Dictionary Search] G> filled=" + filledLangs.join(","))
+    var marks = (group.ownerDocument || document).querySelectorAll("[data-dictprobe], [data-dictnudge]")
+    for (var c = 0; c < marks.length; c++) {
+      marks[c].removeAttribute("data-dictprobe")
+      marks[c].removeAttribute("data-dictnudge")
+    }
+  } catch (e) {}
+  try {
+    console.info("[Dictionary Search] G> filled=" + filledLangs.join(",") + " tries=" + tries)
   } catch (e) {}
   await sleep(400)
   pageSample("final")
