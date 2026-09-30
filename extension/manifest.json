@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Dictionary Search",
   "description": "Klik badge EN/ID/KR di situs target → kotak pencarian untuk mencari terjemahan dari dictionary.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "permissions": ["storage", "scripting"],
   "optional_host_permissions": ["<all_urls>"],
   "background": {
