@@ -142,11 +142,9 @@ async function nudgeSibling(fromGroup) {
       try {
         inp.setAttribute("data-dictnudge", "1")
       } catch (e) {}
-      try {
-        injectPageScript(pageTypeSnippet('[data-dictnudge="1"]', String(inp.value)))
-      } catch (err) {
-        setInputValue(inp, String(inp.value))
-      }
+      runPageCode(pageTypeSnippet('[data-dictnudge="1"]', String(inp.value))).then(function (ok) {
+        if (!ok) setInputValue(inp, String(inp.value))
+      })
       return true
     }
   }
@@ -166,7 +164,7 @@ async function applyGroupFill(group, term) {
     var markInp = inputForEl(findBadge(group, fills[m].lang))
     if (markInp) markInp.setAttribute("data-dictprobe", fills[m].lang)
   }
-  injectPageScript(pageCaptureCode())
+  runPageCode(pageCaptureCode())
   try {
     var gb = group.querySelectorAll('span[class*="fi-"]')
     var langsInGroup = {}
@@ -194,11 +192,9 @@ async function applyGroupFill(group, term) {
     try {
       inp.setAttribute("data-dictprobe", l)
     } catch (e) {}
-    try {
-      injectPageScript(pageTypeCode(l, text))
-    } catch (err) {
-      setInputValue(inp, text)
-    }
+    runPageCode(pageTypeCode(l, text)).then(function (ok) {
+      if (!ok) setInputValue(inp, text)
+    })
     return inp
   }
   function typeLang(l) {
@@ -358,6 +354,31 @@ function injectPageScript(src) {
   s.remove()
 }
 
+// Jalankan kode di page context lewat chrome.scripting world:MAIN (aman CSP di
+// Chrome/Firefox); fallback ke inline script (CSP ketat punya halaman menolak ini).
+function runPageInBackground(src) {
+  return new Promise(function (resolve) {
+    try {
+      chrome.runtime.sendMessage({ type: "exec-main", code: src }, function (r) {
+        if (chrome.runtime.lastError) resolve(false)
+        else resolve(!!(r && r.ok))
+      })
+    } catch (e) {
+      resolve(false)
+    }
+  })
+}
+
+async function runPageCode(src) {
+  if (await runPageInBackground(src)) return true
+  try {
+    injectPageScript(src)
+    return true
+  } catch (e) {
+    return false
+  }
+}
+
 var probeReportHooked = false
 function hookProbeReport() {
   if (probeReportHooked) return
@@ -415,12 +436,9 @@ async function applyPick(lang, term, targetEl) {
   try {
     inp.setAttribute("data-dictprobe", "single")
   } catch (e) {}
-  injectPageScript(pageCaptureCode())
-  try {
-    injectPageScript(pageTypeEither(lang, text))
-  } catch (err) {
-    setInputValue(inp, text)
-  }
+  await runPageCode(pageCaptureCode())
+  var typed = await runPageCode(pageTypeEither(lang, text))
+  if (!typed) setInputValue(inp, text)
   await sleep(400)
   pageSample("single-final")
   await sleep(1200)
@@ -436,7 +454,7 @@ function setTerms(terms) {
 
 document.addEventListener(
   "click",
-  function (e) {
+  async function (e) {
     var badge = nearestLangBadge(e.target)
     if (!badge) return
     var lang = langFromBadge(badge)
@@ -444,7 +462,12 @@ document.addEventListener(
     console.info("[Dictionary Search] klik badge:", lang)
     e.preventDefault()
     e.stopPropagation()
-    setTerms(window.dictTerms || [])
+    var terms = []
+    try {
+      terms = await cachedTerms()
+    } catch (err) {}
+    if (!terms.length) terms = window.dictTerms || []
+    setTerms(terms)
     var rect = badge.getBoundingClientRect()
     DictSearchPopover.open(
       { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom },
@@ -499,6 +522,7 @@ async function init() {
 
 chrome.storage.onChanged.addListener(function (changes, area) {
   if (area === "local" && changes.dictTerms) {
+    window.dictTerms = changes.dictTerms.newValue || []
     DictSearchPopover.setTerms(changes.dictTerms.newValue || [])
   }
 })

@@ -19,6 +19,14 @@ export interface TermEntry {
   updatedAt: string
 }
 
+export interface TermInput {
+  termID: string
+  termEN: string
+  termKR: string
+  category: TermCategory
+  description?: string
+}
+
 export type CopyFormat = "code" | "json" | "text"
 export type AppLocale = "id" | "en" | "kr"
 export type ViewMode = "card" | "table"

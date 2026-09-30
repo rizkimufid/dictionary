@@ -30,6 +30,7 @@ const termEN = ref<string>("");
 const termKR = ref<string>("");
 const category = ref<TermCategory>("field");
 const description = ref<string>("");
+const saving = ref(false);
 
 function reset() {
     termID.value = "";
@@ -59,11 +60,16 @@ watch(
     { immediate: true },
 );
 
+function onOpenChange(open: boolean) {
+    if (!saving.value) emit("update:open", open);
+}
+
 function close() {
-    emit("update:open", false);
+    onOpenChange(false);
 }
 
 async function save() {
+    if (saving.value) return;
     const input = {
         termID: (termID.value ?? "") as string,
         termEN: (termEN.value ?? "") as string,
@@ -71,20 +77,29 @@ async function save() {
         category: category.value,
         description: (description.value ?? "") as string,
     };
-    const result = props.editingId
-        ? await store.updateTerm(props.editingId, input)
-        : await store.addTerm(input);
-    if (!result.ok) {
-        toast.error(
-            result.reason === "TermID (Indonesia) sudah ada untuk kategori ini"
+
+    saving.value = true;
+    try {
+        const result = props.editingId
+            ? await store.updateTerm(props.editingId, input)
+            : await store.addTerm(input);
+        if (!result.ok) {
+            const message = result.code === "duplicate"
                 ? t("validationDuplicate")
-                : t("validationEmpty"),
-        );
-        return;
+                : result.code === "empty"
+                    ? t("validationEmpty")
+                    : t("validationDatabase");
+            toast.error(message);
+            return;
+        }
+        toast.success(t("savedMessage"));
+        emit("saved");
+        emit("update:open", false);
+    } catch {
+        toast.error(t("validationDatabase"));
+    } finally {
+        saving.value = false;
     }
-    toast.success(t("savedMessage"));
-    emit("saved");
-    emit("update:open", false);
 }
 </script>
 
@@ -93,25 +108,29 @@ async function save() {
         :model-value="open"
         :title="editingId ? t('modalEditTitle') : t('modalAddTitle')"
         size="md"
-        @update:model-value="emit('update:open', $event)"
+        :show-close="!saving"
+        @update:model-value="onOpenChange"
     >
         <div class="flex flex-col gap-4">
             <DCodeTextField
                 v-model="termID"
                 :label="t('fieldKey')"
                 :placeholder="t('fieldKey')"
+                :disabled="saving"
                 rounded="lg"
             />
             <DCodeTextField
                 v-model="termEN"
                 :label="t('fieldEn')"
                 :placeholder="t('fieldEn')"
+                :disabled="saving"
                 rounded="lg"
             />
             <DCodeTextField
                 v-model="termKR"
                 :label="t('fieldKr')"
                 :placeholder="t('fieldKr')"
+                :disabled="saving"
                 rounded="lg"
             />
 
@@ -139,6 +158,7 @@ async function save() {
                     { code: 'title', name: 'Title' },
                     { code: 'table-header', name: 'Table Header' },
                 ]"
+                :disabled="saving"
                 :searchable="false"
                 item-value="code"
                 rounded="lg"
@@ -148,12 +168,18 @@ async function save() {
                 v-model="description"
                 :label="t('fieldDescription')"
                 :placeholder="t('fieldDescription')"
+                :disabled="saving"
             />
         </div>
 
         <template #actions>
-            <DCodeButton variant="outline" :text="t('cancel')" @click="close" />
-            <DCodeButton bg-color="primary" :text="t('save')" @click="save" />
+            <DCodeButton variant="outline" :text="t('cancel')" :disabled="saving" @click="close" />
+            <DCodeButton
+                bg-color="primary"
+                :text="saving ? t('saving') : t('save')"
+                :disabled="saving"
+                @click="save"
+            />
         </template>
     </DCodeDialog>
 </template>

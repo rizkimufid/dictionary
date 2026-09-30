@@ -75,9 +75,9 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
           {{ entry.termID }}
         </h3>
       </div>
-      <div v-if="authenticated" class="js-card-actions flex shrink-0 gap-1 opacity-0 transition-opacity">
-        <DCodeButton size="icon" variant="ghost" icon="Pencil" @click="emit('edit', entry.id)" />
-        <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" @click="emit('delete', entry.id)" />
+      <div v-if="authenticated" class="js-card-actions flex shrink-0 gap-1 opacity-0 transition-opacity focus-within:opacity-100">
+        <DCodeButton size="icon" variant="ghost" icon="Pencil" :tooltip="t('edit')" @click="emit('edit', entry.id)" />
+        <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" :tooltip="t('delete')" @click="emit('delete', entry.id)" />
       </div>
     </div>
 

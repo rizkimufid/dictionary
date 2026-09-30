@@ -108,6 +108,22 @@
       .switch-wrap input:checked + .slider::before {
         transform: translateX(14px);
       }
+      footer {
+        margin-top: 14px;
+        padding-top: 10px;
+        border-top: 1px solid #e5e7eb;
+        text-align: right;
+        color: #6b7280;
+        font-size: 12px;
+      }
+      #credit {
+        color: #111827;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      #credit:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
@@ -133,6 +149,9 @@
       <button id="grantBtn">Berikan Akses Domain</button>
       <button id="openOptions" class="ghost">Pengaturan</button>
     </div>
+    <footer>
+      by <a id="credit" href="https://github.com/rizkimufid" target="_blank" rel="noopener">geroo</a>
+    </footer>
     <script src="../options/patterns.js"></script>
     <script src="../common/register.js"></script>
     <script src="../common/terms.js"></script>

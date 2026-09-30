@@ -52,6 +52,9 @@ var DictSearchPopover = {
       ".head .tag{font-size:11px;font-weight:700;background:#111827;color:#fff;border-radius:4px;padding:2px 6px;}" +
       ".fa{margin-left:2px;border:1px solid #e5e7eb;border-radius:6px;padding:3px 6px;font-size:10px;font-weight:700;cursor:pointer;user-select:none;color:#9ca3af;letter-spacing:1px;background:#fff;}" +
       ".fa.on{color:#111827;border-color:#111827;}" +
+      ".rr{border:1px solid #e5e7eb;border-radius:6px;padding:3px 6px;font-size:12px;cursor:pointer;user-select:none;color:#9ca3af;background:#fff;line-height:1;}" +
+      ".rr:hover{color:#111827;border-color:#111827;}" +
+      ".rr.busy{opacity:.4;cursor:default;}" +
       "input{flex:1;border:0;outline:0;font-size:13px;padding:4px;background:transparent;color:#111;}" +
       ".list{overflow-y:auto;max-height:300px;padding:4px;}" +
       ".row{padding:7px 9px;border-radius:7px;cursor:pointer;line-height:1.35;}" +
@@ -63,7 +66,7 @@ var DictSearchPopover = {
       ".empty{padding:14px;color:#6b7280;text-align:center;}" +
       "</style>" +
       '<div class="pop" part="pop">' +
-      '<div class="head"><span class="tag"></span><input placeholder="Cari label / terjemahan…" /><span class="fa" title="Isi semua bahasa sekaligus">EN ID KR</span></div>' +
+      '<div class="head"><span class="tag"></span><input placeholder="Cari label / terjemahan…" /><button class="rr" title="Muat ulang kamus">↻</button><span class="fa" title="Isi semua bahasa sekaligus">EN ID KR</span></div>' +
       '<div class="list"></div>' +
       "</div>"
 
@@ -74,10 +77,16 @@ var DictSearchPopover = {
     this.listEl = this.rootEl.querySelector(".list")
     this.rootEl.querySelector(".tag").textContent = lang.toUpperCase()
     this.faEl = this.rootEl.querySelector(".fa")
+    this.rrEl = this.rootEl.querySelector(".rr")
     var self = this
     this.faEl.addEventListener("click", function (e) {
       e.stopPropagation()
       self.setFillAll(!self.fillAll)
+    })
+    this.rrEl.addEventListener("click", function (e) {
+      e.stopPropagation()
+      if (self.refreshing) return
+      self.refreshTerms()
     })
     this.syncFillAll()
 
@@ -99,6 +108,37 @@ var DictSearchPopover = {
 
   setTerms: function (terms) {
     this.allTerms = terms
+    if (this.host && this.inputEl) this.refresh()
+  },
+
+  refreshTerms: function () {
+    var self = this
+    if (!this.supabaseConfigured) {
+      Toast.show("Supabase belum dikonfigurasi — isi di Pengaturan dulu")
+      return
+    }
+    this.refreshing = true
+    if (this.rrEl) this.rrEl.classList.add("busy")
+    chrome.storage.sync
+      .get({ supabaseUrl: "", supabaseAnonKey: "" })
+      .then(function (cfg) {
+        return fetchSupabaseTerms(cfg)
+      })
+      .then(function (terms) {
+        self.allTerms = terms
+        window.dictTerms = terms
+        void cacheTerms(terms).catch(function () {})
+        self.termsLoaded = terms.length > 0
+        if (self.host) self.refresh()
+        Toast.show("Kamus: " + terms.length + " term")
+      })
+      .catch(function (e) {
+        Toast.show("Gagal muat kamus: " + (e && e.message ? e.message : e))
+      })
+      .finally(function () {
+        self.refreshing = false
+        if (self.rrEl) self.rrEl.classList.remove("busy")
+      })
   },
 
   refresh: function () {

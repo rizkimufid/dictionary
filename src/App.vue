@@ -11,6 +11,7 @@ import {
 import TermCard from "@/components/TermCard.vue";
 import TermTable from "@/components/TermTable.vue";
 import TermFormDialog from "@/components/TermFormDialog.vue";
+import BatchImportDialog from "@/components/BatchImportDialog.vue";
 import LoginScreen from "@/components/LoginScreen.vue";
 import { useDictionaryStore } from "@/stores/dictionary";
 import { supabase } from "@/lib/supabase";
@@ -47,6 +48,7 @@ const categoryOptions = [
 
 const dialogOpen = ref(false);
 const editingId = ref<string | null>(null);
+const batchOpen = ref(false);
 const loginOpen = ref(false);
 
 function openLogin() {
@@ -114,6 +116,10 @@ function openAdd() {
 }
 
 function openEdit(id: string) {
+    if (!store.terms.some((term) => term.id === id)) {
+        toast.error(t("entryNotFound"));
+        return;
+    }
     editingId.value = id;
     dialogOpen.value = true;
 }
@@ -239,15 +245,24 @@ function onDelete(id: string) {
                 </div>
             </div>
 
-            <DCodeButton
-                v-if="authenticated"
-                :text="t('addTerm')"
-                icon="Plus"
-                variant="default"
-                bgColor="success"
-                size="sm"
-                @click="openAdd"
-            />
+            <div v-if="authenticated" class="flex flex-wrap justify-end gap-2">
+                <DCodeButton
+                    :text="t('batchImport')"
+                    icon="Upload"
+                    variant="tonal"
+                    bgColor="primary"
+                    size="sm"
+                    @click="batchOpen = true"
+                />
+                <DCodeButton
+                    :text="t('addTerm')"
+                    icon="Plus"
+                    variant="default"
+                    bgColor="success"
+                    size="sm"
+                    @click="openAdd"
+                />
+            </div>
         </div>
 
         <p class="text-xs text-muted-foreground">
@@ -283,6 +298,7 @@ function onDelete(id: string) {
         </div>
 
         <TermFormDialog v-model:open="dialogOpen" :editing-id="editingId" />
+        <BatchImportDialog v-model:open="batchOpen" />
 
         <LoginScreen
             v-model:open="loginOpen"
