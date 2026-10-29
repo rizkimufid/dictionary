@@ -9,4 +9,6 @@ import "./assets/main.css";
 
 const pinia = createPinia()
 
-createApp(App).use(pinia).use(i18n).mount("#app")
+const app = createApp(App)
+app.provide("externalApi", null)
+app.use(pinia).use(i18n).mount("#app")

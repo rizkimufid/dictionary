@@ -63,8 +63,8 @@ async function loadTerms() {
     await store.fetchTerms({
         page: currentPage.value,
         perPage: perPage.value,
-        query: search.value,
-        category: categoryFilter.value,
+        query: search.value || "",
+        category: categoryFilter.value || "all",
     });
 }
 
