@@ -90,6 +90,7 @@ const messages: Record<LocaleKey, Record<string, string>> = {
         count_0: "Tidak ada term",
         count_1: "{n} term",
         count_other: "{n} term",
+        showingCount: "Menampilkan {from}–{to} dari {total} term",
     },
     en: {
         appTitle: "Translation Dictionary",
@@ -178,6 +179,7 @@ const messages: Record<LocaleKey, Record<string, string>> = {
         count_0: "No terms",
         count_1: "{n} term",
         count_other: "{n} terms",
+        showingCount: "Showing {from}–{to} of {total} terms",
     },
     kr: {
         appTitle: "번역 사전",
@@ -266,6 +268,7 @@ const messages: Record<LocaleKey, Record<string, string>> = {
         count_0: "용어 없음",
         count_1: "{n}개 용어",
         count_other: "{n}개 용어",
+        showingCount: "{total}개 중 {from}–{to} 표시",
     },
 }
 

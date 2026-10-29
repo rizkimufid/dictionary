@@ -27,7 +27,12 @@ export interface BatchImportResult {
 
 export const useDictionaryStore = defineStore("dictionary", () => {
   const terms = ref<TermEntry[]>([])
+  const total = ref(0)
   const loading = ref(false)
+  const currentPage = ref(1)
+  const perPage = ref(25)
+  const searchQuery = ref("")
+  const currentCategory = ref<"all" | TermCategory>("all")
 
   const categoryCount = computed<Record<TermCategory, number>>(() => {
     const counts: Record<TermCategory, number> = {
@@ -41,30 +46,79 @@ export const useDictionaryStore = defineStore("dictionary", () => {
     return counts
   })
 
-  async function fetchTerms(): Promise<{ ok: true } | { ok: false; reason: string }> {
+  async function fetchTerms(params?: {
+    page?: number
+    perPage?: number
+    query?: string
+    category?: "all" | TermCategory
+  }): Promise<{ ok: true } | { ok: false; reason: string }> {
     loading.value = true
     try {
-      const { data, error } = await supabase
+      if (params?.page !== undefined) currentPage.value = params.page
+      if (params?.perPage !== undefined) perPage.value = params.perPage
+      if (params?.query !== undefined) searchQuery.value = params.query
+      if (params?.category !== undefined) currentCategory.value = params.category
+
+      let queryBuilder = supabase
         .from("terms")
-        .select("*")
+        .select("*", { count: "exact" })
         .order("created_at", { ascending: false })
-      if (error) return { ok: false, reason: error.message }
-      if (data) {
-        terms.value = data.map((row) => ({
-          id: row.id,
-          termID: row.term_id,
-          termEN: row.term_en,
-          termKR: row.term_kr,
-          category: row.category as TermCategory,
-          description: row.description || undefined,
-          createdAt: row.created_at,
-          updatedAt: row.updated_at,
-        }))
+
+      if (currentCategory.value !== "all") {
+        queryBuilder = queryBuilder.eq("category", currentCategory.value)
       }
+
+      const q = searchQuery.value.trim()
+      if (q) {
+        const clean = q.replace(/[(),"%*\\]/g, " ").trim()
+        if (clean) {
+          const pattern = `%${clean}%`
+          queryBuilder = queryBuilder.or(
+            `term_id.ilike.${pattern},term_en.ilike.${pattern},term_kr.ilike.${pattern},category.ilike.${pattern},description.ilike.${pattern}`
+          )
+        }
+      }
+
+      const from = (currentPage.value - 1) * perPage.value
+      const to = from + perPage.value - 1
+      const { data, count, error } = await queryBuilder.range(from, to)
+
+      if (error) return { ok: false, reason: error.message }
+
+      total.value = count ?? 0
+      terms.value = (data || []).map((row) => ({
+        id: row.id,
+        termID: row.term_id,
+        termEN: row.term_en,
+        termKR: row.term_kr,
+        category: row.category as TermCategory,
+        description: row.description || undefined,
+        createdAt: row.created_at,
+        updatedAt: row.updated_at,
+      }))
       return { ok: true }
     } finally {
       loading.value = false
     }
+  }
+
+  async function fetchAllKeys(): Promise<Array<Pick<TermEntry, "termID" | "category">>> {
+    const all: Array<Pick<TermEntry, "termID" | "category">> = []
+    let from = 0
+    const step = 1000
+    while (true) {
+      const { data, error } = await supabase
+        .from("terms")
+        .select("term_id, category")
+        .range(from, from + step - 1)
+      if (error || !data || data.length === 0) break
+      for (const r of data) {
+        all.push({ termID: r.term_id, category: r.category as TermCategory })
+      }
+      if (data.length < step) break
+      from += data.length
+    }
+    return all
   }
 
   async function addTerm(input: TermInput): Promise<TermWriteResult> {
@@ -151,5 +205,20 @@ export const useDictionaryStore = defineStore("dictionary", () => {
     await fetchTerms()
   }
 
-  return { terms, loading, categoryCount, fetchTerms, addTerm, updateTerm, importTerms, removeTerm }
+  return {
+    terms,
+    total,
+    loading,
+    currentPage,
+    perPage,
+    searchQuery,
+    currentCategory,
+    categoryCount,
+    fetchTerms,
+    fetchAllKeys,
+    addTerm,
+    updateTerm,
+    importTerms,
+    removeTerm,
+  }
 })

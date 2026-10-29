@@ -29,7 +29,7 @@ async function getSettings() {
 }
 
 async function fetchTerms(cfg) {
-  return fetchSupabaseTerms(cfg)
+  return fetchRecentTerms(cfg, 30)
 }
 
 function rectCenter(r) {
@@ -475,7 +475,6 @@ document.addEventListener(
       applyPick,
       badge
     )
-    DictSearchPopover.refresh()
   },
   true
 )
@@ -495,8 +494,8 @@ async function init() {
   }
   console.info("[Dictionary Search] aktif:", location.origin)
 
+  DictSearchPopover.setCfg(cfg)
   var configured = !!(cfg.supabaseUrl && cfg.supabaseAnonKey)
-  DictSearchPopover.setSupabaseConfigured(configured)
 
   var terms = []
   try {

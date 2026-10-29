@@ -96,7 +96,8 @@ async function onFileChange(event: Event) {
     fileName.value = file.name;
 
     try {
-        preview.value = await parseTermFile(file, store.terms);
+        const existingKeys = await store.fetchAllKeys();
+        preview.value = await parseTermFile(file, existingKeys);
     } catch (error) {
         parseError.value = fileErrorMessage(error);
     } finally {

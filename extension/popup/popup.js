@@ -24,12 +24,16 @@ async function refreshTermsCache() {
     cacheEl.textContent = "Kamus: anon key belum diset (untuk versi dev)."
     return 0
   }
-  cacheEl.textContent = "Memuat kamus…"
+  cacheEl.textContent = "Menghubungkan kamus…"
   try {
-    const terms = await fetchSupabaseTerms({ supabaseUrl: state.supabaseUrl, supabaseAnonKey: anonKey })
-    await cacheTerms(terms)
-    cacheEl.textContent = "Kamus: " + terms.length + " term"
-    return terms.length
+    const cfg = { supabaseUrl: state.supabaseUrl, supabaseAnonKey: anonKey }
+    const total = await countSupabaseTerms(cfg)
+    cacheEl.textContent = "Kamus: " + total + " term"
+    // Pre-cache hanya 30 term teratas untuk respon popover instan
+    fetchRecentTerms(cfg, 30)
+      .then(cacheTerms)
+      .catch(function () {})
+    return total
   } catch (e) {
     console.error("[Dictionary Search] popup gagal memuat kamus:", e)
     cacheEl.textContent = "Kamus: gagal dimuat (" + e.message + ")"
