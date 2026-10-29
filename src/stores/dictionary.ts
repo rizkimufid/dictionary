@@ -54,21 +54,22 @@ export const useDictionaryStore = defineStore("dictionary", () => {
   }): Promise<{ ok: true } | { ok: false; reason: string }> {
     loading.value = true
     try {
-      if (params?.page !== undefined) currentPage.value = params.page
-      if (params?.perPage !== undefined) perPage.value = params.perPage
-      if (params?.query !== undefined) searchQuery.value = params.query
-      if (params?.category !== undefined) currentCategory.value = params.category
+      if (params?.page !== undefined) currentPage.value = Number(params.page) || 1
+      if (params?.perPage !== undefined) perPage.value = Number(params.perPage) || 25
+      if (params?.query !== undefined) searchQuery.value = params.query ?? ""
+      if (params?.category !== undefined) currentCategory.value = params.category ?? "all"
 
       let queryBuilder = supabase
         .from("terms")
         .select("*", { count: "exact" })
         .order("created_at", { ascending: false })
 
-      if (currentCategory.value !== "all") {
-        queryBuilder = queryBuilder.eq("category", currentCategory.value)
+      const cat = currentCategory.value || "all"
+      if (cat !== "all") {
+        queryBuilder = queryBuilder.eq("category", cat)
       }
 
-      const q = searchQuery.value.trim()
+      const q = (searchQuery.value || "").trim()
       if (q) {
         const clean = q.replace(/[(),"%*\\]/g, " ").trim()
         if (clean) {
@@ -122,13 +123,16 @@ export const useDictionaryStore = defineStore("dictionary", () => {
   }
 
   async function addTerm(input: TermInput): Promise<TermWriteResult> {
-    if (!input.termID.trim() && !input.termEN.trim() && !input.termKR.trim()) {
+    const termID = (input.termID || "").trim()
+    const termEN = (input.termEN || "").trim()
+    const termKR = (input.termKR || "").trim()
+    if (!termID && !termEN && !termKR) {
       return { ok: false, code: "empty", reason: "Setidaknya satu bahasa wajib diisi" }
     }
     const { error } = await supabase.from("terms").insert({
-      term_id: input.termID.trim(),
-      term_en: input.termEN.trim(),
-      term_kr: input.termKR.trim(),
+      term_id: termID,
+      term_en: termEN,
+      term_kr: termKR,
       category: input.category,
       description: input.description?.trim() || null,
     })
@@ -143,15 +147,18 @@ export const useDictionaryStore = defineStore("dictionary", () => {
   }
 
   async function updateTerm(id: string, input: TermInput): Promise<TermWriteResult> {
-    if (!input.termID.trim() && !input.termEN.trim() && !input.termKR.trim()) {
+    const termID = (input.termID || "").trim()
+    const termEN = (input.termEN || "").trim()
+    const termKR = (input.termKR || "").trim()
+    if (!termID && !termEN && !termKR) {
       return { ok: false, code: "empty", reason: "Setidaknya satu bahasa wajib diisi" }
     }
     const { error } = await supabase
       .from("terms")
       .update({
-        term_id: input.termID.trim(),
-        term_en: input.termEN.trim(),
-        term_kr: input.termKR.trim(),
+        term_id: termID,
+        term_en: termEN,
+        term_kr: termKR,
         category: input.category,
         description: input.description?.trim() || null,
         updated_at: new Date().toISOString(),
@@ -174,9 +181,9 @@ export const useDictionaryStore = defineStore("dictionary", () => {
     for (let offset = 0; offset < items.length; offset += chunkSize) {
       const chunk = items.slice(offset, offset + chunkSize)
       const payload = chunk.map(({ input }) => ({
-        term_id: input.termID.trim(),
-        term_en: input.termEN.trim(),
-        term_kr: input.termKR.trim(),
+        term_id: (input.termID || "").trim(),
+        term_en: (input.termEN || "").trim(),
+        term_kr: (input.termKR || "").trim(),
         category: input.category,
         description: input.description?.trim() || null,
       }))
