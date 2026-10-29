@@ -89,6 +89,7 @@ async function copyID(entry: TermEntry) {
                 variant="ghost"
                 icon="Copy"
                 @click="copyID(entry)"
+                tooltip="Copy"
               />
             </div>
           </td>
@@ -106,6 +107,7 @@ async function copyID(entry: TermEntry) {
                 variant="ghost"
                 icon="Copy"
                 @click="copyCell(entry, 'en')"
+                tooltip="Copy""
               />
             </div>
           </td>
@@ -123,6 +125,7 @@ async function copyID(entry: TermEntry) {
                 variant="ghost"
                 icon="Copy"
                 @click="copyCell(entry, 'kr')"
+                tooltip="Copy"
               />
             </div>
           </td>
@@ -131,8 +134,8 @@ async function copyID(entry: TermEntry) {
           </td>
           <td v-if="authenticated" class="px-4 py-2.5 text-right">
             <div class="flex justify-end gap-1">
-              <DCodeButton size="icon" variant="ghost" icon="Pencil" @click="emit('edit', entry.id)" />
-              <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" @click="emit('delete', entry.id)" />
+              <DCodeButton size="icon" variant="ghost" icon="Pencil" :tooltip="t('edit')" @click="emit('edit', entry.id)" />
+              <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" :tooltip="t('delete')" @click="emit('delete', entry.id)" />
             </div>
           </td>
         </tr>

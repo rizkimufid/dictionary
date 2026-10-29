@@ -2,11 +2,11 @@
 
 var DICT_SCRIPT_ID = "dict-search"
 var DICT_CONTENT_FILES = [
+  "/common/terms.js",
   "/content/match.js",
   "/content/filter.js",
   "/content/toast.js",
   "/content/popover.js",
-  "/common/terms.js",
   "/content/script.js",
 ]
 

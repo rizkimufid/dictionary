@@ -1,16 +1,19 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue3-toastify";
+import { useDebounceFn } from "@vueuse/core";
 
 import {
     DCodeAutoComplete,
     DCodeButton,
+    DCodePagination,
     DCodeTextField,
 } from "@gemafajarramadhan/dynamic-ui";
 import TermCard from "@/components/TermCard.vue";
 import TermTable from "@/components/TermTable.vue";
 import TermFormDialog from "@/components/TermFormDialog.vue";
+import BatchImportDialog from "@/components/BatchImportDialog.vue";
 import LoginScreen from "@/components/LoginScreen.vue";
 import { useDictionaryStore } from "@/stores/dictionary";
 import { supabase } from "@/lib/supabase";
@@ -26,6 +29,8 @@ const categoryFilter = ref<"all" | TermCategory>("all");
 const format = ref<CopyFormat>("text");
 const appLocale = ref<AppLocale>("id");
 const viewMode = ref<ViewMode>("table");
+const currentPage = ref(1);
+const perPage = ref(25);
 
 watch(appLocale, (v) => {
     locale.value = v;
@@ -47,10 +52,45 @@ const categoryOptions = [
 
 const dialogOpen = ref(false);
 const editingId = ref<string | null>(null);
+const batchOpen = ref(false);
 const loginOpen = ref(false);
 
 function openLogin() {
     loginOpen.value = true;
+}
+
+async function loadTerms() {
+    await store.fetchTerms({
+        page: currentPage.value,
+        perPage: perPage.value,
+        query: search.value,
+        category: categoryFilter.value,
+    });
+}
+
+const debouncedSearch = useDebounceFn(() => {
+    currentPage.value = 1;
+    loadTerms();
+}, 300);
+
+watch(search, () => {
+    debouncedSearch();
+});
+
+watch(categoryFilter, () => {
+    currentPage.value = 1;
+    loadTerms();
+});
+
+function onPageChange(page: number) {
+    currentPage.value = page;
+    loadTerms();
+}
+
+function onPerPageChange(limit: number) {
+    perPage.value = limit;
+    currentPage.value = 1;
+    loadTerms();
 }
 
 onMounted(async () => {
@@ -58,7 +98,7 @@ onMounted(async () => {
     if (data.session) {
         authenticated.value = true;
     }
-    await store.fetchTerms();
+    await loadTerms();
 
     document.addEventListener("keydown", handleKeydown);
 });
@@ -83,30 +123,14 @@ function handleKeydown(e: KeyboardEvent) {
 async function onAuthenticated() {
     authenticated.value = true;
     loginOpen.value = false;
-    await store.fetchTerms();
+    await loadTerms();
 }
 
 async function logout() {
     await supabase.auth.signOut();
     authenticated.value = false;
-    store.terms = [];
+    await loadTerms();
 }
-
-const filtered = computed(() => {
-    const q = (search.value ?? "").trim().toLowerCase();
-    return store.terms.filter((term) => {
-        if (
-            categoryFilter.value !== "all" &&
-            term.category !== categoryFilter.value
-        )
-            return false;
-        if (!q) return true;
-        return [term.termID, term.termEN, term.termKR, term.description ?? ""]
-            .join(" ")
-            .toLowerCase()
-            .includes(q);
-    });
-});
 
 function openAdd() {
     editingId.value = null;
@@ -114,13 +138,17 @@ function openAdd() {
 }
 
 function openEdit(id: string) {
+    if (!store.terms.some((term) => term.id === id)) {
+        toast.error(t("entryNotFound"));
+        return;
+    }
     editingId.value = id;
     dialogOpen.value = true;
 }
 
-function onDelete(id: string) {
+async function onDelete(id: string) {
     if (window.confirm(t("confirmDelete"))) {
-        store.removeTerm(id);
+        await store.removeTerm(id);
         toast.success(t("deletedMessage"));
     }
 }
@@ -239,31 +267,40 @@ function onDelete(id: string) {
                 </div>
             </div>
 
-            <DCodeButton
-                v-if="authenticated"
-                :text="t('addTerm')"
-                icon="Plus"
-                variant="default"
-                bgColor="success"
-                size="sm"
-                @click="openAdd"
-            />
+            <div v-if="authenticated" class="flex flex-wrap justify-end gap-2">
+                <DCodeButton
+                    :text="t('batchImport')"
+                    icon="Upload"
+                    variant="tonal"
+                    bgColor="primary"
+                    size="sm"
+                    @click="batchOpen = true"
+                />
+                <DCodeButton
+                    :text="t('addTerm')"
+                    icon="Plus"
+                    variant="default"
+                    bgColor="success"
+                    size="sm"
+                    @click="openAdd"
+                />
+            </div>
         </div>
 
         <p class="text-xs text-muted-foreground">
-            {{ t("count_" + Math.min(filtered.length, 1), [filtered.length]) }}
+            {{ t("count_" + Math.min(store.total, 1), [store.total]) }}
         </p>
 
         <div class="flex flex-col gap-3">
             <p
-                v-if="filtered.length === 0"
+                v-if="store.terms.length === 0 && !store.loading"
                 class="py-10 text-center text-sm text-muted-foreground"
             >
                 {{ t("count_0") }}
             </p>
             <template v-if="viewMode === 'card'">
                 <TermCard
-                    v-for="entry in filtered"
+                    v-for="entry in store.terms"
                     :key="entry.id"
                     :entry="entry"
                     :format="format"
@@ -274,15 +311,39 @@ function onDelete(id: string) {
             </template>
             <TermTable
                 v-else
-                :entries="filtered"
+                :entries="store.terms"
                 :format="format"
                 :authenticated="authenticated"
                 @edit="openEdit"
                 @delete="onDelete"
             />
+
+            <div
+                v-if="store.total > 0"
+                class="mt-4 flex flex-col items-center justify-between gap-3 sm:flex-row"
+            >
+                <span class="text-xs text-muted-foreground">
+                    {{
+                        t("showingCount", {
+                            from: (currentPage - 1) * perPage + 1,
+                            to: Math.min(currentPage * perPage, store.total),
+                            total: store.total,
+                        })
+                    }}
+                </span>
+                <DCodePagination
+                    :total-items="store.total"
+                    :current-page="currentPage"
+                    :per-page="perPage"
+                    :loading="store.loading"
+                    @update:page="onPageChange"
+                    @update:per-page="onPerPageChange"
+                />
+            </div>
         </div>
 
         <TermFormDialog v-model:open="dialogOpen" :editing-id="editingId" />
+        <BatchImportDialog v-model:open="batchOpen" />
 
         <LoginScreen
             v-model:open="loginOpen"

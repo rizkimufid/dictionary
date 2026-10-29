@@ -86,9 +86,9 @@ async function save() {
   await refreshGrants(domains, supabaseUrl)
 
   if (supabaseUrl && supabaseAnonKey) {
-    fetchSupabaseTerms({ supabaseUrl, supabaseAnonKey })
+    fetchRecentTerms({ supabaseUrl, supabaseAnonKey }, 30)
       .then(cacheTerms)
-      .then(() => console.log("[Dictionary Search] kamus dikache:", domains.length))
+      .then(() => console.log("[Dictionary Search] kamus awal dikache (30 term)"))
       .catch((e) => console.error("[Dictionary Search] gagal preload kamus:", e))
   }
 

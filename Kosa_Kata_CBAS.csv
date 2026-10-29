@@ -216,7 +216,7 @@ Setuju,Approve,승인하다
 Apakah anda yakin untuk melakukan pengajuan terhadap data ini?,Are you sure you want to submit this data?,이 데이터를 제출하시겠어요?
 Konfirmasi Simpan,Save Confirmation,저장 확인
 Apakah anda yakin ingin menyimpan data ini?,Are you sure you want to save this data?,이 데이터를 저장하시겠어요?
-Detail Approval,,세부 승인
+Detail Persetujuan,Detail Approval,세부 승인
 Data Nasabah,Customer Data,고객 데이터
 Pengajuan,Submission,제출
 Segment,Segment,분절
@@ -230,8 +230,8 @@ Masukkan Email,Enter Email,이메일을 입력하세요
 Data Pekerjaan,Job Data,직무 데이터
 Pekerjaan,Job,일하다
 Pilih Pekerjaan,Select a Job,직업을 선택하세요
-NIP,NIP,집게발
-Masukkan NIP,Enter NIP,NIP 입력
+NIP,NIP,직원 ID 번호
+Masukkan NIP,Enter NIP,직원 ID 번호를 입력하세요
 Tempat Kerja,Workplace,직장
 Masukkan Tempat Kerja,Enter Workplace,직장에 들어가기
 Umur Pensiun,Retirement Age,은퇴 연령
@@ -350,7 +350,7 @@ Status Rekening,Account Status,계정 상태
 Pilih Status Rekening,Select Account Status,계정 상태를 선택하세요
 Plafon,Loan Limit,대출 한도
 Masukkan Plafon,Enter Loan Limit,대출 한도를 입력하세요
-Fasilitas Kredit Existing External,,
+Fasilitas Kredit Existing External,Existing External Credit Facility,기존 해외 신용 시설
 Debitur,Debtor,채무자
 Data Pekerjaan,Job Data,직무 데이터
 Tenor,Tenor,테너
@@ -577,7 +577,6 @@ Asuransi,Insurance,보험
 Nomor polis,Police number,보험증권 번호
 Vendor,Vendor,공급업체
 Data pencairan kredit,Loan Disbursement Information,대출 실행 정보
-cif,cif,cif
 Metode pencairan,Disbursement Method,대출 실행 방식
 Masukkan cif,Enter cif,CIF를 입력하세요
 Masukkan jatuh tempo,Enter due date,납부 기한일을 입력하세요

@@ -32,7 +32,12 @@ function chunk(type, data) {
 }
 
 function png(width, height, rgba) {
-  const idat = deflateSync(Buffer.concat([Buffer.from([0]), rgba]))
+  const raw = Buffer.alloc(height * (1 + width * 4))
+  for (let y = 0; y < height; y++) {
+    raw[y * (1 + width * 4)] = 0
+    rgba.copy(raw, y * (1 + width * 4) + 1, y * width * 4, (y + 1) * width * 4)
+  }
+  const idat = deflateSync(raw)
   return Buffer.concat([
     Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]),
     chunk("IHDR", (() => {
@@ -49,6 +54,7 @@ function png(width, height, rgba) {
 }
 
 const BG = [17, 24, 39]        // #111827
+const RING = [99, 102, 241]    // #6366f1 (indigo ring biar kebaca di toolbar gelap/terang)
 const BAR_COLORS = [
   [220, 38, 38],   // ID merah
   [250, 204, 21],  // EN kuning
@@ -62,10 +68,16 @@ function drawIcon(size) {
   for (let y = 0; y < size; y++) {
     for (let x = 0; x < size; x++) {
       const i = (y * size + x) * 4
-
-      // rounded-rect background
       const inB = inRoundedRect(x + 0.5, y + 0.5, size, size, radius)
       if (!inB) continue
+      // 1px ring penanda di batas rounded-rect
+      if (!inRoundedRect(x + 1.5, y + 1.5, size - 2, size - 2, Math.max(radius - 1, 1))) {
+        px[i] = RING[0]
+        px[i + 1] = RING[1]
+        px[i + 2] = RING[2]
+        px[i + 3] = 255
+        continue
+      }
       px[i] = BG[0]
       px[i + 1] = BG[1]
       px[i + 2] = BG[2]
@@ -73,7 +85,7 @@ function drawIcon(size) {
 
       // three language bars
       const barCount = 3
-      const barW = size * 0.14
+      const barW = size * 0.16
       const gap = (size - 2 * size * 0.26 - barCount * barW) / (barCount - 1)
       const barH = size * 0.48
       const top = (size - barH) / 2

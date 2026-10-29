@@ -8,7 +8,7 @@ const extDir = path.join(repoRoot, "extension")
 const outDir = path.join(repoRoot, "dist-extension")
 const outFile = path.join(outDir, "dict-search.zip")
 
-const entries = ["manifest.json", "icons", "content", "options", "popup", "common"]
+const entries = ["manifest.json", "background.js", "icons", "content", "options", "popup", "common"]
 
 mkdirSync(outDir, { recursive: true })
 
