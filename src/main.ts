@@ -1,14 +1,14 @@
 import { createApp } from "vue"
 import { createPinia } from "pinia"
+import { DynamicUI } from "@skyworx/dynamic-ui"
 import { i18n } from "@/i18n"
 import "vue3-toastify/dist/index.css"
-import "@gemafajarramadhan/dynamic-ui/style.css"
+import "@skyworx/dynamic-ui/style.css"
 import App from "./App.vue"
-import '@gemafajarramadhan/dynamic-ui/dist/dynamic-ui.css'
 import "./assets/main.css";
 
 const pinia = createPinia()
 
 const app = createApp(App)
-app.provide("externalApi", null)
+app.use(DynamicUI, { externalApi: null })
 app.use(pinia).use(i18n).mount("#app")

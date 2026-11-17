@@ -1,21 +1,9 @@
-import type { CopyFormat, TermCategory, TermEntry, AppLocale } from "@/types"
-
-const PREFIX: Record<TermCategory, string> = {
-  field: "label",
-  placeholder: "placeholder",
-  action: "label",
-  title: "title",
-  "table-header": "label",
-}
+import type { CopyFormat, TermEntry, AppLocale } from "@/types"
 
 const LANG_SUFFIX: Record<AppLocale, string> = {
   id: "ID",
   en: "EN",
   kr: "KR",
-}
-
-function keyName(entry: TermEntry, lang: AppLocale): string {
-  return `${PREFIX[entry.category]}${LANG_SUFFIX[lang]}`
 }
 
 function valueOf(entry: TermEntry, lang: AppLocale): string {
@@ -29,7 +17,7 @@ function quote(value: string): string {
 }
 
 function pair(entry: TermEntry, lang: AppLocale): string {
-  return `${keyName(entry, lang)}:${quote(valueOf(entry, lang))}`
+  return `label${LANG_SUFFIX[lang]}:${quote(valueOf(entry, lang))}`
 }
 
 /** Output lengkap 3 bahasa */

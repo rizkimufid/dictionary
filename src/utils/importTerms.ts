@@ -1,4 +1,4 @@
-import type { TermCategory, TermEntry, TermInput } from "@/types"
+import type { TermEntry, TermInput } from "@/types"
 
 export const MAX_IMPORT_FILE_SIZE = 5 * 1024 * 1024
 export const MAX_IMPORT_ROWS = 5000
@@ -13,11 +13,7 @@ export type ImportFileErrorCode =
   | "tooManyRows"
 
 export type ImportRowStatus = "ready" | "duplicate" | "invalid"
-export type ImportRowReason =
-  | "empty"
-  | "invalidCategory"
-  | "duplicateExisting"
-  | "duplicateFile"
+export type ImportRowReason = "empty" | "duplicateExisting" | "duplicateFile"
 
 export class ImportFileError extends Error {
   readonly code: ImportFileErrorCode
@@ -32,7 +28,6 @@ export class ImportFileError extends Error {
 export interface ImportCandidate {
   rowNumber: number
   input: TermInput
-  sourceCategory: string
   status: ImportRowStatus
   reason?: ImportRowReason
 }
@@ -45,20 +40,8 @@ const HEADER_ALIASES = {
   termID: new Set(["termid", "id", "indonesia"]),
   termEN: new Set(["termen", "en", "inggris", "english"]),
   termKR: new Set(["termkr", "kr", "korea", "korean"]),
-  category: new Set(["category", "kategori"]),
   description: new Set(["description", "deskripsi"]),
 } as const
-
-const CATEGORY_ALIASES: Record<string, TermCategory> = {
-  field: "field",
-  placeholder: "placeholder",
-  action: "action",
-  aksi: "action",
-  title: "title",
-  judul: "title",
-  tableheader: "table-header",
-  headertabel: "table-header",
-}
 
 function cellText(value: unknown): string {
   if (value == null) return ""
@@ -119,7 +102,7 @@ async function readRows(file: File): Promise<unknown[][]> {
 
 export function buildImportPreview(
   rows: unknown[][],
-  existingTerms: Array<Pick<TermEntry, "termID" | "category">>,
+  existingTerms: Array<Pick<TermEntry, "termID">>,
 ): ImportPreview {
   const header = rows[0] ?? []
   const normalized = header.map(normalizedHeader)
@@ -129,7 +112,6 @@ export function buildImportPreview(
     termID: findColumn(HEADER_ALIASES.termID),
     termEN: findColumn(HEADER_ALIASES.termEN),
     termKR: findColumn(HEADER_ALIASES.termKR),
-    category: findColumn(HEADER_ALIASES.category),
     description: findColumn(HEADER_ALIASES.description),
   }
 
@@ -146,10 +128,8 @@ export function buildImportPreview(
     throw new ImportFileError("tooManyRows")
   }
 
-  const existingKeys = new Set(
-    existingTerms.map((term) => `${term.termID.trim()}\u0000${term.category}`),
-  )
-  const fileKeys = new Set<string>()
+  const existingIds = new Set(existingTerms.map((term) => term.termID.trim()))
+  const fileIds = new Set<string>()
 
   const candidates: ImportCandidate[] = []
   for (const [index, values] of dataRows.entries()) {
@@ -158,36 +138,28 @@ export function buildImportPreview(
     const termID = cellText(values[columns.termID]).trim()
     const termEN = cellText(values[columns.termEN]).trim()
     const termKR = cellText(values[columns.termKR]).trim()
-    const sourceCategory = columns.category < 0
-      ? "field"
-      : cellText(values[columns.category]).trim() || "field"
     const description = columns.description < 0
       ? ""
       : cellText(values[columns.description]).trim()
-    const category = CATEGORY_ALIASES[normalizedHeader(sourceCategory)] ?? null
-    const input: TermInput = { termID, termEN, termKR, category: category ?? "field", description }
+    const input: TermInput = { termID, termEN, termKR, description }
     const rowNumber = index + 2
 
     if (!termID && !termEN && !termKR) {
-      candidates.push({ rowNumber, input, sourceCategory, status: "invalid", reason: "empty" })
-      continue
-    }
-    if (!category) {
-      candidates.push({ rowNumber, input, sourceCategory, status: "invalid", reason: "invalidCategory" })
+      candidates.push({ rowNumber, input, status: "invalid", reason: "empty" })
       continue
     }
 
-    const key = `${termID}\u0000${category}`
-    if (existingKeys.has(key)) {
-      candidates.push({ rowNumber, input, sourceCategory, status: "duplicate", reason: "duplicateExisting" })
+    const key = termID
+    if (existingIds.has(key)) {
+      candidates.push({ rowNumber, input, status: "duplicate", reason: "duplicateExisting" })
       continue
     }
-    if (fileKeys.has(key)) {
-      candidates.push({ rowNumber, input, sourceCategory, status: "duplicate", reason: "duplicateFile" })
+    if (fileIds.has(key)) {
+      candidates.push({ rowNumber, input, status: "duplicate", reason: "duplicateFile" })
       continue
     }
-    fileKeys.add(key)
-    candidates.push({ rowNumber, input, sourceCategory, status: "ready" })
+    fileIds.add(key)
+    candidates.push({ rowNumber, input, status: "ready" })
   }
 
   return { rows: candidates }
@@ -195,7 +167,7 @@ export function buildImportPreview(
 
 export async function parseTermFile(
   file: File,
-  existingTerms: Array<Pick<TermEntry, "termID" | "category">>,
+  existingTerms: Array<Pick<TermEntry, "termID">>,
 ): Promise<ImportPreview> {
   return buildImportPreview(await readRows(file), existingTerms)
 }

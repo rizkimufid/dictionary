@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from "vue"
 import { useI18n } from "vue-i18n"
-import { DCodeTextField, DCodeButton, DCodeDialog } from "@gemafajarramadhan/dynamic-ui"
+import { DCodeTextField, DCodeButton, DCodeDialog } from "@skyworx/dynamic-ui"
 import { supabase } from "@/lib/supabase"
 
 const props = defineProps<{

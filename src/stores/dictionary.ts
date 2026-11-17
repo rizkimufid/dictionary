@@ -1,7 +1,10 @@
-import { ref, computed } from "vue"
+import { ref } from "vue"
 import { defineStore } from "pinia"
 import { supabase } from "@/lib/supabase"
-import type { TermCategory, TermEntry, TermInput } from "@/types"
+import type { TermEntry, TermInput } from "@/types"
+
+// ponytail: kolom category masih ada di DB & dipakai extension; nilai tetap cukup
+const DB_CATEGORY = "field"
 
 export type TermWriteErrorCode = "empty" | "duplicate" | "database"
 
@@ -32,42 +35,22 @@ export const useDictionaryStore = defineStore("dictionary", () => {
   const currentPage = ref(1)
   const perPage = ref(25)
   const searchQuery = ref("")
-  const currentCategory = ref<"all" | TermCategory>("all")
-
-  const categoryCount = computed<Record<TermCategory, number>>(() => {
-    const counts: Record<TermCategory, number> = {
-      field: 0,
-      placeholder: 0,
-      action: 0,
-      title: 0,
-      "table-header": 0,
-    }
-    for (const t of terms.value) counts[t.category]++
-    return counts
-  })
 
   async function fetchTerms(params?: {
     page?: number
     perPage?: number
     query?: string
-    category?: "all" | TermCategory
   }): Promise<{ ok: true } | { ok: false; reason: string }> {
     loading.value = true
     try {
       if (params?.page !== undefined) currentPage.value = Number(params.page) || 1
       if (params?.perPage !== undefined) perPage.value = Number(params.perPage) || 25
       if (params?.query !== undefined) searchQuery.value = params.query ?? ""
-      if (params?.category !== undefined) currentCategory.value = params.category ?? "all"
 
       let queryBuilder = supabase
         .from("terms")
         .select("*", { count: "exact" })
         .order("created_at", { ascending: false })
-
-      const cat = currentCategory.value || "all"
-      if (cat !== "all") {
-        queryBuilder = queryBuilder.eq("category", cat)
-      }
 
       const q = (searchQuery.value || "").trim()
       if (q) {
@@ -75,7 +58,7 @@ export const useDictionaryStore = defineStore("dictionary", () => {
         if (clean) {
           const pattern = `%${clean}%`
           queryBuilder = queryBuilder.or(
-            `term_id.ilike.${pattern},term_en.ilike.${pattern},term_kr.ilike.${pattern},category.ilike.${pattern},description.ilike.${pattern}`
+            `term_id.ilike.${pattern},term_en.ilike.${pattern},term_kr.ilike.${pattern},description.ilike.${pattern}`
           )
         }
       }
@@ -92,7 +75,6 @@ export const useDictionaryStore = defineStore("dictionary", () => {
         termID: row.term_id,
         termEN: row.term_en,
         termKR: row.term_kr,
-        category: row.category as TermCategory,
         description: row.description || undefined,
         createdAt: row.created_at,
         updatedAt: row.updated_at,
@@ -103,18 +85,18 @@ export const useDictionaryStore = defineStore("dictionary", () => {
     }
   }
 
-  async function fetchAllKeys(): Promise<Array<Pick<TermEntry, "termID" | "category">>> {
-    const all: Array<Pick<TermEntry, "termID" | "category">> = []
+  async function fetchAllKeys(): Promise<Array<Pick<TermEntry, "termID">>> {
+    const all: Array<Pick<TermEntry, "termID">> = []
     let from = 0
     const step = 1000
     while (true) {
       const { data, error } = await supabase
         .from("terms")
-        .select("term_id, category")
+        .select("term_id")
         .range(from, from + step - 1)
       if (error || !data || data.length === 0) break
       for (const r of data) {
-        all.push({ termID: r.term_id, category: r.category as TermCategory })
+        all.push({ termID: r.term_id })
       }
       if (data.length < step) break
       from += data.length
@@ -133,12 +115,12 @@ export const useDictionaryStore = defineStore("dictionary", () => {
       term_id: termID,
       term_en: termEN,
       term_kr: termKR,
-      category: input.category,
+      category: DB_CATEGORY,
       description: input.description?.trim() || null,
     })
     if (error) {
       if (error.code === "23505") {
-        return { ok: false, code: "duplicate", reason: "TermID (Indonesia) sudah ada untuk kategori ini" }
+        return { ok: false, code: "duplicate", reason: "TermID (Indonesia) sudah ada" }
       }
       return { ok: false, code: "database", reason: error.message }
     }
@@ -159,14 +141,14 @@ export const useDictionaryStore = defineStore("dictionary", () => {
         term_id: termID,
         term_en: termEN,
         term_kr: termKR,
-        category: input.category,
+        category: DB_CATEGORY,
         description: input.description?.trim() || null,
         updated_at: new Date().toISOString(),
       })
       .eq("id", id)
     if (error) {
       if (error.code === "23505") {
-        return { ok: false, code: "duplicate", reason: "TermID (Indonesia) sudah ada untuk kategori ini" }
+        return { ok: false, code: "duplicate", reason: "TermID (Indonesia) sudah ada" }
       }
       return { ok: false, code: "database", reason: error.message }
     }
@@ -184,7 +166,7 @@ export const useDictionaryStore = defineStore("dictionary", () => {
         term_id: (input.termID || "").trim(),
         term_en: (input.termEN || "").trim(),
         term_kr: (input.termKR || "").trim(),
-        category: input.category,
+        category: DB_CATEGORY,
         description: input.description?.trim() || null,
       }))
       const { data, error } = await supabase
@@ -219,8 +201,6 @@ export const useDictionaryStore = defineStore("dictionary", () => {
     currentPage,
     perPage,
     searchQuery,
-    currentCategory,
-    categoryCount,
     fetchTerms,
     fetchAllKeys,
     addTerm,

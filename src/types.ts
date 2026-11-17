@@ -1,10 +1,3 @@
-export type TermCategory =
-  | "field"
-  | "placeholder"
-  | "action"
-  | "title"
-  | "table-header"
-
 export interface TermEntry {
   id: string
   /** Bahasa Indonesia */
@@ -13,7 +6,6 @@ export interface TermEntry {
   termEN: string
   /** Bahasa Korea */
   termKR: string
-  category: TermCategory
   description?: string
   createdAt: string
   updatedAt: string
@@ -23,7 +15,6 @@ export interface TermInput {
   termID: string
   termEN: string
   termKR: string
-  category: TermCategory
   description?: string
 }
 

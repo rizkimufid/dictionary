@@ -5,11 +5,10 @@ import { toast } from "vue3-toastify";
 import { useDebounceFn } from "@vueuse/core";
 
 import {
-    DCodeAutoComplete,
     DCodeButton,
     DCodePagination,
     DCodeTextField,
-} from "@gemafajarramadhan/dynamic-ui";
+} from "@skyworx/dynamic-ui";
 import TermCard from "@/components/TermCard.vue";
 import TermTable from "@/components/TermTable.vue";
 import TermFormDialog from "@/components/TermFormDialog.vue";
@@ -18,14 +17,13 @@ import LoginScreen from "@/components/LoginScreen.vue";
 import { useDictionaryStore } from "@/stores/dictionary";
 import { supabase } from "@/lib/supabase";
 import { supportLocales } from "@/i18n";
-import type { AppLocale, CopyFormat, TermCategory, ViewMode } from "@/types";
+import type { AppLocale, CopyFormat, ViewMode } from "@/types";
 
 const { t, locale } = useI18n();
 const store = useDictionaryStore();
 
 const authenticated = ref(false);
 const search = ref("");
-const categoryFilter = ref<"all" | TermCategory>("all");
 const format = ref<CopyFormat>("text");
 const appLocale = ref<AppLocale>("id");
 const viewMode = ref<ViewMode>("table");
@@ -41,15 +39,6 @@ function cycleLocale() {
     appLocale.value = supportLocales[(i + 1) % supportLocales.length];
 }
 
-const categoryOptions = [
-    { value: "all", label: t("filterAll") },
-    { value: "field", label: t("categoryField") },
-    { value: "placeholder", label: t("categoryPlaceholder") },
-    { value: "action", label: t("categoryAction") },
-    { value: "title", label: t("categoryTitle") },
-    { value: "table-header", label: t("categoryTableHeader") },
-];
-
 const dialogOpen = ref(false);
 const editingId = ref<string | null>(null);
 const batchOpen = ref(false);
@@ -64,7 +53,6 @@ async function loadTerms() {
         page: currentPage.value,
         perPage: perPage.value,
         query: search.value || "",
-        category: categoryFilter.value || "all",
     });
 }
 
@@ -75,11 +63,6 @@ const debouncedSearch = useDebounceFn(() => {
 
 watch(search, () => {
     debouncedSearch();
-});
-
-watch(categoryFilter, () => {
-    currentPage.value = 1;
-    loadTerms();
 });
 
 function onPageChange(page: number) {
@@ -201,25 +184,13 @@ async function onDelete(id: string) {
             </div>
         </header>
 
-        <div class="flex flex-row gap-3">
-            <DCodeTextField
-                v-model="search"
-                :placeholder="t('searchPlaceholder')"
-                data-search-input
-                size="sm"
-                rounded="lg"
-            />
-            <DCodeAutoComplete
-                v-model="categoryFilter"
-                :options="categoryOptions"
-                item-value="value"
-                item-title="label"
-                :placeholder="t('filterAll')"
-                size="sm"
-                rounded="lg"
-                :searchable="false"
-            />
-        </div>
+        <DCodeTextField
+            v-model="search"
+            :placeholder="t('searchPlaceholder')"
+            data-search-input
+            size="sm"
+            rounded="lg"
+        />
         <div
             class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
         >
