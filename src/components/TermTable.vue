@@ -1,154 +1,146 @@
 <script setup lang="ts">
-
+import { computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { DCodeBadge, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
+import { DataTable, DCodeButton } from "@skyworx/dynamic-ui"
 import { singleCopy, copyText } from "@/utils/copy"
-import type { AppLocale, CopyFormat, TermCategory, TermEntry } from "@/types"
+import type { AppLocale, CopyFormat, TermEntry } from "@/types"
 
 const props = defineProps<{
   entries: TermEntry[]
   format: CopyFormat
   authenticated?: boolean
+  search?: string
+  loading?: boolean
+  totalItems: number
+  currentPage: number
+  perPage: number
 }>()
 
 const emit = defineEmits<{
   (e: "edit", id: string): void
   (e: "delete", id: string): void
+  (e: "update:search", val: string): void
+  (e: "search", val: string): void
+  (e: "update:page", page: number): void
+  (e: "update:perPage", perPage: number): void
 }>()
 
 const { t } = useI18n()
 
-const categoryLabel = (cat: TermCategory): string => {
-  const map: Record<TermCategory, string> = {
-    field: t("categoryField"),
-    placeholder: t("categoryPlaceholder"),
-    action: t("categoryAction"),
-    title: t("categoryTitle"),
-    "table-header": t("categoryTableHeader"),
-  }
-  return map[cat]
-}
-
-const badgeColor = (cat: TermCategory): "primary" | "secondary" | "warning" | "info" | "success" => {
-  const map: Record<TermCategory, "primary" | "secondary" | "warning" | "info" | "success"> = {
-    field: "primary",
-    placeholder: "secondary",
-    action: "warning",
-    title: "info",
-    "table-header": "success",
-  }
-  return map[cat]
-}
+const columns = computed(() => [
+  { key: "termID", label: t("tableKey") },
+  { key: "termEN", label: t("tableEN") },
+  { key: "termKR", label: t("tableKR") },
+])
 
 async function copyCell(entry: TermEntry, lang: AppLocale) {
   const text = singleCopy(entry, lang, props.format)
-  if (!text.replace(/[{}",:]/g, "").trim()) return toast.error(t("copyEmpty"))
+  if (!text.replace(/[{}\",:]/g, "").trim()) return toast.error(t("copyEmpty"))
   await copyText(text)
   toast.success(t("copiedMessage"))
 }
 
-async function copyID(entry: TermEntry) {
-  const text = singleCopy(entry, "id", props.format)
-  if (!text.replace(/[{}",:]/g, "").trim()) return toast.error(t("copyEmpty"))
-  await copyText(text)
-  toast.success(t("copiedMessage"))
+const copyID = (entry: TermEntry) => copyCell(entry, "id")
+
+function onUpdateSearch(val: string) {
+  emit("update:search", val ?? "")
+}
+
+function onSearch(payload: any) {
+  const keyword = typeof payload === "string" ? payload : (payload?.keyword ?? "")
+  emit("search", keyword)
 }
 </script>
 
 <template>
-  <div class="overflow-x-auto rounded-xl border">
-    <table class="w-full text-sm">
-      <thead>
-        <tr class="border-b bg-muted/40 text-left text-xs font-medium uppercase tracking-wider text-muted-foreground">
-          <th class="px-4 py-2.5">{{ t("tableKey") }}</th>
-          <th class="px-4 py-2.5">{{ t("tableEN") }}</th>
-          <th class="px-4 py-2.5">{{ t("tableKR") }}</th>
-          <th class="px-4 py-2.5">{{ t("fieldCategory") }}</th>
-          <th v-if="authenticated" class="w-20 px-4 py-2.5 text-right">{{ t("tableActions") }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr
-          v-for="entry in entries"
-          :key="entry.id"
-          class="js-row border-b transition-colors last:border-b-0 hover:bg-muted/30"
-        >
-          <td class="js-cell px-4 py-2.5 font-medium">
-            <div class="flex items-center gap-1.5">
-              <span
-                class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
-                @click="copyID(entry)"
-              >
-                {{ entry.termID }}
-              </span>
-              <DCodeButton
-                class="js-copy opacity-0"
-                size="icon"
-                variant="ghost"
-                icon="Copy"
-                @click="copyID(entry)"
-                tooltip="Copy"
-              />
-            </div>
-          </td>
-          <td class="js-cell px-4 py-2.5">
-            <div class="flex items-center gap-1.5">
-              <span
-                class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
-                @click="copyCell(entry, 'en')"
-              >
-                {{ entry.termEN }}
-              </span>
-              <DCodeButton
-                class="js-copy opacity-0"
-                size="icon"
-                variant="ghost"
-                icon="Copy"
-                @click="copyCell(entry, 'en')"
-                tooltip="Copy""
-              />
-            </div>
-          </td>
-          <td class="js-cell px-4 py-2.5">
-            <div class="flex items-center gap-1.5">
-              <span
-                class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
-                @click="copyCell(entry, 'kr')"
-              >
-                {{ entry.termKR }}
-              </span>
-              <DCodeButton
-                class="js-copy opacity-0"
-                size="icon"
-                variant="ghost"
-                icon="Copy"
-                @click="copyCell(entry, 'kr')"
-                tooltip="Copy"
-              />
-            </div>
-          </td>
-          <td class="px-4 py-2.5">
-            <DCodeBadge :text="categoryLabel(entry.category)" :color="badgeColor(entry.category)" size="xs" />
-          </td>
-          <td v-if="authenticated" class="px-4 py-2.5 text-right">
-            <div class="flex justify-end gap-1">
-              <DCodeButton size="icon" variant="ghost" icon="Pencil" :tooltip="t('edit')" @click="emit('edit', entry.id)" />
-              <DCodeButton size="icon" variant="ghost" icon="Trash2" bg-color="danger" :tooltip="t('delete')" @click="emit('delete', entry.id)" />
-            </div>
-          </td>
-        </tr>
-        <tr v-if="entries.length === 0">
-          <td :colspan="authenticated ? 5 : 4" class="px-4 py-10 text-center text-sm text-muted-foreground">{{ t("count_0") }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</template>
+  <DataTable
+    :columns="columns"
+    :data="entries"
+    :has-actions="authenticated"
+    controlled
+    remote-pagination
+    :loading="loading"
+    :search="search"
+    :total-items="totalItems"
+    :page="currentPage"
+    :per-page="perPage"
+    ignore-permissions
+    @update:search="onUpdateSearch"
+    @search="onSearch"
+    @update:page="(p) => emit('update:page', p)"
+    @update:per-page="(l) => emit('update:perPage', l)"
+  >
+    <template #cell-termID="{ row }">
+      <div class="flex items-center gap-1.5">
+        <span
+          class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
+          @click="copyID(row)"
+        >{{ row.termID }}</span>
+        <DCodeButton
+          class="opacity-0 group-hover:opacity-100"
+          size="icon"
+          variant="ghost"
+          icon="Copy"
+          :tooltip="t('copyRow')"
+          @click="copyID(row)"
+        />
+      </div>
+    </template>
 
-<style scoped>
-.js-cell:hover :deep(.js-copy) {
-  opacity: 1;
-}
-</style>
+    <template #cell-termEN="{ row }">
+      <div class="flex items-center gap-1.5">
+        <span
+          class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
+          @click="copyCell(row, 'en')"
+        >{{ row.termEN }}</span>
+        <DCodeButton
+          class="opacity-0 group-hover:opacity-100"
+          size="icon"
+          variant="ghost"
+          icon="Copy"
+          :tooltip="t('copyRow')"
+          @click="copyCell(row, 'en')"
+        />
+      </div>
+    </template>
+
+    <template #cell-termKR="{ row }">
+      <div class="flex items-center gap-1.5">
+        <span
+          class="min-w-0 cursor-pointer truncate decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
+          @click="copyCell(row, 'kr')"
+        >{{ row.termKR }}</span>
+        <DCodeButton
+          class="opacity-0 group-hover:opacity-100"
+          size="icon"
+          variant="ghost"
+          icon="Copy"
+          :tooltip="t('copyRow')"
+          @click="copyCell(row, 'kr')"
+        />
+      </div>
+    </template>
+
+    <template v-if="authenticated" #actions="{ row }">
+      <div class="flex justify-end gap-1">
+        <DCodeButton
+          size="icon"
+          variant="ghost"
+          icon="Pencil"
+          :tooltip="t('edit')"
+          @click="emit('edit', row.id)"
+        />
+        <DCodeButton
+          size="icon"
+          variant="ghost"
+          icon="Trash2"
+          bg-color="danger"
+          :tooltip="t('delete')"
+          @click="emit('delete', row.id)"
+        />
+      </div>
+    </template>
+  </DataTable>
+</template>

@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import { computed } from "vue"
 import { useI18n } from "vue-i18n"
 import { toast } from "vue3-toastify"
 
-import { DCodeBadge, DCodeButton } from "@gemafajarramadhan/dynamic-ui"
+import { DCodeButton } from "@skyworx/dynamic-ui"
 import { fullCopy, singleCopy, copyText } from "@/utils/copy"
-import type { AppLocale, CopyFormat, TermCategory, TermEntry } from "@/types"
+import type { AppLocale, CopyFormat, TermEntry } from "@/types"
 
 const props = defineProps<{
   entry: TermEntry
@@ -19,28 +18,6 @@ const emit = defineEmits<{
 }>()
 
 const { t } = useI18n()
-
-const categoryLabel = computed(() => {
-  const map: Record<TermCategory, string> = {
-    field: t("categoryField"),
-    placeholder: t("categoryPlaceholder"),
-    action: t("categoryAction"),
-    title: t("categoryTitle"),
-    "table-header": t("categoryTableHeader"),
-  }
-  return map[props.entry.category]
-})
-
-const badgeColor = computed(() => {
-  const map: Record<TermCategory, "primary" | "secondary" | "warning" | "info" | "success"> = {
-    field: "primary",
-    placeholder: "secondary",
-    action: "warning",
-    title: "info",
-    "table-header": "success",
-  }
-  return map[props.entry.category]
-})
 
 async function copyFull() {
   const text = fullCopy(props.entry, props.format)
@@ -67,7 +44,6 @@ const langRows: { lang: AppLocale; label: string; value: () => string }[] = [
   <div class="js-card rounded-xl border bg-card p-4 shadow-sm transition-shadow hover:shadow-md">
     <div class="mb-3 flex items-start justify-between gap-3">
       <div class="flex items-center gap-2">
-        <DCodeBadge :text="categoryLabel" :color="badgeColor" size="xs" />
         <h3
           class="cursor-pointer font-semibold leading-none decoration-dashed underline-offset-2 hover:underline hover:decoration-muted-foreground/50"
           @click="copySingle('id')"

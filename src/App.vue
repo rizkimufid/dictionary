@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue3-toastify";
 import { useDebounceFn } from "@vueuse/core";
 
 import {
-    DCodeAutoComplete,
     DCodeButton,
+    DCodeDialog,
     DCodePagination,
     DCodeTextField,
-} from "@gemafajarramadhan/dynamic-ui";
+} from "@skyworx/dynamic-ui";
 import TermCard from "@/components/TermCard.vue";
 import TermTable from "@/components/TermTable.vue";
 import TermFormDialog from "@/components/TermFormDialog.vue";
@@ -18,14 +18,13 @@ import LoginScreen from "@/components/LoginScreen.vue";
 import { useDictionaryStore } from "@/stores/dictionary";
 import { supabase } from "@/lib/supabase";
 import { supportLocales } from "@/i18n";
-import type { AppLocale, CopyFormat, TermCategory, ViewMode } from "@/types";
+import type { AppLocale, CopyFormat, ViewMode } from "@/types";
 
 const { t, locale } = useI18n();
 const store = useDictionaryStore();
 
 const authenticated = ref(false);
 const search = ref("");
-const categoryFilter = ref<"all" | TermCategory>("all");
 const format = ref<CopyFormat>("text");
 const appLocale = ref<AppLocale>("id");
 const viewMode = ref<ViewMode>("table");
@@ -41,19 +40,18 @@ function cycleLocale() {
     appLocale.value = supportLocales[(i + 1) % supportLocales.length];
 }
 
-const categoryOptions = [
-    { value: "all", label: t("filterAll") },
-    { value: "field", label: t("categoryField") },
-    { value: "placeholder", label: t("categoryPlaceholder") },
-    { value: "action", label: t("categoryAction") },
-    { value: "title", label: t("categoryTitle") },
-    { value: "table-header", label: t("categoryTableHeader") },
-];
-
 const dialogOpen = ref(false);
 const editingId = ref<string | null>(null);
 const batchOpen = ref(false);
 const loginOpen = ref(false);
+const deleteDialogOpen = ref(false);
+const deletingId = ref<string | null>(null);
+const deleting = ref(false);
+
+const deletingTerm = computed(() => {
+    if (!deletingId.value) return null;
+    return store.terms.find((term) => term.id === deletingId.value) || null;
+});
 
 function openLogin() {
     loginOpen.value = true;
@@ -64,7 +62,6 @@ async function loadTerms() {
         page: currentPage.value,
         perPage: perPage.value,
         query: search.value || "",
-        category: categoryFilter.value || "all",
     });
 }
 
@@ -77,10 +74,12 @@ watch(search, () => {
     debouncedSearch();
 });
 
-watch(categoryFilter, () => {
+function onTableSearch(keyword: string) {
+    search.value = keyword;
+    debouncedSearch.cancel?.();
     currentPage.value = 1;
     loadTerms();
-});
+}
 
 function onPageChange(page: number) {
     currentPage.value = page;
@@ -112,7 +111,9 @@ function handleKeydown(e: KeyboardEvent) {
         e.preventDefault();
         nextTick(() => {
             const el = document.querySelector<HTMLInputElement>(
-                "[data-search-input]",
+                viewMode.value === "table"
+                    ? ".dcode-card input, [data-search-input]"
+                    : "[data-search-input]",
             );
             el?.focus();
             el?.select();
@@ -146,17 +147,28 @@ function openEdit(id: string) {
     dialogOpen.value = true;
 }
 
-async function onDelete(id: string) {
-    if (window.confirm(t("confirmDelete"))) {
-        await store.removeTerm(id);
+function onDelete(id: string) {
+    deletingId.value = id;
+    deleteDialogOpen.value = true;
+}
+
+async function confirmDelete() {
+    if (!deletingId.value) return;
+    deleting.value = true;
+    try {
+        await store.removeTerm(deletingId.value);
         toast.success(t("deletedMessage"));
+        deleteDialogOpen.value = false;
+        deletingId.value = null;
+    } finally {
+        deleting.value = false;
     }
 }
 </script>
 
 <template>
     <div
-        class="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 p-4 sm:p-8"
+        class="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-6 p-4 sm:p-8"
     >
         <header class="flex items-center justify-between">
             <div>
@@ -201,25 +213,14 @@ async function onDelete(id: string) {
             </div>
         </header>
 
-        <div class="flex flex-row gap-3">
-            <DCodeTextField
-                v-model="search"
-                :placeholder="t('searchPlaceholder')"
-                data-search-input
-                size="sm"
-                rounded="lg"
-            />
-            <DCodeAutoComplete
-                v-model="categoryFilter"
-                :options="categoryOptions"
-                item-value="value"
-                item-title="label"
-                :placeholder="t('filterAll')"
-                size="sm"
-                rounded="lg"
-                :searchable="false"
-            />
-        </div>
+        <DCodeTextField
+            v-if="viewMode === 'card'"
+            v-model="search"
+            :placeholder="t('searchPlaceholder')"
+            data-search-input
+            size="sm"
+            rounded="lg"
+        />
         <div
             class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between"
         >
@@ -293,7 +294,7 @@ async function onDelete(id: string) {
 
         <div class="flex flex-col gap-3">
             <p
-                v-if="store.terms.length === 0 && !store.loading"
+                v-if="store.terms.length === 0 && !store.loading && viewMode === 'card'"
                 class="py-10 text-center text-sm text-muted-foreground"
             >
                 {{ t("count_0") }}
@@ -311,15 +312,23 @@ async function onDelete(id: string) {
             </template>
             <TermTable
                 v-else
+                v-model:search="search"
                 :entries="store.terms"
                 :format="format"
                 :authenticated="authenticated"
+                :loading="store.loading"
+                :total-items="store.total"
+                :current-page="currentPage"
+                :per-page="perPage"
                 @edit="openEdit"
                 @delete="onDelete"
+                @search="onTableSearch"
+                @update:page="onPageChange"
+                @update:per-page="onPerPageChange"
             />
 
             <div
-                v-if="store.total > 0"
+                v-if="viewMode === 'card' && store.total > 0"
                 class="mt-4 flex flex-col items-center justify-between gap-3 sm:flex-row"
             >
                 <span class="text-xs text-muted-foreground">
@@ -336,6 +345,7 @@ async function onDelete(id: string) {
                     :current-page="currentPage"
                     :per-page="perPage"
                     :loading="store.loading"
+                    :show-info="false"
                     @update:page="onPageChange"
                     @update:per-page="onPerPageChange"
                 />
@@ -349,5 +359,65 @@ async function onDelete(id: string) {
             v-model:open="loginOpen"
             @authenticated="onAuthenticated"
         />
+
+        <DCodeDialog
+            :model-value="deleteDialogOpen"
+            :title="t('delete')"
+            size="sm"
+            :show-close="!deleting"
+            @update:model-value="deleteDialogOpen = $event"
+        >
+            <div class="flex flex-col gap-3">
+                <p class="text-sm text-foreground">
+                    {{ t("confirmDelete") }}
+                </p>
+                <div
+                    v-if="deletingTerm"
+                    class="flex flex-col gap-1 rounded-lg border border-neutral-200/60 bg-muted/50 p-3 text-xs text-muted-foreground dark:border-neutral-800"
+                >
+                    <div
+                        v-if="deletingTerm.termID"
+                        class="font-medium text-foreground"
+                    >
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >ID:</span
+                        >
+                        {{ deletingTerm.termID }}
+                    </div>
+                    <div v-if="deletingTerm.termEN">
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >EN:</span
+                        >
+                        {{ deletingTerm.termEN }}
+                    </div>
+                    <div v-if="deletingTerm.termKR">
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >KR:</span
+                        >
+                        {{ deletingTerm.termKR }}
+                    </div>
+                </div>
+            </div>
+
+            <template #actions>
+                <DCodeButton
+                    variant="outline"
+                    :text="t('cancel')"
+                    :disabled="deleting"
+                    @click="deleteDialogOpen = false"
+                />
+                <DCodeButton
+                    variant="default"
+                    bgColor="danger"
+                    :text="t('delete')"
+                    icon="Trash2"
+                    :loading="deleting"
+                    @click="confirmDelete"
+                />
+            </template>
+        </DCodeDialog>
     </div>
 </template>

@@ -10,9 +10,9 @@ test("buildImportPreview mendukung header lama dan classifies duplikat", () => {
             ["Ada", "Ready", "준비"],
             ["Ada", "Duplicate", "중복"],
             ["", "English only", ""],
-            ["", "", "", "", "Description only"],
+            ["", "", "", "Description only"],
         ],
-        [{ termID: "Existing", category: "field" }],
+        [{ termID: "Existing" }],
     );
 
     assert.deepEqual(
@@ -29,26 +29,22 @@ test("buildImportPreview mendukung header lama dan classifies duplikat", () => {
     assert.equal(preview.rows[0].input.termKR, "있다");
 });
 
-test("buildImportPreview menormalisasi header standar dan kategori", () => {
+test("buildImportPreview menormalisasi header standar", () => {
     const preview = buildImportPreview(
         [
-            ["Term ID", "Term EN", "Term KR", "Category", "Description"],
-            [" Header ", " Header ", " 헤더 ", "Table Header", " Note "],
-            ["Invalid", "Invalid", "잘못됨", "unknown", ""],
+            ["Term ID", "Term EN", "Term KR", "Description"],
+            [" Header ", " Header ", " 헤더 ", " Note "],
         ],
         [],
     );
 
-    assert.equal(preview.rows[0].status, "ready");
+    assert.equal(preview.rows.length, 1);
     assert.deepEqual(preview.rows[0].input, {
         termID: "Header",
         termEN: "Header",
         termKR: "헤더",
-        category: "table-header",
         description: "Note",
     });
-    assert.equal(preview.rows[1].status, "invalid");
-    assert.equal(preview.rows[1].reason, "invalidCategory");
 });
 
 test("buildImportPreview menolak header yang tidak dikenali", () => {

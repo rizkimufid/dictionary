@@ -7,10 +7,8 @@ import {
     DCodeTextField,
     DCodeTextarea,
     DCodeButton,
-    DCodeAutoComplete,
-} from "@gemafajarramadhan/dynamic-ui";
+} from "@skyworx/dynamic-ui";
 import { useDictionaryStore } from "@/stores/dictionary";
-import type { TermCategory } from "@/types";
 
 const props = defineProps<{
     open: boolean;
@@ -28,7 +26,6 @@ const store = useDictionaryStore();
 const termID = ref<string>("");
 const termEN = ref<string>("");
 const termKR = ref<string>("");
-const category = ref<TermCategory>("field");
 const description = ref<string>("");
 const saving = ref(false);
 
@@ -36,7 +33,6 @@ function reset() {
     termID.value = "";
     termEN.value = "";
     termKR.value = "";
-    category.value = "field";
     description.value = "";
 }
 
@@ -50,7 +46,6 @@ watch(
                 termID.value = found.termID;
                 termEN.value = found.termEN;
                 termKR.value = found.termKR;
-                category.value = found.category;
                 description.value = found.description ?? "";
                 return;
             }
@@ -74,7 +69,6 @@ async function save() {
         termID: (termID.value ?? "") as string,
         termEN: (termEN.value ?? "") as string,
         termKR: (termKR.value ?? "") as string,
-        category: category.value,
         description: (description.value ?? "") as string,
     };
 
@@ -131,36 +125,6 @@ async function save() {
                 :label="t('fieldKr')"
                 :placeholder="t('fieldKr')"
                 :disabled="saving"
-                rounded="lg"
-            />
-
-            <!-- <div>
-        <label class="mb-1.5 block text-sm font-medium">{{ t("fieldCategory") }}</label>
-        <select
-          v-model="category"
-          class="w-full h-10 rounded-lg border bg-white px-3 text-sm dark:bg-neutral-800"
-        >
-          <option value="field">{{ t("categoryField") }}</option>
-          <option value="placeholder">{{ t("categoryPlaceholder") }}</option>
-          <option value="action">{{ t("categoryAction") }}</option>
-          <option value="title">{{ t("categoryTitle") }}</option>
-          <option value="table-header">{{ t("categoryTableHeader") }}</option>
-        </select>
-      </div> -->
-
-            <DCodeAutoComplete
-                v-model="category"
-                :label="t('fieldCategory')"
-                :options="[
-                    { code: 'field', name: 'Field' },
-                    { code: 'placeholder', name: 'Placeholder' },
-                    { code: 'action', name: 'Action' },
-                    { code: 'title', name: 'Title' },
-                    { code: 'table-header', name: 'Table Header' },
-                ]"
-                :disabled="saving"
-                :searchable="false"
-                item-value="code"
                 rounded="lg"
             />
 

@@ -2,13 +2,13 @@
 import { computed, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue3-toastify";
-import { DCodeButton, DCodeDialog } from "@gemafajarramadhan/dynamic-ui";
+import { DCodeButton, DCodeDialog } from "@skyworx/dynamic-ui";
 import { useDictionaryStore, type BatchImportResult } from "@/stores/dictionary";
+import { downloadTemplate } from "@/utils/importTemplate";
 import {
     ImportFileError,
     MAX_IMPORT_ROWS,
     parseTermFile,
-    type ImportCandidate,
     type ImportFileErrorCode,
 } from "@/utils/importTerms";
 
@@ -30,6 +30,7 @@ const fileName = ref("");
 const parseError = ref("");
 const parsing = ref(false);
 const importing = ref(false);
+const downloadingTemplate = ref(false);
 const result = ref<BatchImportResult | null>(null);
 
 const rows = computed(() => preview.value?.rows ?? []);
@@ -37,12 +38,9 @@ const readyRows = computed(() => rows.value.filter((row) => row.status === "read
 const duplicateRows = computed(() => rows.value.filter((row) => row.status === "duplicate"));
 const invalidRows = computed(() => rows.value.filter((row) => row.status === "invalid"));
 const previewRows = computed(() => rows.value.slice(0, PREVIEW_LIMIT));
-const busy = computed(() => parsing.value || importing.value);
+const busy = computed(() => parsing.value || importing.value || downloadingTemplate.value);
 const reportRows = computed(() => {
-    const failed = invalidRows.value.map((row) => ({
-        row,
-        reason: t(row.reason === "invalidCategory" ? "batchInvalidCategory" : "batchEmptyRow"),
-    }));
+    const failed = invalidRows.value.map((row) => ({ row, reason: t("batchEmptyRow") }));
     for (const failure of result.value?.failed ?? []) {
         const row = readyRows.value.find((candidate) => candidate.rowNumber === failure.rowNumber);
         if (row) failed.push({ row, reason: failure.reason });
@@ -105,12 +103,16 @@ async function onFileChange(event: Event) {
     }
 }
 
-function duplicateReason(row: ImportCandidate): string {
-    return t(row.reason === "duplicateFile" ? "batchDuplicateFile" : "batchDuplicateExisting");
-}
-
-function invalidReason(row: ImportCandidate): string {
-    return t(row.reason === "invalidCategory" ? "batchInvalidCategory" : "batchEmptyRow");
+async function onDownloadTemplate() {
+    if (downloadingTemplate.value) return;
+    downloadingTemplate.value = true;
+    try {
+        await downloadTemplate();
+    } catch {
+        toast.error(t("batchTemplateDownloadFailed"));
+    } finally {
+        downloadingTemplate.value = false;
+    }
 }
 
 async function importRows() {
@@ -151,7 +153,7 @@ function csvCell(value: unknown): string {
 }
 
 function downloadReport() {
-    const header = ["row", "status", "reason", "termID", "termEN", "termKR", "category", "description"];
+    const header = ["row", "status", "reason", "termID", "termEN", "termKR", "description"];
     const lines = reportRows.value.map(({ row, reason }) => [
         row.rowNumber,
         "invalid",
@@ -159,7 +161,6 @@ function downloadReport() {
         row.input.termID,
         row.input.termEN,
         row.input.termKR,
-        row.sourceCategory,
         row.input.description ?? "",
     ]);
     const csv = [header, ...lines].map((line) => line.map(csvCell).join(",")).join("\r\n");
@@ -235,7 +236,6 @@ function downloadReport() {
                                 <th class="px-3 py-2">{{ t("tableKey") }}</th>
                                 <th class="px-3 py-2">{{ t("tableEN") }}</th>
                                 <th class="px-3 py-2">{{ t("tableKR") }}</th>
-                                <th class="px-3 py-2">{{ t("fieldCategory") }}</th>
                                 <th class="px-3 py-2">{{ t("batchStatus") }}</th>
                             </tr>
                         </thead>
@@ -245,21 +245,20 @@ function downloadReport() {
                                 <td class="max-w-40 truncate px-3 py-2">{{ row.input.termID }}</td>
                                 <td class="max-w-40 truncate px-3 py-2">{{ row.input.termEN }}</td>
                                 <td class="max-w-40 truncate px-3 py-2">{{ row.input.termKR }}</td>
-                                <td class="px-3 py-2">{{ row.sourceCategory }}</td>
                                 <td class="px-3 py-2">
                                     <span v-if="row.status === 'ready'" class="text-green-600 dark:text-green-400">
                                         {{ t("batchReady") }}
                                     </span>
                                     <span v-else-if="row.status === 'duplicate'" class="text-amber-600 dark:text-amber-400">
-                                        {{ duplicateReason(row) }}
+                                        {{ t(row.reason === "duplicateFile" ? "batchDuplicateFile" : "batchDuplicateExisting") }}
                                     </span>
                                     <span v-else class="text-red-600 dark:text-red-400">
-                                        {{ invalidReason(row) }}
+                                        {{ t("batchEmptyRow") }}
                                     </span>
                                 </td>
                             </tr>
                             <tr v-if="!previewRows.length">
-                                <td colspan="6" class="px-3 py-8 text-center text-muted-foreground">
+                                <td colspan="5" class="px-3 py-8 text-center text-muted-foreground">
                                     {{ t("batchNoRows") }}
                                 </td>
                             </tr>
@@ -280,6 +279,13 @@ function downloadReport() {
         </div>
 
         <template #actions>
+            <DCodeButton
+                variant="outline"
+                icon="Download"
+                :text="t('batchDownloadTemplate')"
+                :disabled="busy"
+                @click="onDownloadTemplate"
+            />
             <DCodeButton
                 variant="outline"
                 :text="t('close')"
