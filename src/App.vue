@@ -139,7 +139,7 @@ async function onDelete(id: string) {
 
 <template>
     <div
-        class="mx-auto flex min-h-screen w-full max-w-4xl flex-col gap-6 p-4 sm:p-8"
+        class="mx-auto flex min-h-screen w-full max-w-7xl flex-col gap-6 p-4 sm:p-8"
     >
         <header class="flex items-center justify-between">
             <div>
