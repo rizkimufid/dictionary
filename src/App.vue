@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { nextTick, onMounted, onUnmounted, ref, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
 import { toast } from "vue3-toastify";
 import { useDebounceFn } from "@vueuse/core";
 
 import {
     DCodeButton,
+    DCodeDialog,
     DCodePagination,
     DCodeTextField,
 } from "@skyworx/dynamic-ui";
@@ -43,6 +44,14 @@ const dialogOpen = ref(false);
 const editingId = ref<string | null>(null);
 const batchOpen = ref(false);
 const loginOpen = ref(false);
+const deleteDialogOpen = ref(false);
+const deletingId = ref<string | null>(null);
+const deleting = ref(false);
+
+const deletingTerm = computed(() => {
+    if (!deletingId.value) return null;
+    return store.terms.find((term) => term.id === deletingId.value) || null;
+});
 
 function openLogin() {
     loginOpen.value = true;
@@ -64,6 +73,13 @@ const debouncedSearch = useDebounceFn(() => {
 watch(search, () => {
     debouncedSearch();
 });
+
+function onTableSearch(keyword: string) {
+    search.value = keyword;
+    debouncedSearch.cancel?.();
+    currentPage.value = 1;
+    loadTerms();
+}
 
 function onPageChange(page: number) {
     currentPage.value = page;
@@ -95,7 +111,9 @@ function handleKeydown(e: KeyboardEvent) {
         e.preventDefault();
         nextTick(() => {
             const el = document.querySelector<HTMLInputElement>(
-                "[data-search-input]",
+                viewMode.value === "table"
+                    ? ".dcode-card input, [data-search-input]"
+                    : "[data-search-input]",
             );
             el?.focus();
             el?.select();
@@ -129,10 +147,21 @@ function openEdit(id: string) {
     dialogOpen.value = true;
 }
 
-async function onDelete(id: string) {
-    if (window.confirm(t("confirmDelete"))) {
-        await store.removeTerm(id);
+function onDelete(id: string) {
+    deletingId.value = id;
+    deleteDialogOpen.value = true;
+}
+
+async function confirmDelete() {
+    if (!deletingId.value) return;
+    deleting.value = true;
+    try {
+        await store.removeTerm(deletingId.value);
         toast.success(t("deletedMessage"));
+        deleteDialogOpen.value = false;
+        deletingId.value = null;
+    } finally {
+        deleting.value = false;
     }
 }
 </script>
@@ -185,6 +214,7 @@ async function onDelete(id: string) {
         </header>
 
         <DCodeTextField
+            v-if="viewMode === 'card'"
             v-model="search"
             :placeholder="t('searchPlaceholder')"
             data-search-input
@@ -264,7 +294,7 @@ async function onDelete(id: string) {
 
         <div class="flex flex-col gap-3">
             <p
-                v-if="store.terms.length === 0 && !store.loading"
+                v-if="store.terms.length === 0 && !store.loading && viewMode === 'card'"
                 class="py-10 text-center text-sm text-muted-foreground"
             >
                 {{ t("count_0") }}
@@ -282,15 +312,23 @@ async function onDelete(id: string) {
             </template>
             <TermTable
                 v-else
+                v-model:search="search"
                 :entries="store.terms"
                 :format="format"
                 :authenticated="authenticated"
+                :loading="store.loading"
+                :total-items="store.total"
+                :current-page="currentPage"
+                :per-page="perPage"
                 @edit="openEdit"
                 @delete="onDelete"
+                @search="onTableSearch"
+                @update:page="onPageChange"
+                @update:per-page="onPerPageChange"
             />
 
             <div
-                v-if="store.total > 0"
+                v-if="viewMode === 'card' && store.total > 0"
                 class="mt-4 flex flex-col items-center justify-between gap-3 sm:flex-row"
             >
                 <span class="text-xs text-muted-foreground">
@@ -307,6 +345,7 @@ async function onDelete(id: string) {
                     :current-page="currentPage"
                     :per-page="perPage"
                     :loading="store.loading"
+                    :show-info="false"
                     @update:page="onPageChange"
                     @update:per-page="onPerPageChange"
                 />
@@ -320,5 +359,65 @@ async function onDelete(id: string) {
             v-model:open="loginOpen"
             @authenticated="onAuthenticated"
         />
+
+        <DCodeDialog
+            :model-value="deleteDialogOpen"
+            :title="t('delete')"
+            size="sm"
+            :show-close="!deleting"
+            @update:model-value="deleteDialogOpen = $event"
+        >
+            <div class="flex flex-col gap-3">
+                <p class="text-sm text-foreground">
+                    {{ t("confirmDelete") }}
+                </p>
+                <div
+                    v-if="deletingTerm"
+                    class="flex flex-col gap-1 rounded-lg border border-neutral-200/60 bg-muted/50 p-3 text-xs text-muted-foreground dark:border-neutral-800"
+                >
+                    <div
+                        v-if="deletingTerm.termID"
+                        class="font-medium text-foreground"
+                    >
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >ID:</span
+                        >
+                        {{ deletingTerm.termID }}
+                    </div>
+                    <div v-if="deletingTerm.termEN">
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >EN:</span
+                        >
+                        {{ deletingTerm.termEN }}
+                    </div>
+                    <div v-if="deletingTerm.termKR">
+                        <span
+                            class="mr-1.5 font-mono text-[10px] uppercase text-muted-foreground"
+                            >KR:</span
+                        >
+                        {{ deletingTerm.termKR }}
+                    </div>
+                </div>
+            </div>
+
+            <template #actions>
+                <DCodeButton
+                    variant="outline"
+                    :text="t('cancel')"
+                    :disabled="deleting"
+                    @click="deleteDialogOpen = false"
+                />
+                <DCodeButton
+                    variant="default"
+                    bgColor="danger"
+                    :text="t('delete')"
+                    icon="Trash2"
+                    :loading="deleting"
+                    @click="confirmDelete"
+                />
+            </template>
+        </DCodeDialog>
     </div>
 </template>

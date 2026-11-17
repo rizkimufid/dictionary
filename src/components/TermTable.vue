@@ -11,11 +11,20 @@ const props = defineProps<{
   entries: TermEntry[]
   format: CopyFormat
   authenticated?: boolean
+  search?: string
+  loading?: boolean
+  totalItems: number
+  currentPage: number
+  perPage: number
 }>()
 
 const emit = defineEmits<{
   (e: "edit", id: string): void
   (e: "delete", id: string): void
+  (e: "update:search", val: string): void
+  (e: "search", val: string): void
+  (e: "update:page", page: number): void
+  (e: "update:perPage", perPage: number): void
 }>()
 
 const { t } = useI18n()
@@ -28,12 +37,21 @@ const columns = computed(() => [
 
 async function copyCell(entry: TermEntry, lang: AppLocale) {
   const text = singleCopy(entry, lang, props.format)
-  if (!text.replace(/[{}",:]/g, "").trim()) return toast.error(t("copyEmpty"))
+  if (!text.replace(/[{}\",:]/g, "").trim()) return toast.error(t("copyEmpty"))
   await copyText(text)
   toast.success(t("copiedMessage"))
 }
 
 const copyID = (entry: TermEntry) => copyCell(entry, "id")
+
+function onUpdateSearch(val: string) {
+  emit("update:search", val ?? "")
+}
+
+function onSearch(payload: any) {
+  const keyword = typeof payload === "string" ? payload : (payload?.keyword ?? "")
+  emit("search", keyword)
+}
 </script>
 
 <template>
@@ -41,8 +59,18 @@ const copyID = (entry: TermEntry) => copyCell(entry, "id")
     :columns="columns"
     :data="entries"
     :has-actions="authenticated"
-    :show-pagination="false"
+    controlled
+    remote-pagination
+    :loading="loading"
+    :search="search"
+    :total-items="totalItems"
+    :page="currentPage"
+    :per-page="perPage"
     ignore-permissions
+    @update:search="onUpdateSearch"
+    @search="onSearch"
+    @update:page="(p) => emit('update:page', p)"
+    @update:per-page="(l) => emit('update:perPage', l)"
   >
     <template #cell-termID="{ row }">
       <div class="flex items-center gap-1.5">
